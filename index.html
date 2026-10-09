@@ -1,16 +1,774 @@
+
 <!doctype html>
-<html lang="en"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1"><title>Muhammad Ekramah | Bioinformatics</title><meta name="description" content="Muhammad Ekramah — bioinformatics graduate interested in genomics, antimicrobial resistance and transcriptomics."><link rel="stylesheet" href="style.css"><link rel="icon" href="favicon.svg" type="image/svg+xml"></head>
-<body><a class="skip" href="#about">Skip to content</a><div class="page">
-<header id="top" class="profile"><p class="eyebrow">Bioinformatics · Computational Biology</p><h1>Muhammad Ekramah</h1><p class="degree">BS in Bioinformatics, 2022–2026</p><p class="affiliation">National Centre for Bioinformatics · Quaid-i-Azam University, Islamabad</p><div class="links profile-links"><a href="mailto:muhammadekramah786@gmail.com">Email</a><a href="https://github.com/itsEkramah">GitHub</a><a href="https://www.linkedin.com/in/muhammad-ekramah/">LinkedIn</a><a class="cv-link" href="Muhammad-Ekramah-CV.pdf">Download CV <span>PDF</span></a></div></header>
-<nav aria-label="Main navigation"><a href="#about">About</a><a href="#projects">Projects</a><a href="#education">Education</a><a href="#experience">Experience</a><a href="#skills">Skills</a><a href="#contact">Contact</a></nav>
-<main><section id="about"><h2>About me</h2><p>I’m a bioinformatics graduate from Quaid-i-Azam University. I work with genomic and transcriptomic data, with a particular interest in antimicrobial resistance. My projects have involved building prediction models, analysing RNA-seq counts and developing software with a team.</p><p>I’m interested in what lies behind a result: which samples belong together, how a model is evaluated, and whether a statistical association has a convincing biological explanation. I want to deepen my training in statistics and systems biology and apply it to genomics and pathogen surveillance.</p><div class="interests"><span class="label">Research interests</span><p>Microbial genomics · Transcriptomics · Antimicrobial resistance · Systems biology</p></div></section>
-<section id="projects"><h2>Selected projects</h2>
-<article class="project" id="amr"><div class="entry-heading"><h3>Predicting antimicrobial resistance in <i>N. gonorrhoeae</i></h3><span class="date">2025–2026</span></div><p class="context">Bioinformatics Computing II · Genomic machine learning</p><p class="tools"><strong>Tools:</strong> Python, Pandas, scikit-learn, Jupyter</p><p>I used binary genomic unitigs to study resistance to azithromycin and ciprofloxacin, with a focus on class imbalance and how evaluation choices affect the result.</p><ul><li>Audited 3,786 metadata records and matched isolates to antibiotic-specific genomic features.</li><li>Compared logistic regression and random forest with a prevalence baseline, using five-fold cross-validation grouped by identical genomic profiles.</li><li>Examined uncertainty with bootstrap intervals and compared performance across geographic subgroups.</li></ul><p class="finding"><strong>Key lesson:</strong> strong overall prediction can hide differences between populations. The supplied features were already GWAS-filtered, so the internal scores still need independent validation.</p><div class="links"><a href="https://github.com/itsEkramah/N.Gonorrhoeae-AMR-prediction-ML">GitHub</a><a href="https://github.com/itsEkramah/N.Gonorrhoeae-AMR-prediction-ML/blob/main/N_gonorrhoeae_AMR_reproducible_analysis.ipynb">Analysis notebook</a></div>
-<details><summary>Methods, results &amp; figure</summary><div class="detail-content"><p>Variance filtering and chi-square feature selection are fitted inside each training fold. Identical unitig profiles stay in the same fold. Cefixime is included only in the data audit because it has five resistant isolates.</p><div class="table-wrap"><table><caption>Logistic regression: internal out-of-fold estimates</caption><thead><tr><th scope="col">Antibiotic</th><th scope="col">Labelled isolates</th><th scope="col">Balanced accuracy</th></tr></thead><tbody><tr><th scope="row">Azithromycin</th><td>3,478</td><td>0.949</td></tr><tr><th scope="row">Ciprofloxacin</th><td>3,088</td><td>0.969</td></tr></tbody></table></div><p class="note">Upstream GWAS filtering may make these scores optimistic. The unitigs are predictive associations; they have not been mapped to validated resistance mechanisms.</p><figure><a href="assets/amr-robustness.png"><img src="assets/amr-robustness.png" alt="Profile-group bootstrap intervals and descriptive continent-level balanced accuracy for the AMR models" loading="lazy"></a><figcaption>Uncertainty from 500 profile-group bootstrap resamples, alongside descriptive geographic subgroup performance. These subgroups use the same out-of-fold predictions, not a leave-one-continent-out experiment. <a href="https://github.com/itsEkramah/N.Gonorrhoeae-AMR-prediction-ML/blob/main/results/tables/bootstrap_confidence_intervals.csv">View interval estimates</a>.</figcaption></figure></div></details></article>
-<article class="project" id="rnaseq"><div class="entry-heading"><h3>RNA-seq analysis of Notch2 knockout stem cells</h3><span class="date">2025–2026</span></div><p class="context">Genomics · Mouse hippocampal neural stem cells</p><p class="tools"><strong>Tools:</strong> Python, PyDESeq2, R, DESeq2, Bash</p><p>I analysed public GSE116773 data to compare gene expression between Notch2 conditional-knockout and wild-type samples.</p><ul><li>Combined 24 technical count files into six biological RNA preparations: three per condition.</li><li>Used negative-binomial modelling and multiple-testing correction; the count-level analysis identified 121 genes at FDR &lt; 0.05.</li><li>Explored sample structure with PCA, sample distances and gene-level expression plots.</li></ul><p class="finding"><strong>Key lesson:</strong> sequencing files are not independent biological replicates. Sample structure matters: WT3 differs from the other samples, which calls for care when interpreting the expression results.</p><div class="links"><a href="https://github.com/itsEkramah/RNA-Seq-DE-Mouse-Hippocampus">GitHub</a><a href="https://github.com/itsEkramah/RNA-Seq-DE-Mouse-Hippocampus/blob/main/scripts/analyze.py">Analysis code</a><a href="https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE116773">GEO dataset</a></div>
-<details><summary>Methods, results &amp; figure</summary><div class="detail-content"><p>The current analysis starts from study-provided GRCm38 counts and uses PyDESeq2, Wald tests and Benjamini–Hochberg correction. Of 21,531 retained genes, 77 had higher and 44 had lower expression in knockout at FDR &lt; 0.05. None of the eight predefined candidate genes, including Id4, passed that threshold.</p><p class="note">These are expression associations in six pooled RNA preparations, not evidence of direct regulation by Notch2. The earlier GRCm39 read-processing scripts are retained separately; their original count matrix is unavailable.</p><figure><a href="assets/rnaseq-structure.png"><img src="assets/rnaseq-structure.png" alt="PCA and sample-distance heatmap for six biological samples, showing separation of WT3" loading="lazy"></a><figcaption>PCA of the 500 most variable genes after blind variance stabilisation, with sample distances across retained VST genes. PC1 explains 61.2% of variance; PC2 explains 18.3%. <a href="https://github.com/itsEkramah/RNA-Seq-DE-Mouse-Hippocampus/blob/main/results/summary.json">View analysis summary</a>.</figcaption></figure></div></details></article>
-<article class="project" id="pathoscope"><div class="entry-heading"><h3>PathoScope AI</h3><span class="date">Mar–Aug 2026</span></div><p class="context">Functional Genomics · Team software project</p><p class="tools"><strong>Tools:</strong> Python, FastAPI, PostgreSQL, NCBI E-Utilities; team interface in Next.js</p><p>I contributed to a prototype that brings viral-sequence and expression-analysis workflows into a browser interface. My work focused on workflow orchestration, FASTQ integration, PubMed retrieval and AI-assisted reporting.</p><ul><li>Worked on sequential workflow execution, job-status tracking and database connectivity.</li><li>Integrated read-processing tools and literature retrieval with caching to support the analysis workflow.</li></ul><p class="finding"><strong>Project scope:</strong> a teaching and development prototype. External-tool fallbacks can produce simulated annotations or substitute a reference sequence, so those paths do not establish biological results.</p><div class="links"><a href="https://github.com/itsEkramah/FUNCTIONAL-GENOMICS-PROJECT">Team GitHub repository</a><a href="https://github.com/itsEkramah/FUNCTIONAL-GENOMICS-PROJECT/blob/main/backend/pipeline/pipeline_runner.py">Pipeline runner</a></div><details><summary>More about the team implementation</summary><div class="detail-content"><p>The team code includes six-frame ORF scanning, wrappers for FastQC, fastp, SPAdes, DIAMOND and HMMER, and an exploratory expression module using log-CPM, Welch’s tests and BH correction. Containerisation remains future work, and literature-backed prompts still require human review.</p></div></details></article></section>
-<section id="education"><h2>Education</h2><div class="entry-heading"><h3>BS in Bioinformatics</h3><span class="date">Sep 2022–Sep 2026</span></div><p>National Centre for Bioinformatics, Quaid-i-Azam University, Islamabad</p><p class="coursework"><strong>Selected coursework:</strong> Probability and Biostatistics, Bioinformatics Computing, Genomics, Functional Genomics, Systems Biology, Artificial Intelligence, Data Structures and Algorithms, Modelling and Simulation.</p></section>
-<section id="experience"><h2>Experience</h2><article class="experience-entry"><div class="entry-heading"><h3>Research Intern</h3><span class="date">Jul–Aug 2025</span></div><p class="context">National Institutes of Health · Islamabad, Pakistan</p><ul><li>Analysed resistance-surveillance data, including wastewater data, using R and the AMR package.</li><li>Gained exposure to PCR diagnostics, Oxford Nanopore MinION sequencing and bulk RNA-seq workflows.</li></ul></article><article class="experience-entry"><div class="entry-heading"><h3>Python Developer Intern</h3><span class="date">Jul–Sep 2024</span></div><p class="context">Digital Empowerment Network · Remote</p><ul><li>Worked on backend services and REST APIs with FastAPI and PostgreSQL.</li><li>Automated data processing with Pandas and NumPy and developed visualisation utilities for GitHub Classroom analytics.</li></ul></article></section>
-<section id="skills"><h2>Technical skills</h2><dl class="skills"><div><dt>Programming</dt><dd>Python, R, Bash, SQL</dd></div><div><dt>Data &amp; statistics</dt><dd>Pandas, NumPy, scikit-learn; classification, grouped cross-validation, bootstrap intervals, PCA, hypothesis testing and FDR correction</dd></div><div><dt>Bioinformatics</dt><dd>Genomic unitig data, bulk RNA-seq, PyDESeq2, DESeq2; sequence quality control, alignment and quantification workflows</dd></div><div><dt>Research software</dt><dd>Git/GitHub, Jupyter notebooks, dependency pinning, automated checks, FastAPI, PostgreSQL</dd></div><div><dt>Data resources</dt><dd>NCBI GEO/SRA, PubMed, Ensembl; UniProt and Pfam through team-project integration</dd></div></dl></section>
-<section id="contact"><h2>Contact</h2><p>I’m interested in research and further study in computational biology, genomics and pathogen surveillance.</p><div class="links"><a href="mailto:muhammadekramah786@gmail.com">muhammadekramah786@gmail.com</a><a href="https://github.com/itsEkramah">GitHub</a><a href="https://www.linkedin.com/in/muhammad-ekramah/">LinkedIn</a></div></section></main><footer><span>© Muhammad Ekramah</span><a href="#top">Back to top</a></footer></div></body></html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <title>Muhammad Ekramah | Bioinformatics</title>
+
+  <meta name="description"
+    content="Muhammad Ekramah — bioinformatics graduate interested in genomics, antimicrobial resistance and transcriptomics.">
+
+  <link rel="stylesheet" href="style.css">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+</head>
+
+<body>
+
+  <a class="skip" href="#about">Skip to content</a>
+
+  <div class="page">
+
+    <!-- PROFILE -->
+
+    <header id="top" class="profile">
+
+      <p class="eyebrow">
+        Bioinformatics · Computational Biology
+      </p>
+
+      <h1>Muhammad Ekramah</h1>
+
+      <p class="degree">
+        BS in Bioinformatics, 2022–2026
+      </p>
+
+      <p class="affiliation">
+        National Centre for Bioinformatics ·
+        Quaid-i-Azam University, Islamabad
+      </p>
+
+      <div class="links profile-links">
+
+        <a href="mailto:muhammadekramah786@gmail.com">
+          Email
+        </a>
+
+        <a href="https://github.com/itsEkramah">
+          GitHub
+        </a>
+
+        <a href="https://www.linkedin.com/in/muhammad-ekramah/">
+          LinkedIn
+        </a>
+
+        <a class="cv-link" href="Muhammad-Ekramah-CV.pdf">
+          Download CV <span>PDF</span>
+        </a>
+
+      </div>
+
+    </header>
+
+    <!-- NAVIGATION -->
+
+    <nav aria-label="Main navigation">
+      <a href="#about">About</a>
+      <a href="#projects">Projects</a>
+      <a href="#education">Education</a>
+      <a href="#experience">Experience</a>
+      <a href="#skills">Skills</a>
+      <a href="#contact">Contact</a>
+    </nav>
+
+    <main>
+
+      <!-- ABOUT -->
+
+      <section id="about">
+
+        <h2>About me</h2>
+
+        <p>
+          I'm a bioinformatics graduate from Quaid-i-Azam
+          University, Islamabad. During my degree, I worked
+          on projects involving antimicrobial resistance,
+          genomic data analysis, RNA-seq and bioinformatics
+          software development.
+        </p>
+
+        <p>
+          I mainly work with Python and R for biological
+          data analysis. I enjoy exploring datasets,
+          building models and understanding how the results
+          relate to the underlying biology. My interests
+          include microbial genomics, transcriptomics
+          and systems biology.
+        </p>
+
+        <div class="interests">
+
+          <span class="label">Research interests</span>
+
+          <p>
+            Microbial genomics · Transcriptomics ·
+            Antimicrobial resistance · Systems biology
+          </p>
+
+        </div>
+
+      </section>
+
+      <!-- PROJECTS -->
+
+      <section id="projects">
+
+        <h2>Selected projects</h2>
+
+        <!-- PROJECT 1: AMR -->
+
+        <article class="project" id="amr">
+
+          <div class="entry-heading">
+
+            <h3>
+              Predicting antimicrobial resistance in
+              <i>N. gonorrhoeae</i>
+            </h3>
+
+            <span class="date">2025–2026</span>
+
+          </div>
+
+          <p class="context">
+            Bioinformatics Computing II · Genomic machine learning
+          </p>
+
+          <p class="tools">
+            <strong>Tools:</strong>
+            Python, Pandas, scikit-learn, Jupyter
+          </p>
+
+          <p>
+            In my Bioinformatics Computing II project,
+            I used genomic unitig features from
+            <i>Neisseria gonorrhoeae</i> isolates to study
+            resistance to azithromycin and ciprofloxacin.
+            I compared machine learning models and examined
+            how different evaluation choices affected
+            their performance.
+          </p>
+
+          <ul>
+
+            <li>
+              Reviewed 3,786 metadata records and matched
+              labelled isolates with antibiotic-specific
+              genomic features.
+            </li>
+
+            <li>
+              Compared logistic regression and random forest
+              models using a prevalence baseline and
+              grouped five-fold cross-validation.
+            </li>
+
+            <li>
+              Used bootstrap confidence intervals and
+              geographic subgroup comparisons to examine
+              variation in model performance.
+            </li>
+
+            <li>
+              Used BLAST to examine selected unitigs,
+              including alignments to resistance-associated
+              gene regions involving <i>penA</i> and
+              <i>gyrA</i>.
+            </li>
+
+          </ul>
+
+          <p class="finding">
+            The models performed well in internal
+            cross-validation, although the results may
+            be optimistic because the genomic features
+            had already been filtered using GWAS.
+            Testing on independent datasets would help
+            establish how well the models generalise.
+          </p>
+
+          <div class="links">
+
+            <a href="https://github.com/itsEkramah/N.Gonorrhoeae-AMR-prediction-ML">
+              GitHub
+            </a>
+
+            <a href="https://github.com/itsEkramah/N.Gonorrhoeae-AMR-prediction-ML/blob/main/N_gonorrhoeae_AMR_reproducible_analysis.ipynb">
+              Analysis notebook
+            </a>
+
+          </div>
+
+          <details>
+
+            <summary>
+              Methods, results &amp; figure
+            </summary>
+
+            <div class="detail-content">
+
+              <p>
+                Variance filtering and chi-square feature
+                selection are fitted inside each training
+                fold. Identical unitig profiles stay in
+                the same fold. I did not train a prediction
+                model for cefixime because only five
+                isolates were labelled resistant.
+              </p>
+
+              <div class="table-wrap">
+
+                <table>
+
+                  <caption>
+                    Logistic regression: internal
+                    out-of-fold estimates
+                  </caption>
+
+                  <thead>
+                    <tr>
+                      <th scope="col">Antibiotic</th>
+                      <th scope="col">Labelled isolates</th>
+                      <th scope="col">Balanced accuracy</th>
+                    </tr>
+                  </thead>
+
+                  <tbody>
+
+                    <tr>
+                      <th scope="row">Azithromycin</th>
+                      <td>3,478</td>
+                      <td>0.949</td>
+                    </tr>
+
+                    <tr>
+                      <th scope="row">Ciprofloxacin</th>
+                      <td>3,088</td>
+                      <td>0.969</td>
+                    </tr>
+
+                  </tbody>
+
+                </table>
+
+              </div>
+
+              <p class="note">
+                These results are based on internal
+                cross-validation and may be optimistic
+                because the genomic features were already
+                GWAS-filtered. I also used BLAST to examine
+                selected unitigs and found alignments to
+                regions of known resistance-associated genes,
+                including <i>penA</i> and <i>gyrA</i>.
+                These matches provide biological context
+                for the predictions, although sequence
+                alignment alone does not establish a
+                causal role in resistance.
+              </p>
+
+              <figure>
+
+                <a href="assets/amr-robustness.png">
+
+                  <img
+                    src="assets/amr-robustness.png"
+                    alt="Profile-group bootstrap intervals and descriptive continent-level balanced accuracy for the AMR models"
+                    loading="lazy">
+
+                </a>
+
+                <figcaption>
+                  Uncertainty from 500 profile-group
+                  bootstrap resamples, alongside descriptive
+                  geographic subgroup performance. These
+                  subgroups use the same out-of-fold
+                  predictions, not a leave-one-continent-out
+                  experiment.
+
+                  <a href="https://github.com/itsEkramah/N.Gonorrhoeae-AMR-prediction-ML/blob/main/results/tables/bootstrap_confidence_intervals.csv">
+                    View interval estimates
+                  </a>.
+                </figcaption>
+
+              </figure>
+
+            </div>
+
+          </details>
+
+        </article>
+
+        <!-- PROJECT 2: RNA-SEQ -->
+
+        <article class="project" id="rnaseq">
+
+          <div class="entry-heading">
+
+            <h3>
+              RNA-seq analysis of Notch2 knockout stem cells
+            </h3>
+
+            <span class="date">2025–2026</span>
+
+          </div>
+
+          <p class="context">
+            Genomics · Mouse hippocampal neural stem cells
+          </p>
+
+          <p class="tools">
+            <strong>Tools:</strong>
+            Python, PyDESeq2, R, DESeq2, Bash
+          </p>
+
+          <p>
+            I analysed the publicly available GSE116773
+            dataset to compare gene expression between
+            Notch2 conditional-knockout and wild-type
+            mouse hippocampal neural stem cells.
+          </p>
+
+          <ul>
+
+            <li>
+              Combined 24 technical count files into
+              six biological RNA preparations, with
+              three samples per condition.
+            </li>
+
+            <li>
+              Used PyDESeq2 for differential expression
+              analysis and identified 121 genes with
+              an adjusted p-value below 0.05.
+            </li>
+
+            <li>
+              Used PCA, sample-distance heatmaps and
+              gene expression plots to explore
+              differences between samples.
+            </li>
+
+          </ul>
+
+          <p class="finding">
+            One of the wild-type samples, WT3, differed
+            noticeably from the others. This was an
+            important consideration when interpreting
+            the differential expression results,
+            especially with only three biological
+            samples per condition.
+          </p>
+
+          <div class="links">
+
+            <a href="https://github.com/itsEkramah/RNA-Seq-DE-Mouse-Hippocampus">
+              GitHub
+            </a>
+
+            <a href="https://github.com/itsEkramah/RNA-Seq-DE-Mouse-Hippocampus/blob/main/scripts/analyze.py">
+              Analysis code
+            </a>
+
+            <a href="https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE116773">
+              GEO dataset
+            </a>
+
+          </div>
+
+          <details>
+
+            <summary>
+              Methods, results &amp; figure
+            </summary>
+
+            <div class="detail-content">
+
+              <p>
+                I used the study-provided GRCm38 count
+                data and performed differential expression
+                analysis with PyDESeq2, Wald tests and
+                Benjamini–Hochberg correction. Of 21,531
+                retained genes, 77 had higher and 44 had
+                lower expression in knockout at FDR
+                &lt; 0.05. None of the eight predefined
+                candidate genes, including <i>Id4</i>,
+                passed that threshold.
+              </p>
+
+              <p class="note">
+                Differential expression does not by itself
+                establish direct regulation by Notch2.
+                The repository also contains GRCm39
+                read-processing scripts, but their original
+                count matrix is unavailable. The results
+                shown here use the GRCm38 count data.
+              </p>
+
+              <figure>
+
+                <a href="assets/rnaseq-structure.png">
+
+                  <img
+                    src="assets/rnaseq-structure.png"
+                    alt="PCA and sample-distance heatmap for six biological samples, showing separation of WT3"
+                    loading="lazy">
+
+                </a>
+
+                <figcaption>
+                  PCA of the 500 most variable genes after
+                  blind variance stabilisation, with sample
+                  distances across retained VST genes.
+                  PC1 explains 61.2% of variance; PC2
+                  explains 18.3%.
+
+                  <a href="https://github.com/itsEkramah/RNA-Seq-DE-Mouse-Hippocampus/blob/main/results/summary.json">
+                    View analysis summary
+                  </a>.
+                </figcaption>
+
+              </figure>
+
+            </div>
+
+          </details>
+
+        </article>
+
+        <!-- PROJECT 3: PATHOSCOPE AI -->
+
+        <article class="project" id="pathoscope">
+
+          <div class="entry-heading">
+
+            <h3>PathoScope AI</h3>
+
+            <span class="date">Mar–Aug 2026</span>
+
+          </div>
+
+          <p class="context">
+            Functional Genomics · Team software project
+          </p>
+
+          <p class="tools">
+            <strong>Tools:</strong>
+            Python, FastAPI, PostgreSQL, NCBI E-Utilities;
+            team interface in Next.js
+          </p>
+
+          <p>
+            PathoScope AI was a team project for our
+            Functional Genomics course. We developed
+            a web-based prototype that brings together
+            tools for viral sequence analysis and
+            gene expression workflows. I mainly worked
+            on the backend, including pipeline execution,
+            FASTQ integration and PubMed retrieval.
+          </p>
+
+          <ul>
+
+            <li>
+              Worked on pipeline execution, job-status
+              tracking and database connectivity.
+            </li>
+
+            <li>
+              Helped integrate read-processing tools,
+              literature searches and report generation
+              into the application.
+            </li>
+
+          </ul>
+
+          <p class="finding">
+            PathoScope AI was developed as a course
+            project and remains a software prototype.
+            Some fallback functions use simulated
+            annotations or substitute a reference
+            sequence when external tools are unavailable.
+          </p>
+
+          <div class="links">
+
+            <a href="https://github.com/itsEkramah/FUNCTIONAL-GENOMICS-PROJECT">
+              GitHub repository
+            </a>
+
+            <a href="https://github.com/itsEkramah/FUNCTIONAL-GENOMICS-PROJECT/blob/main/backend/pipeline/pipeline_runner.py">
+              Pipeline runner
+            </a>
+
+            <a
+              href="https://www.youtube.com/watch?v=fvNg29fGX2Q"
+              target="_blank"
+              rel="noopener noreferrer">
+              Watch project demo ↗
+            </a>
+
+          </div>
+
+          <details>
+
+            <summary>
+              More about the project
+            </summary>
+
+            <div class="detail-content">
+
+              <p>
+                The team implementation includes
+                six-frame ORF scanning and wrappers
+                for FastQC, fastp, SPAdes, DIAMOND
+                and HMMER. It also includes an
+                exploratory expression analysis
+                module using log-CPM, Welch's tests
+                and Benjamini–Hochberg correction.
+              </p>
+
+              <p>
+                The prototype has not been
+                containerised. AI-generated literature
+                summaries still require human review.
+              </p>
+
+            </div>
+
+          </details>
+
+        </article>
+
+      </section>
+
+      <!-- EDUCATION -->
+
+      <section id="education">
+
+        <h2>Education</h2>
+
+        <div class="entry-heading">
+
+          <h3>BS in Bioinformatics</h3>
+
+          <span class="date">
+            Sep 2022–Sep 2026
+          </span>
+
+        </div>
+
+        <p>
+          National Centre for Bioinformatics,
+          Quaid-i-Azam University, Islamabad
+        </p>
+
+        <p class="coursework">
+          <strong>Selected coursework:</strong>
+          Probability and Biostatistics,
+          Bioinformatics Computing,
+          Genomics,
+          Functional Genomics,
+          Systems Biology,
+          Artificial Intelligence,
+          Data Structures and Algorithms,
+          Modelling and Simulation.
+        </p>
+
+      </section>
+
+      <!-- EXPERIENCE -->
+
+      <section id="experience">
+
+        <h2>Experience</h2>
+
+        <article class="experience-entry">
+
+          <div class="entry-heading">
+
+            <h3>Research Intern</h3>
+
+            <span class="date">
+              Jul–Aug 2025
+            </span>
+
+          </div>
+
+          <p class="context">
+            National Institutes of Health · Islamabad, Pakistan
+          </p>
+
+          <ul>
+
+            <li>
+              Analysed resistance-surveillance data,
+              including wastewater data, using R
+              and the AMR package.
+            </li>
+
+            <li>
+              Gained exposure to PCR diagnostics,
+              Oxford Nanopore MinION sequencing
+              and bulk RNA-seq workflows.
+            </li>
+
+          </ul>
+
+        </article>
+
+        <article class="experience-entry">
+
+          <div class="entry-heading">
+
+            <h3>Python Developer Intern</h3>
+
+            <span class="date">
+              Jul–Sep 2024
+            </span>
+
+          </div>
+
+          <p class="context">
+            Digital Empowerment Network · Remote
+          </p>
+
+          <ul>
+
+            <li>
+              Worked on backend services and
+              REST APIs with FastAPI and PostgreSQL.
+            </li>
+
+            <li>
+              Automated data processing with
+              Pandas and NumPy and developed
+              visualisation utilities for
+              GitHub Classroom analytics.
+            </li>
+
+          </ul>
+
+        </article>
+
+      </section>
+
+      <!-- TECHNICAL SKILLS -->
+
+      <section id="skills">
+
+        <h2>Technical skills</h2>
+
+        <dl class="skills">
+
+          <div>
+
+            <dt>Programming</dt>
+
+            <dd>
+              Python, R, Bash, SQL
+            </dd>
+
+          </div>
+
+          <div>
+
+            <dt>Data &amp; statistics</dt>
+
+            <dd>
+              Pandas, NumPy, scikit-learn;
+              classification, grouped cross-validation,
+              bootstrap intervals, PCA, hypothesis
+              testing and FDR correction
+            </dd>
+
+          </div>
+
+          <div>
+
+            <dt>Bioinformatics</dt>
+
+            <dd>
+              Genomic unitig data, bulk RNA-seq,
+              PyDESeq2, DESeq2; sequence quality
+              control, alignment and
+              quantification workflows
+            </dd>
+
+          </div>
+
+          <div>
+
+            <dt>Research software</dt>
+
+            <dd>
+              Git/GitHub, Jupyter notebooks,
+              FastAPI, PostgreSQL
+            </dd>
+
+          </div>
+
+          <div>
+
+            <dt>Data resources</dt>
+
+            <dd>
+              NCBI GEO/SRA, PubMed, Ensembl;
+              UniProt and Pfam through
+              team-project integration
+            </dd>
+
+          </div>
+
+        </dl>
+
+      </section>
+
+      <!-- CONTACT -->
+
+      <section id="contact">
+
+        <h2>Contact</h2>
+
+        <p>
+          Feel free to get in touch about bioinformatics,
+          genomics, computational biology or
+          related projects.
+        </p>
+
+        <div class="links">
+
+          <a href="mailto:muhammadekramah786@gmail.com">
+            muhammadekramah786@gmail.com
+          </a>
+
+          <a href="https://github.com/itsEkramah">
+            GitHub
+          </a>
+
+          <a href="https://www.linkedin.com/in/muhammad-ekramah/">
+            LinkedIn
+          </a>
+
+        </div>
+
+      </section>
+
+    </main>
+
+    <!-- FOOTER -->
+
+    <footer>
+
+      <span>© Muhammad Ekramah</span>
+
+      <a href="#top">Back to top</a>
+
+    </footer>
+
+  </div>
+
+</body>
+</html>
