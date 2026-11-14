@@ -6,11 +6,17 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
 
-  <title>Muhammad Ekramah | Bioinformatics</title>
+  <title>Muhammad Ekramah | Bioinformatics, Research &amp; Python Development</title>
 
   <meta name="description"
-    content="Muhammad Ekramah — bioinformatics graduate interested in genomics, antimicrobial resistance and transcriptomics.">
+    content="Muhammad Ekramah, BS Bioinformatics at QAU. Academic projects in microbial genomics and RNA-seq, preparation for MSc Bioinformatics and Data Science, and practical Python/R services.">
 
+  <link rel="canonical" href="https://itsekramah.github.io/">
+  <meta property="og:title" content="Muhammad Ekramah | Bioinformatics &amp; Research Software">
+  <meta property="og:description" content="Academic bioinformatics projects, reproducible analysis and practical Python development.">
+  <meta property="og:type" content="website">
+  <meta property="og:url" content="https://itsekramah.github.io/">
+  <meta name="theme-color" content="#15617b">
   <link rel="stylesheet" href="style.css">
   <link rel="icon" href="favicon.svg" type="image/svg+xml">
 </head>
@@ -26,7 +32,7 @@
     <header id="top" class="profile">
 
       <p class="eyebrow">
-        Bioinformatics · Computational Biology
+        Bioinformatics · MSc Bioinformatics &amp; Data Science applicant
       </p>
 
       <h1>Muhammad Ekramah</h1>
@@ -40,25 +46,14 @@
         Quaid-i-Azam University, Islamabad
       </p>
 
+      <p class="profile-intro">I use computational methods to study biological data and build practical tools for reproducible analysis.</p>
       <div class="links profile-links">
-
-        <a href="mailto:muhammadekramah786@gmail.com">
-          Email
-        </a>
-
-        <a href="https://github.com/itsEkramah">
-          GitHub
-        </a>
-
-        <a href="https://www.linkedin.com/in/muhammad-ekramah/">
-          LinkedIn
-        </a>
-
-        <a class="cv-link" href="Muhammad-Ekramah-CV.pdf">
-          Download CV <span>PDF</span>
-        </a>
-
+        <a class="button-link" href="#projects">Explore academic work <span aria-hidden="true">→</span></a>
+        <a href="#services">Data &amp; software services <span aria-hidden="true">→</span></a>
+        <a href="https://github.com/itsEkramah">GitHub</a>
+        <a href="https://www.linkedin.com/in/muhammad-ekramah/">LinkedIn</a>
       </div>
+      <div class="profile-facts" aria-label="Academic background"><span>QAU · BS Bioinformatics</span><span>2022–2026</span><span>CGPA 3.40 / 4.00</span></div>
 
     </header>
 
@@ -66,7 +61,9 @@
 
     <nav aria-label="Main navigation">
       <a href="#about">About</a>
-      <a href="#projects">Projects</a>
+      <a href="#projects">Academic projects</a>
+      <a href="#software">Software portfolio</a>
+      <a href="#services">Services</a>
       <a href="#education">Education</a>
       <a href="#experience">Experience</a>
       <a href="#skills">Skills</a>
@@ -79,10 +76,11 @@
 
       <section id="about">
 
-        <h2>About me</h2>
+        <p class="section-kicker">01 / Background</p>
+        <h2>Bioinformatics with a computational focus</h2>
 
         <p>
-          I'm a bioinformatics graduate from Quaid-i-Azam
+          My academic background is in Bioinformatics at Quaid-i-Azam
           University, Islamabad. During my degree, I worked
           on projects involving antimicrobial resistance,
           genomic data analysis, RNA-seq and bioinformatics
@@ -98,6 +96,10 @@
           and systems biology.
         </p>
 
+        <p>I am applying for MSc programmes in Bioinformatics and Data Science. I want to strengthen my foundations in statistics, machine learning and computational biology, and learn to develop methods that connect biological questions with reliable analysis. My projects have made me particularly interested in how experimental design, data quality and model evaluation affect the conclusions we can draw.</p>
+        <p>I also apply this foundation to practical Python development and freelance data tasks: preparing checked datasets, producing clear figures and building small tools with documented outputs.</p>
+
+        <div class="study-direction"><h3>Direction for graduate study</h3><p>My current interests sit where microbial genomics and transcriptomics meet statistical learning. I want to build on my undergraduate projects through stronger training in experimental design, reproducible workflows and the evaluation of models on new data.</p></div>
         <div class="interests">
 
           <span class="label">Research interests</span>
@@ -115,7 +117,9 @@
 
       <section id="projects">
 
-        <h2>Selected projects</h2>
+        <p class="section-kicker">02 / Academic work</p>
+        <h2>Selected bioinformatics projects</h2>
+        <p class="section-intro">Course projects and public-data reanalyses, with code, methods and limitations available for inspection.</p>
 
         <!-- PROJECT 1: AMR -->
 
@@ -507,7 +511,7 @@
               href="https://www.youtube.com/watch?v=fvNg29fGX2Q"
               target="_blank"
               rel="noopener noreferrer">
-              Watch project demo ↗
+              Watch project demo →
             </a>
 
           </div>
@@ -548,6 +552,7 @@
 
       <section id="education">
 
+        <p class="section-kicker">03 / Preparation</p>
         <h2>Education</h2>
 
         <div class="entry-heading">
@@ -564,6 +569,8 @@
           National Centre for Bioinformatics,
           Quaid-i-Azam University, Islamabad
         </p>
+
+        <p class="academic-result"><strong>CGPA:</strong> 3.40 / 4.00</p>
 
         <p class="coursework">
           <strong>Selected coursework:</strong>
@@ -726,34 +733,35 @@
 
       </section>
 
-      <!-- CONTACT -->
+      <section id="software">
+        <p class="section-kicker">04 / Applied software</p>
+        <h2>Tools built around practical problems</h2>
+        <p class="section-intro">These portfolio demonstrations connect Python development with data quality, workflow design and clear reporting. Each repository includes setup instructions, tests and a validation record. They were developed with AI assistance; they are presented as demonstrations, not as client-delivery case studies.</p>
+        <div class="software-grid">
+          <article class="software-card"><p class="project-type">DATA QUALITY · FULL-STACK DEMO</p><h3>Data Quality Workbench</h3><p>Clean a CSV under explicit rules, inspect rejected rows and download the source, checked data and audit report.</p><dl><div><dt>Purpose</dt><dd>Make spreadsheet preparation traceable.</dd></div><div><dt>Built with</dt><dd>Python, FastAPI, SQLite, HTML/CSS/JavaScript</dd></div></dl><p class="small-note">Local application with documented engine and API validation checks.</p><div class="links"><a href="https://github.com/itsEkramah/data-quality-workbench">Code &amp; setup →</a><a href="https://github.com/itsEkramah/data-quality-workbench/blob/main/VALIDATION.md">Validation record</a></div></article>
+          <article class="software-card"><p class="project-type">WORKFLOW AUTOMATION · REVIEW QUEUE</p><h3>ReviewFlow Automation</h3><p>Turn support requests into structured drafts, prevent duplicate stored requests and record human approval or rejection.</p><dl><div><dt>Purpose</dt><dd>Keep a clear review boundary around automation.</dd></div><div><dt>Built with</dt><dd>Python, FastAPI, SQLite, JavaScript</dd></div></dl><p class="small-note">Keyword demo by default. The optional AI adapter has mock-based tests; no live AI run or messaging integration is claimed.</p><div class="links"><a href="https://github.com/itsEkramah/reviewflow-automation">Code &amp; setup →</a><a href="https://github.com/itsEkramah/reviewflow-automation/blob/main/VALIDATION.md">Validation record</a></div></article>
+          <article class="software-card"><p class="project-type">PYTHON CLI · TECHNICAL HTML CHECKS</p><h3>Site Audit Kit</h3><p>Inspect a local HTML snapshot and generate evidence-based JSON and Markdown reports for common technical issues.</p><dl><div><dt>Purpose</dt><dd>Make an audit's findings and limits easy to review.</dd></div><div><dt>Built with</dt><dd>Python standard library, HTML, JSON, Markdown</dd></div></dl><p class="small-note">Offline checks only. This tool does not measure search rankings, traffic or AI citations.</p><div class="links"><a href="https://github.com/itsEkramah/site-audit-kit">Code &amp; setup →</a><a href="https://github.com/itsEkramah/site-audit-kit/blob/main/reports/before.md">Example report</a></div></article>
+        </div>
+      </section>
+
+      <section id="services">
+        <p class="section-kicker">05 / Working together</p>
+        <h2>Data analysis &amp; Python development support</h2>
+        <p class="section-intro">For researchers and small teams who need a defined piece of data or software work completed with readable code and clear deliverables.</p>
+        <div class="service-list">
+          <article><span class="service-number">01</span><div><h3>Data preparation &amp; validation</h3><p>CSV processing, duplicate checks, consistency checks and Python-based transformations under agreed rules.</p><p class="deliverable">Typical delivery: checked files, a change summary and a reusable script where appropriate.</p></div></article>
+          <article><span class="service-number">02</span><div><h3>Exploratory analysis &amp; research figures</h3><p>Descriptive analysis, tables and clearly labelled plots using Python or R, with interpretation matched to the data and design.</p><p class="deliverable">Typical delivery: documented analysis, editable figures and an explanation of assumptions and limitations.</p></div></article>
+          <article><span class="service-number">03</span><div><h3>Python scripts &amp; small backend tasks</h3><p>Repeatable reporting, file-processing utilities, notebook debugging and scoped FastAPI or database fixes after reviewing the existing code.</p><p class="deliverable">Typical delivery: runnable code, setup notes and checks relevant to the agreed task.</p></div></article>
+          <article><span class="service-number">04</span><div><h3>Scoped bioinformatics support</h3><p>Biological-data organization, count-matrix and metadata checks, analysis troubleshooting and research figures within my demonstrated project experience.</p><p class="deliverable">We first agree on the dataset, scientific question, methods and a manageable initial milestone.</p></div></article>
+        </div>
+        <div class="working-note"><h3>How I approach a project</h3><p>Start with a small sample and a specific question. Agree on scope and outputs, preserve the original data, document decisions, and explain what the results can and cannot establish.</p><p>Academic support focuses on transparent analysis, explanation and author-supplied material. Authorship, results and contributions must remain accurate.</p></div>
+      </section>
 
       <section id="contact">
-
-        <h2>Contact</h2>
-
-        <p>
-          Feel free to get in touch about bioinformatics,
-          genomics, computational biology or
-          related projects.
-        </p>
-
-        <div class="links">
-
-          <a href="mailto:muhammadekramah786@gmail.com">
-            muhammadekramah786@gmail.com
-          </a>
-
-          <a href="https://github.com/itsEkramah">
-            GitHub
-          </a>
-
-          <a href="https://www.linkedin.com/in/muhammad-ekramah/">
-            LinkedIn
-          </a>
-
-        </div>
-
+        <p class="section-kicker">06 / Contact</p>
+        <h2>Research, opportunities &amp; project enquiries</h2>
+        <p>For graduate-study or research opportunities, explore the academic projects and methods above. For a data or software enquiry, share your goal, an anonymized sample and the output you need through LinkedIn.</p>
+        <div class="links"><a class="button-link" href="https://www.linkedin.com/in/muhammad-ekramah/">Connect on LinkedIn →</a><a href="https://github.com/itsEkramah">Explore GitHub repositories →</a></div>
       </section>
 
     </main>
@@ -772,3 +780,4 @@
 
 </body>
 </html>
+
