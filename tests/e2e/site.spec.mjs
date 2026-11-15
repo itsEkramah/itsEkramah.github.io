@@ -187,9 +187,10 @@ test('articles and navigation remain readable without JavaScript', async ({
   await expect(page.locator('.article-entry').first()).toBeVisible();
   await expect(page.locator('#writing-query')).toBeDisabled();
   await expect(page.locator('#writing-category')).toBeDisabled();
-  await expect(
-    page.getByText('Search needs JavaScript.', { exact: false }),
-  ).toBeVisible();
+  await expect(page.locator('noscript p')).toBeVisible();
+  await expect(page.locator('noscript p')).toContainText(
+    'Search needs JavaScript.',
+  );
   await page
     .getByRole('link', { name: 'Bioinformatics & Genomics →', exact: true })
     .click();
