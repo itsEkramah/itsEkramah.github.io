@@ -1,7 +1,9 @@
 ---
-title: Technical SEO & Content
+title: Technical SEO & Content Optimization
 summary: Inspectable checks of page structure, metadata and technical content, with a clear fix list.
 order: 5
+tools: [Python, HTML inspection, Metadata and heading audits]
+method: Connect each finding to observable page evidence and provide prioritised changes with documented measurement limits.
 audience: Owners of small sites who need a bounded review of technical HTML and content organisation.
 deliverables:
   [
@@ -12,9 +14,7 @@ deliverables:
 boundaries:
   [
     Site Audit Kit demonstrates offline HTML checks only.,
-    No ranking,
-    traffic,
-    indexing or AI-citation guarantee.,
+    'No ranking, traffic, indexing or AI-citation guarantee.',
     No commercial outcomes or client engagements are claimed.,
   ]
 relatedProjectIds: [site-audit-kit]

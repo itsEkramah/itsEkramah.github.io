@@ -1,0 +1,109 @@
+{
+  "theme": "Forest & Paper",
+  "colours": {
+    "canvas": "f7f5ef",
+    "surface": "ffffff",
+    "ink": "242a27",
+    "muted": "576159",
+    "accent": "315448",
+    "accent-hover": "263f36",
+    "on-accent": "ffffff",
+    "border": "dadfd7",
+    "pale": "e8eee6",
+    "selection": "dce5d8",
+    "control-border": "7b8b7e"
+  },
+  "pairs": [
+    {
+      "foreground": "ink",
+      "background": "canvas",
+      "ratio": 13.42,
+      "minimum": 4.5,
+      "result": "PASS"
+    },
+    {
+      "foreground": "ink",
+      "background": "surface",
+      "ratio": 14.63,
+      "minimum": 4.5,
+      "result": "PASS"
+    },
+    {
+      "foreground": "ink",
+      "background": "pale",
+      "ratio": 12.4,
+      "minimum": 4.5,
+      "result": "PASS"
+    },
+    {
+      "foreground": "muted",
+      "background": "canvas",
+      "ratio": 5.91,
+      "minimum": 4.5,
+      "result": "PASS"
+    },
+    {
+      "foreground": "muted",
+      "background": "surface",
+      "ratio": 6.44,
+      "minimum": 4.5,
+      "result": "PASS"
+    },
+    {
+      "foreground": "muted",
+      "background": "pale",
+      "ratio": 5.46,
+      "minimum": 4.5,
+      "result": "PASS"
+    },
+    {
+      "foreground": "accent",
+      "background": "canvas",
+      "ratio": 7.73,
+      "minimum": 4.5,
+      "result": "PASS"
+    },
+    {
+      "foreground": "accent",
+      "background": "surface",
+      "ratio": 8.43,
+      "minimum": 4.5,
+      "result": "PASS"
+    },
+    {
+      "foreground": "accent",
+      "background": "pale",
+      "ratio": 7.14,
+      "minimum": 4.5,
+      "result": "PASS"
+    },
+    {
+      "foreground": "on-accent",
+      "background": "accent",
+      "ratio": 8.43,
+      "minimum": 4.5,
+      "result": "PASS"
+    },
+    {
+      "foreground": "on-accent",
+      "background": "accent-hover",
+      "ratio": 11.37,
+      "minimum": 4.5,
+      "result": "PASS"
+    },
+    {
+      "foreground": "control-border",
+      "background": "canvas",
+      "ratio": 3.3,
+      "minimum": 3,
+      "result": "PASS"
+    },
+    {
+      "foreground": "control-border",
+      "background": "surface",
+      "ratio": 3.6,
+      "minimum": 3,
+      "result": "PASS"
+    }
+  ]
+}

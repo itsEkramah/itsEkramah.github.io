@@ -1,7 +1,9 @@
 ---
-title: Python & Automation
+title: Python Automation & Backend Development
 summary: File-processing scripts, repeatable reporting and small backend tasks with readable code.
 order: 3
+tools: [Python, FastAPI, PostgreSQL, Pandas, NumPy]
+method: Define one input and output, review the existing code and implement a bounded workflow with relevant checks.
 audience: Individuals and small teams with a repeatable data task or an existing Python workflow.
 deliverables:
   [

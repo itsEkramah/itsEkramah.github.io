@@ -2,6 +2,8 @@
 title: Web Development
 summary: Small static sites and scoped web interfaces, with clear navigation and documented setup.
 order: 4
+tools: [HTML, CSS, JavaScript, Astro, FastAPI]
+method: Plan the visitor journey and content structure, then check responsive layout, keyboard access and static output.
 audience: Individuals and research teams needing a small website or a defined improvement to an existing interface.
 deliverables:
   [
@@ -13,8 +15,7 @@ boundaries:
   [
     The initial review defines the size and supported functionality.,
     No claim of sole authorship of the PathoScope team interface.,
-    Authentication,
-    payments and ongoing hosting are separate projects.,
+    'Authentication, payments and ongoing hosting are separate projects.',
   ]
 relatedProjectIds: [data-quality-workbench, pathoscope]
 ---

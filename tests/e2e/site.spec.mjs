@@ -2,6 +2,7 @@ import { test, expect } from '@playwright/test';
 import AxeBuilder from '@axe-core/playwright';
 import { articleSources } from '../../scripts/article-sources.mjs';
 const sources = await articleSources();
+const qaDirectory = process.env.QA_OUTPUT_DIR || 'qa';
 const amr = sources.find((a) => a.id === 'amr-validation');
 const routes = [
   '/',
@@ -84,7 +85,7 @@ test('layouts reflow at required widths', async ({ page }, testInfo) => {
               ? 'home'
               : route.split('/')[1];
         await page.screenshot({
-          path: `qa/screenshots/${name}-${width}.png`,
+          path: `${qaDirectory}/screenshots/${name}-${width}.png`,
           fullPage: true,
         });
       }
@@ -270,7 +271,7 @@ test('five supplied articles have dates, category routes and the revised homepag
       ).toBe(true);
       if (testInfo.project.name === 'chromium')
         await page.screenshot({
-          path: `qa/screenshots/${name}-${width}.png`,
+          path: `${qaDirectory}/screenshots/${name}-${width}.png`,
           fullPage: true,
         });
     }

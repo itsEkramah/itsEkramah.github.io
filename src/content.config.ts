@@ -73,6 +73,8 @@ const projects = defineCollection({
       title: z.string(),
       shortTitle: z.string(),
       summary: z.string(),
+      methods: z.array(z.string()).min(1),
+      resultSummary: z.string(),
       kind: z.enum([
         'Academic project',
         'Team prototype',
@@ -102,6 +104,8 @@ const services = defineCollection({
     order: z.number(),
     audience: z.string(),
     deliverables: z.array(z.string()),
+    tools: z.array(z.string()).min(1),
+    method: z.string(),
     boundaries: z.array(z.string()),
     relatedProjectIds: z.array(reference('projects')).min(1),
   }),

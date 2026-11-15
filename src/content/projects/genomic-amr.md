@@ -3,6 +3,13 @@ title: Antimicrobial-resistance prediction in Neisseria gonorrhoeae
 shortTitle: Genomic AMR prediction
 summary: Evaluating genomic predictors of resistance, with grouped validation and an explicit account of what internal results can establish.
 kind: Academic project
+methods:
+  [
+    Metadata matching,
+    Profile-grouped cross-validation,
+    Fold-specific feature selection and bootstrap intervals,
+  ]
+resultSummary: 'Internal balanced accuracy of 0.949 for azithromycin and 0.969 for ciprofloxacin; independent validation is still needed.'
 period: 2025–2026
 order: 1
 featured: true

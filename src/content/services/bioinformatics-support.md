@@ -2,6 +2,8 @@
 title: Bioinformatics & Research Analysis
 summary: Metadata checks, count-matrix review and scoped support for reproducible biological-data analysis.
 order: 1
+tools: [Python, R, PyDESeq2, scikit-learn]
+method: Review the biological question, sample metadata and workflow before agreeing on analysis and interpretation boundaries.
 audience: Researchers needing a defined support task with public or appropriately de-identified biological data.
 deliverables:
   [

@@ -4,6 +4,7 @@ import { getEntry, render, type CollectionEntry } from 'astro:content';
 import { categories } from '../lib/taxonomy';
 import { dateLabel } from '../lib/site';
 import ArticleExtras from '../components/ArticleExtras.astro';
+import { readingMinutes } from '../lib/reading';
 interface Props {
   article: CollectionEntry<'articles'>;
 }
@@ -43,6 +44,11 @@ const projects = await Promise.all(
         <p class="lede">{data.description}</p>
         <div class="article-meta">
           <span>By Muhammad Ekramah</span>
+          <span
+            aria-label={`Estimated reading time: ${readingMinutes(article.body)} minutes`}
+          >
+            {readingMinutes(article.body)} min read
+          </span>
           {data.publishedAt && (
             <time datetime={data.publishedAt.toISOString()}>
               {dateLabel(data.publishedAt)}

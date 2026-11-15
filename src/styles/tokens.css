@@ -1,11 +1,15 @@
 :root {
-  --canvas: #f8f7f3;
+  --canvas: #f7f5ef;
   --surface: #ffffff;
-  --ink: #20262b;
-  --muted: #4c585b;
-  --teal: #345f64;
-  --border: #d9deda;
-  --pale: #e9f0ed;
+  --ink: #242a27;
+  --muted: #576159;
+  --accent: #315448;
+  --accent-hover: #263f36;
+  --on-accent: #ffffff;
+  --border: #dadfd7;
+  --pale: #e8eee6;
+  --selection: #dce5d8;
+  --control-border: #7b8b7e;
   --heading: Georgia, 'Times New Roman', serif;
   --body: -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
 }

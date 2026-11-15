@@ -3,6 +3,13 @@ title: PathoScope AI — a genomics workflow prototype
 shortTitle: PathoScope AI
 summary: A team-built research software prototype connecting viral sequence workflows, expression exploration and literature retrieval.
 kind: Team prototype
+methods:
+  [
+    Backend workflow execution and job tracking,
+    FASTQ integration and database connectivity,
+    PubMed retrieval and report generation,
+  ]
+resultSummary: 'A working course prototype connects research workflows and literature retrieval. Some fallbacks use simulated outputs; it is not a validated diagnostic pipeline.'
 period: Mar–Aug 2026
 order: 3
 featured: true

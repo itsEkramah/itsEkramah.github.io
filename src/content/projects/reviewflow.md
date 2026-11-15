@@ -3,6 +3,9 @@ title: ReviewFlow Automation
 shortTitle: ReviewFlow Automation
 summary: A review queue that turns support requests into structured drafts and records human approval or rejection.
 kind: Software demonstration
+methods:
+  [Structured request intake, Duplicate prevention, Recorded human review]
+resultSummary: 'A local review-queue demonstration with documented setup and validation; no live messaging integration is claimed.'
 order: 5
 tools: [Python, FastAPI, SQLite, JavaScript]
 domains: [Workflow automation, Human review]

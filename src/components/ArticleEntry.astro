@@ -2,6 +2,7 @@
 import type { CollectionEntry } from 'astro:content';
 import { articleUrl, dateLabel } from '../lib/site';
 import { categories } from '../lib/taxonomy';
+import { readingMinutes } from '../lib/reading';
 interface Props {
   article: CollectionEntry<'articles'>;
 }
@@ -35,4 +36,18 @@ const { article } = Astro.props;
       {dateLabel(article.data.publishedAt)}
     </time>
   )}
+  <span
+    class="reading-estimate"
+    aria-label={`Estimated reading time: ${readingMinutes(article.body)} minutes`}
+  >
+    {readingMinutes(article.body)} min read
+  </span>
 </article>
+<style>
+  .reading-estimate {
+    display: inline-block;
+    margin-left: 16px;
+    font-size: 0.85rem;
+    color: var(--muted);
+  }
+</style>

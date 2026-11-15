@@ -3,6 +3,9 @@ title: Site Audit Kit
 shortTitle: Site Audit Kit
 summary: A Python command-line tool that turns a local HTML snapshot into evidence-based technical reports.
 kind: Software demonstration
+methods:
+  [Offline HTML parsing, Metadata and heading checks, Evidence-based reporting]
+resultSummary: 'A command-line demonstration produces technical reports from local HTML; it does not establish indexing or ranking results.'
 order: 6
 tools: [Python standard library, HTML, JSON, Markdown]
 domains: [Technical HTML checks, Reporting]
