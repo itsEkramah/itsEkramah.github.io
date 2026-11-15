@@ -23,7 +23,7 @@ Inspection date: 15 November 2026. Repository baseline: `47469fe`. Existing file
 - Fonts: system sans-serif and Georgia/Times fallbacks. No font downloaded or redistributed.
 - Code highlighting: Prism at build time, local CSS. Equations: KaTeX-generated native MathML with source annotations.
 
-Owner review of rewritten professional copy and the AMR note remains required before initial public deployment. Automated link and build checks cannot establish scientific truth or professional credentials independently.
+The separate AMR review note remains unpublished. The owner's later publication instruction authorises the site and five supplied articles, as recorded below. Automated link and build checks cannot establish scientific truth or professional credentials independently.
 
 ## Owner revision: long-form demo articles and homepage hierarchy
 

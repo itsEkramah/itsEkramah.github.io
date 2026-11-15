@@ -42,8 +42,8 @@ const pages = [
   ['services', 'http://127.0.0.1:4321/services/'],
   ['writing', 'http://127.0.0.1:4321/writing/'],
   [
-    'article-demo',
-    'http://127.0.0.1:4323/writing/bioinformatics/reproducible-genomics-before-the-pipeline/',
+    'article',
+    'http://127.0.0.1:4321/writing/bioinformatics/reproducible-genomics-before-the-pipeline/',
   ],
 ];
 const summary = [];

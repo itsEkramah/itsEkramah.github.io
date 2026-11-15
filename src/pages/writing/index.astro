@@ -36,7 +36,7 @@ const populated = (Object.keys(categories) as Category[]).filter((id) =>
             production archive excludes them.
           </p>
         )}
-        <form class="filters" id="writing-filters" hidden role="search">
+        <form class="filters" id="writing-filters" role="search">
           <label>
             Search writing
             <input
@@ -44,20 +44,31 @@ const populated = (Object.keys(categories) as Category[]).filter((id) =>
               name="q"
               id="writing-query"
               placeholder="Title, topic or tag"
+              disabled
             />
           </label>
           <label>
             Category
-            <select name="category" id="writing-category">
+            <select name="category" id="writing-category" disabled>
               <option value="all">All categories</option>
               {populated.map((id) => (
                 <option value={id}>{categories[id].label}</option>
               ))}
             </select>
           </label>
-          <button type="reset">Clear filters</button>
+          <button type="reset" disabled>
+            Clear filters
+          </button>
         </form>
-        <p id="writing-count" role="status" aria-live="polite" hidden></p>
+        <noscript>
+          <p>
+            Search needs JavaScript. All articles and the category links below
+            remain available.
+          </p>
+        </noscript>
+        <p id="writing-count" role="status" aria-live="polite">
+          {articles.length} {articles.length === 1 ? 'article' : 'articles'}
+        </p>
         <div id="article-list">
           {articles.map((article) => (
             <ArticleEntry article={article} />
@@ -150,8 +161,10 @@ const populated = (Object.keys(categories) as Category[]).filter((id) =>
         history.replaceState(null, '', url);
       }
     }
-    form.hidden = false;
-    count.hidden = false;
+    query.disabled = false;
+    category.disabled = false;
+    form.querySelector<HTMLButtonElement>('button[type="reset"]')!.disabled =
+      false;
     filter(false);
     form.addEventListener('submit', (event) => {
       event.preventDefault();

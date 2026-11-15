@@ -134,7 +134,7 @@ The five long-form articles supplied on 15 November 2026 have `demo: true`, `dra
 
 A demo cannot be published just by setting `draft: false`: validation also requires the demo flag to be removed following explicit owner/editorial approval. Verify technical statements, provide primary references and original examples where needed, then follow the normal review/date workflow. Never treat a formatting example as previously published work.
 
-Use `featured: true` to prefer an article for the homepage; featureOrder sets their preferred order, then published dates determine recency. With fewer than three published articles, only those articles appear. Drafts never fill gaps in a production homepage. `featureOrder` orders the sample cards in preview mode and is not a publication date.
+The homepage shows the three most recently published articles automatically. For articles published on the same date, `featured: true` and then `featureOrder` choose their order. A newly published article with a later date therefore appears without editing components or unpinning older articles. With fewer than three published articles, only those articles appear. Drafts never fill gaps in a production homepage. `featureOrder` also orders sample cards in preview mode and is not a publication date.
 
 ## Publication decision, 15 November 2026
 

@@ -185,7 +185,15 @@ test('articles and navigation remain readable without JavaScript', async ({
   ).toBeGreaterThan(100);
   await page.goto('http://127.0.0.1:4322/writing/');
   await expect(page.locator('.article-entry').first()).toBeVisible();
-  await expect(page.locator('#writing-filters')).toBeHidden();
+  await expect(page.locator('#writing-query')).toBeDisabled();
+  await expect(page.locator('#writing-category')).toBeDisabled();
+  await expect(
+    page.getByText('Search needs JavaScript.', { exact: false }),
+  ).toBeVisible();
+  await page
+    .getByRole('link', { name: 'Bioinformatics & Genomics →', exact: true })
+    .click();
+  await expect(page.locator('h1')).toHaveText('Bioinformatics & Genomics');
   await context.close();
 });
 test('production excludes drafts and returns a real 404 locally', async ({

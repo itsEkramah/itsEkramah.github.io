@@ -67,7 +67,7 @@ try {
   for (const category of ids) {
     await writeFile(
       path.join(fixture, `src/content/articles/qa-${category}.md`),
-      `---\ntitle: 'Synthetic test: ${category}'\ndescription: 'Only an isolated publishing test fixture, never deployed.'\ncategory: ${category}\nformat: research-note\ntags: [QA]\ndraft: false\nreviewed: true\npublishedAt: 2026-01-01\n---\n\n## Test content\n\nSynthetic content for a local integration test.\n`,
+      `---\ntitle: 'Synthetic test: ${category}'\ndescription: 'Only an isolated publishing test fixture, never deployed.'\ncategory: ${category}\nformat: research-note\ntags: [QA]\ndraft: false\nreviewed: true\nfeatured: true\npublishedAt: 2026-01-01\n---\n\n## Test content\n\nSynthetic content for a local integration test.\n`,
     );
   }
   await writeFile(

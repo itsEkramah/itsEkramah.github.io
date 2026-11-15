@@ -17,11 +17,11 @@ export async function featuredArticles() {
     return published
       .sort(
         (a, b) =>
+          +b.data.publishedAt! - +a.data.publishedAt! ||
           Number(b.data.featured) - Number(a.data.featured) ||
           (a.data.featured && b.data.featured
             ? a.data.featureOrder - b.data.featureOrder
-            : 0) ||
-          +b.data.publishedAt! - +a.data.publishedAt!,
+            : 0),
       )
       .slice(0, 3);
   return reviewMode
