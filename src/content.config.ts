@@ -27,6 +27,9 @@ const articles = defineCollection({
       tags: z.array(z.string()).max(5).default([]),
       draft: z.boolean().default(true),
       reviewed: z.boolean().default(false),
+      demo: z.boolean().default(false),
+      featured: z.boolean().default(false),
+      featureOrder: z.number().int().min(1).default(100),
       publishedAt: z.coerce.date().optional(),
       updatedAt: z.coerce.date().optional(),
       references: z
@@ -35,6 +38,12 @@ const articles = defineCollection({
       relatedProjectIds: z.array(reference('projects')).default([]),
     })
     .superRefine((data, ctx) => {
+      if (data.demo && !data.draft)
+        ctx.addIssue({
+          code: 'custom',
+          message:
+            'Demo content must remain a draft; remove the demo flag only after explicit editorial approval.',
+        });
       if (!data.draft && (!data.reviewed || !data.publishedAt))
         ctx.addIssue({
           code: 'custom',

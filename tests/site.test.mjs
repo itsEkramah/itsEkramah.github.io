@@ -53,7 +53,9 @@ test('draft articles and 404 are excluded from the production sitemap', async ()
       !pages.some((p) => p.file.replaceAll('\\', '/').includes(draft.url)),
     );
   const sitemap = await readFile('dist/sitemap-0.xml', 'utf8');
+  const feed = await readFile('dist/feed.xml', 'utf8');
   for (const draft of drafts) assert.ok(!sitemap.includes(draft.url));
+  for (const draft of drafts) assert.ok(!feed.includes(draft.url));
   assert.ok(!sitemap.includes('404'));
   assert.ok((await readFile('dist/404.html', 'utf8')).includes('noindex'));
 });

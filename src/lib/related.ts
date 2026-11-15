@@ -2,9 +2,10 @@ import type { CollectionEntry } from 'astro:content';
 export function relatedArticles(
   current: CollectionEntry<'articles'>,
   articles: CollectionEntry<'articles'>[],
+  includeDrafts = false,
 ) {
   return articles
-    .filter((a) => a.id !== current.id && !a.data.draft)
+    .filter((a) => a.id !== current.id && (!a.data.draft || includeDrafts))
     .map((article) => ({
       article,
       score:

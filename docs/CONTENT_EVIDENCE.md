@@ -24,3 +24,9 @@ Inspection date: 15 November 2026. Repository baseline: `47469fe`. Existing file
 - Code highlighting: Prism at build time, local CSS. Equations: KaTeX-generated native MathML with source annotations.
 
 Owner review of rewritten professional copy and the AMR note remains required before initial public deployment. Automated link and build checks cannot establish scientific truth or professional credentials independently.
+
+## Owner revision: long-form demo articles and homepage hierarchy
+
+The owner supplied five Markdown files from Downloads and a visual reference. Their text is integrated as demonstration drafts, never as verified prior publications. The import preserves body prose and DEMO DRAFT notices, removes the duplicate body H1, maps category display names to stable IDs, and adds validated format/review/demo/feature metadata. Short descriptions summarise the supplied text. No date or reference has been invented.
+
+The reference image is used for compact editorial hierarchy, article prominence and five service groups. Its portrait, domain, dates, project depictions and social accounts are not copied or treated as factual. Services are scoped to existing repository evidence; Web Development and Technical SEO describe bounded possible deliverables, not proven client outcomes. Portfolio now uses `/portfolio/`; Work routes remain excluded-from-sitemap aliases.

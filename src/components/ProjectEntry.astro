@@ -12,7 +12,7 @@ const { data, id } = project;
 <article class:list={['project-entry', { compact }]}>
   {!compact && data.image && (
     <a
-      href={`/work/${id}/`}
+      href={`/portfolio/${id}/`}
       class="project-figure"
       tabindex="-1"
       aria-hidden="true"
@@ -33,13 +33,13 @@ const { data, id } = project;
       {data.period && ` · ${data.period}`}
     </p>
     <h3>
-      <a href={`/work/${id}/`}>
+      <a href={`/portfolio/${id}/`}>
         {data.shortTitle} <span aria-hidden="true">↗</span>
       </a>
     </h3>
     <p>{data.summary}</p>
     <p class="tools">{data.tools.join(' / ')}</p>
-    <a class="text-link" href={`/work/${id}/`}>
+    <a class="text-link" href={`/portfolio/${id}/`}>
       Read case study <span aria-hidden="true">→</span>
     </a>
   </div>

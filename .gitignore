@@ -2,6 +2,7 @@ node_modules/
 dist/
 .astro/
 .qa-build/
+.demo-build/
 .qa-fixtures/
 test-results/
 playwright-report/

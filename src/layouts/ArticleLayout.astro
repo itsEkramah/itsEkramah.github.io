@@ -52,7 +52,7 @@ const projects = await Promise.all(
         </div>
       </header>
       {headings.filter((h) => h.depth === 2).length > 2 && (
-        <details class="toc" open>
+        <details class="toc">
           <summary>In this note</summary>
           <ul>
             {headings
@@ -88,7 +88,7 @@ const projects = await Promise.all(
               (p) =>
                 p && (
                   <li>
-                    <a href={`/work/${p.id}/`}>{p.data.shortTitle} →</a>
+                    <a href={`/portfolio/${p.id}/`}>{p.data.shortTitle} →</a>
                   </li>
                 ),
             )}
@@ -102,3 +102,30 @@ const projects = await Promise.all(
     </article>
   </div>
 </BaseLayout>
+<script>
+  document.querySelectorAll<HTMLElement>('.prose pre').forEach((pre) => {
+    const code = pre.querySelector('code');
+    if (!code) return;
+    const toolbar = document.createElement('div');
+    toolbar.className = 'code-toolbar';
+    const language = document.createElement('span');
+    language.textContent =
+      code.className.match(/language-([\w-]+)/)?.[1] || 'Code';
+    const button = document.createElement('button');
+    button.type = 'button';
+    button.className = 'copy-code';
+    button.textContent = 'Copy code';
+    const status = document.createElement('span');
+    status.setAttribute('role', 'status');
+    button.addEventListener('click', async () => {
+      try {
+        await navigator.clipboard.writeText(code.textContent || '');
+        status.textContent = 'Code copied.';
+      } catch {
+        status.textContent = 'Copy unavailable. Select the code to copy it.';
+      }
+    });
+    toolbar.append(language, status, button);
+    pre.before(toolbar);
+  });
+</script>

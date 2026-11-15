@@ -1,6 +1,6 @@
 import { execFileSync } from 'node:child_process';
 import { readFile, writeFile } from 'node:fs/promises';
-import { readPages, attributes } from './html.mjs';
+import { readPages, attributes, exists } from './html.mjs';
 const patterns = [
   /(?:gh[pousr]_[A-Za-z0-9]{30,}|github_pat_[A-Za-z0-9_]{30,})/g,
   /AKIA[0-9A-Z]{16}/g,
@@ -31,7 +31,7 @@ const sourceFiles = execFileSync(
 for (const file of [...new Set(sourceFiles)].filter((f) =>
   /\.(astro|[cm]?js|ts|json|mdx?|ya?ml|html|css|svg|txt|toml)$/.test(f),
 ))
-  scan(await readFile(file, 'utf8'), file);
+  if (await exists(file)) scan(await readFile(file, 'utf8'), file);
 const revisions = execFileSync('git', ['rev-list', '--all'], {
   encoding: 'utf8',
 })

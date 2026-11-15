@@ -15,9 +15,9 @@ Development shows marked drafts. `npm run build` followed by `npm run preview` s
 
 ## Authoring
 
-Create a Markdown or MDX file in `src/content/articles/`. The library, populated category pages, homepage's three recent articles, related reading, RSS, metadata and sitemap update automatically. No layout edits are required. **[The publishing guide](docs/PUBLISHING.md)** covers VS Code, GitHub web editing, previewing, figures, equations, updates and unpublishing.
+Create a Markdown or MDX file in `src/content/articles/`. The library, populated category pages, homepage’s three featured articles, related reading, RSS, metadata and sitemap update automatically. No layout edits are required. Portfolio is available at `/portfolio/`; the older `/work/` routes are noindex aliases with Portfolio canonicals. **[The publishing guide](docs/PUBLISHING.md)** covers VS Code, GitHub web editing, previewing, figures, equations, updates and unpublishing.
 
-Five unpublished examples are included, one per category. The AMR note awaits owner review; initially no article is published. Draft files in this public repository remain readable on GitHub; they are excluded from the generated website, not confidential.
+Five owner-supplied long-form demonstration articles are included, one per category, alongside internal authoring examples. The AMR note awaits owner review; initially no article is published. Draft files in this public repository remain readable on GitHub; they are excluded from the generated website, not confidential.
 
 | Content                              | Location                   |
 | ------------------------------------ | -------------------------- |
@@ -32,6 +32,17 @@ Five unpublished examples are included, one per category. The AMR note awaits ow
 
 Original root HTML/CSS/assets are preserved as the migration baseline. Astro deploys only `dist/`. The pre-migration baseline is commit `47469fe`.
 
+## Review the new design with the five demo articles
+
+```sh
+npm run demo:build
+npm run demo:preview
+```
+
+Open the printed address (port 4323). This mode shows only the supplied demonstration drafts and any genuinely published articles, with a visible preview notice. Drafts have no publication dates. Category pages and filters work here for design review. `npm run qa:article` is the broader author-review build, also including internal authoring examples. Neither preview directory is deployed. The ordinary production build contains only real published articles and an honest empty state when there are none.
+
+The homepage order is introduction → featured writing → five services → two compact projects → background → contact. It has no portrait or fixed sidebar. Full figures and case studies are on the Portfolio pages.
+
 ## Checks
 
 ```sh
@@ -45,6 +56,7 @@ npm run audit:security
 npm audit
 npm audit --omit=dev
 npm run qa:article
+npm run demo:build
 npx playwright install chromium firefox webkit
 npm run test:e2e
 ```

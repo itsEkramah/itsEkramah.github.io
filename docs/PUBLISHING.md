@@ -127,3 +127,11 @@ MDX can execute JavaScript at build time. Only the owner or trusted, reviewed co
 - Keep filenames/categories stable after publication. Renaming changes the URL and requires an explicit redirect plan. Never edit generated `dist/` files.
 
 An invalid category, malformed YAML, bad reference, future date or missing review/date blocks publication. Correct the named source file, rerun validation and inspect the failed Actions step. The previous successful Pages deployment remains available if a new build fails.
+
+## Supplied demonstration articles and design preview
+
+The five long-form articles supplied on 15 November 2026 have `demo: true`, `draft: true`, no publication date and their original DEMO DRAFT notices. Run `npm run demo:build` and `npm run demo:preview` to review exactly these five in the finished design. Category pages are available in demo/author preview and carry noindex. Production category pages appear only with genuinely published content.
+
+A demo cannot be published just by setting `draft: false`: validation also requires the demo flag to be removed following explicit owner/editorial approval. Verify technical statements, provide primary references and original examples where needed, then follow the normal review/date workflow. Never treat a formatting example as previously published work.
+
+Use `featured: true` to prefer an article for the homepage; published dates determine recency within that group. With fewer than three published articles, only those articles appear. Drafts never fill gaps in a production homepage. `featureOrder` orders the sample cards in preview mode and is not a publication date.

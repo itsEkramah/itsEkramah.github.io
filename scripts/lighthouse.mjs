@@ -37,7 +37,7 @@ const chrome = await launch({
 });
 const pages = [
   ['home', 'http://127.0.0.1:4321/'],
-  ['work', 'http://127.0.0.1:4321/work/'],
+  ['work', 'http://127.0.0.1:4321/portfolio/'],
   ['services', 'http://127.0.0.1:4321/services/'],
   ['writing', 'http://127.0.0.1:4321/writing/'],
   [

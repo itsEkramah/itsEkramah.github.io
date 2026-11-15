@@ -1,13 +1,13 @@
 ---
 import type { CollectionEntry } from 'astro:content';
 import { articleUrl } from '../lib/site';
-import { visibleArticles } from '../lib/content';
+import { visibleArticles, reviewMode } from '../lib/content';
 import { relatedArticles } from '../lib/related';
 interface Props {
   article: CollectionEntry<'articles'>;
 }
 const { article } = Astro.props;
-const related = relatedArticles(article, await visibleArticles());
+const related = relatedArticles(article, await visibleArticles(), reviewMode);
 ---
 
 <ul class="tags" aria-label="Article tags">

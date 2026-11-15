@@ -17,7 +17,7 @@ export async function getStaticPaths() {
   }));
   for (const category of Object.keys(categories) as Category[]) {
     const categoryArticles = articles.filter(
-      (a) => !a.data.draft && a.data.category === category,
+      (a) => a.data.category === category,
     );
     if (categoryArticles.length >= 1)
       paths.push({

@@ -117,6 +117,64 @@ p {
 .wordmark span {
   color: var(--teal);
 }
+.wordmark {
+  display: inline-flex;
+  align-items: center;
+  gap: 15px;
+  flex-shrink: 0;
+}
+.wordmark .brand-monogram {
+  font-size: 1.8rem;
+  font-weight: 400;
+  letter-spacing: -0.13em;
+  border-right: 1px solid var(--border);
+  padding-right: 17px;
+}
+.wordmark .brand-name {
+  font-family: var(--heading);
+  font-size: 1rem;
+  font-weight: 700;
+  letter-spacing: -0.015em;
+  color: var(--ink);
+}
+.site-header nav {
+  column-gap: 19px;
+}
+.preview-notice {
+  background: var(--pale);
+  border-bottom: 1px solid var(--border);
+  color: var(--teal);
+  padding-block: 8px;
+  font-size: 0.7rem;
+}
+.preview-notice p {
+  margin-block: 0;
+}
+.table-scroll {
+  overflow-x: auto;
+  max-width: 100%;
+  margin-block: 24px;
+}
+.code-toolbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 0.7rem;
+  color: var(--muted);
+}
+.copy-code {
+  border: 1px solid var(--border);
+  background: white;
+  color: var(--teal);
+  padding: 6px 12px;
+  min-height: 36px;
+}
+.evidence li a,
+.toc li a {
+  display: inline-block;
+  min-height: 28px;
+  padding-block: 3px;
+}
 .site-header nav {
   display: flex;
   align-items: center;

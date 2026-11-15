@@ -2,7 +2,7 @@
 import { site } from '../lib/site';
 const path = Astro.url.pathname;
 const links = [
-  ['Work', '/work/'],
+  ['Portfolio', '/portfolio/'],
   ['Services', '/services/'],
   ['Writing', '/writing/'],
   ['About', '/about/'],
@@ -15,7 +15,10 @@ const links = [
 </a>
 <header class="site-header wrap">
   <a class="wordmark" href="/" aria-label="Muhammad Ekramah — home">
-    Ekramah<span aria-hidden="true">.</span>
+    <span class="brand-monogram" aria-hidden="true">
+      ME
+    </span>
+    <span class="brand-name">Muhammad Ekramah</span>
   </a>
   <nav aria-label="Main navigation">
     {links.map(([label, href]) => (

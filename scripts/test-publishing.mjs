@@ -10,6 +10,7 @@ import {
 import path from 'node:path';
 import { spawnSync } from 'node:child_process';
 import assert from 'node:assert/strict';
+import { filesIn } from './html.mjs';
 const root = process.cwd();
 const fixtureParent = path.join(root, '.qa-fixtures');
 await mkdir(fixtureParent, { recursive: true });
@@ -36,6 +37,7 @@ function build() {
 try {
   for (const name of [
     'src',
+    'scripts',
     'public',
     'astro.config.mjs',
     'tsconfig.json',
@@ -49,6 +51,18 @@ try {
     path.join(fixture, 'node_modules'),
     process.platform === 'win32' ? 'junction' : 'dir',
   );
+  // Isolate synthetic publication tests from the owner's real publishing history.
+  for (const file of await filesIn(
+    path.join(fixture, 'src/content/articles'),
+  )) {
+    const source = await readFile(file, 'utf8');
+    await writeFile(
+      file,
+      source
+        .replace(/^draft:\s*false\s*$/m, 'draft: true')
+        .replace(/^reviewed:\s*true\s*$/m, 'reviewed: false'),
+    );
+  }
   for (const category of ids) {
     await writeFile(
       path.join(fixture, `src/content/articles/qa-${category}.md`),

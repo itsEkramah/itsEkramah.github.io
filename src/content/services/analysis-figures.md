@@ -1,23 +1,23 @@
 ---
-title: Exploratory analysis & research figures
-summary: Understand a dataset through descriptive analysis, clear tables and carefully labelled figures.
+title: Data Analysis & Visualization
+summary: Checked datasets, descriptive analysis and clearly labelled figures using Python or R.
 order: 2
-audience: Researchers who need exploratory summaries and editable figures in Python or R.
+audience: Researchers and small teams working with tabular data or preparing exploratory reports.
 deliverables:
   [
-    Documented analysis and editable figures,
-    Descriptive tables with clear labels,
-    Assumptions and limitations alongside the results,
+    Data-quality checks and a change summary,
+    Reusable analysis scripts and descriptive tables,
+    Editable figures with assumptions and limitations,
   ]
 boundaries:
   [
-    Methods depend on the study design and data quality.,
-    No clinical advice or diagnostic interpretation.,
-    Academic authorship and contributions must remain accurate.,
+    Validation rules and a sample are agreed before processing.,
+    No confidential or patient-identifiable data through email.,
+    Analysis does not establish clinical or causal conclusions by itself.,
   ]
-relatedProjectIds: [notch2-rnaseq, genomic-amr]
+relatedProjectIds: [data-quality-workbench, notch2-rnaseq, genomic-amr]
 ---
 
-We begin with the scientific question and the experimental unit, then agree on summaries that the data can support. Sample structure and unusual observations are part of the interpretation.
+Start with the question and the unit of observation. Data preparation can include duplicate checks, missing-value review and explicit transformations, with original files preserved.
 
-Delivery includes readable analysis and the context needed to understand what a plot can and cannot establish.
+Exploratory summaries and figures are chosen to match the data and design. Delivery includes readable analysis and the context needed to understand what the result can and cannot establish.

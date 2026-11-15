@@ -25,6 +25,8 @@
     "audit:security": "node scripts/audit-security.mjs",
     "audit:licenses": "node scripts/license-inventory.mjs",
     "qa:article": "node scripts/preview-article.mjs",
+    "demo:build": "astro build --mode demo --outDir .demo-build",
+    "demo:preview": "node scripts/serve.mjs .demo-build 4323",
     "qa:lighthouse": "node scripts/lighthouse.mjs"
   },
   "dependencies": {

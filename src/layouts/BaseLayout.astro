@@ -12,7 +12,9 @@ interface Props {
 }
 const { title, description, noindex = false, article } = Astro.props;
 const canonical = new URL(
-  Astro.url.pathname === '/404/' ? '/404.html' : Astro.url.pathname,
+  Astro.url.pathname === '/404/'
+    ? '/404.html'
+    : Astro.url.pathname.replace(/^\/work\//, '/portfolio/'),
   site.url,
 );
 const isAbout = Astro.url.pathname === '/about/';
@@ -26,7 +28,9 @@ const isAbout = Astro.url.pathname === '/about/';
     <title>{title} | Muhammad Ekramah</title>
     <meta name="description" content={description} />
     <link rel="canonical" href={canonical} />
-    {(noindex || import.meta.env.MODE === 'review') && (
+    {(noindex ||
+      ['review', 'demo'].includes(import.meta.env.MODE) ||
+      Astro.url.pathname.startsWith('/work/')) && (
       <meta name="robots" content="noindex, nofollow" />
     )}
     <meta name="theme-color" content="#F8F7F3" />
@@ -102,6 +106,14 @@ const isAbout = Astro.url.pathname === '/about/';
     )}
   </head>
   <body>
+    {['review', 'demo'].includes(import.meta.env.MODE) && (
+      <div class="preview-notice">
+        <p class="wrap">
+          Unpublished demo preview · Draft articles are visible for review. They
+          are excluded from the production website.
+        </p>
+      </div>
+    )}
     <Header />
     <main id="main" tabindex="-1">
       <slot />

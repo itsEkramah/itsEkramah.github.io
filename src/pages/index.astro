@@ -1,139 +1,89 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
-import ProjectEntry from '../components/ProjectEntry.astro';
-import ArticleEntry from '../components/ArticleEntry.astro';
+import FeaturedArticle from '../components/FeaturedArticle.astro';
+import ServiceIcon from '../components/ServiceIcon.astro';
 import { getCollection } from 'astro:content';
+import { featuredArticles } from '../lib/content';
 import { categories } from '../lib/taxonomy';
 import { site } from '../lib/site';
-const projects = (
-  await getCollection('projects', ({ data }) => data.featured)
-).sort((a, b) => a.data.order - b.data.order);
+import '../styles/home.css';
+const projects = (await getCollection('projects', ({ data }) => data.featured))
+  .sort((a, b) => a.data.order - b.data.order)
+  .slice(0, 2);
 const services = (await getCollection('services')).sort(
   (a, b) => a.data.order - b.data.order,
 );
-const articles = (
-  await getCollection('articles', ({ data }) => !data.draft)
-).sort((a, b) => +b.data.publishedAt! - +a.data.publishedAt!);
+const articles = await featuredArticles();
 ---
 
 <BaseLayout
   title="Bioinformatics, data & research software"
-  description="Muhammad Ekramah is a bioinformatics graduate working with biological data, reproducible analysis and practical Python development. Explore projects, services and writing."
+  description="Muhammad Ekramah's work in bioinformatics, data analysis and Python software. Explore the portfolio, scoped professional services and technical writing."
 >
-  <div class="wrap">
-    <section class="hero" aria-labelledby="intro-title">
-      <div class="hero-topline">
-        <p class="eyebrow">Muhammad Ekramah / Bioinformatics graduate</p>
-        <span class="location">Quaid-i-Azam University, Islamabad</span>
-      </div>
+  <div class="wrap editorial-home">
+    <section class="intro-editorial" aria-labelledby="intro-title">
+      <p class="eyebrow">
+        Muhammad Ekramah / Bioinformatics · Data · Development
+      </p>
       <h1 id="intro-title">
-        Biological questions.
+        Biological data.
         <br />
-        <em>Computational thinking.</em>
+        <em>Clear methods. Useful tools.</em>
       </h1>
-      <div class="hero-bottom">
-        <p class="hero-intro">
-          I work with biological data and build practical tools for reproducible
-          analysis. My focus is genomics, careful evaluation and clear, usable
-          software.
-        </p>
-        <div class="actions">
-          <a class="button" href="/work/">
-            View Portfolio <span aria-hidden="true">→</span>
-          </a>
-          <a class="button secondary" href="/services/">
-            Explore Services <span aria-hidden="true">→</span>
-          </a>
-        </div>
-      </div>
-      <div class="quick-links">
-        <a href="/writing/">Read Writing →</a>
-        <a href={site.cv}>
-          Download CV <span class="tiny">PDF ↗</span>
+      <p class="intro-description">
+        I’m a Bioinformatics graduate from Quaid-i-Azam University. I analyse
+        biological data, build practical Python tools and document the methods
+        and limits behind the work.
+      </p>
+      <div class="actions">
+        <a class="button" href="/portfolio/">
+          Explore Portfolio <span aria-hidden="true">→</span>
         </a>
+        <a class="button secondary" href="/services/">
+          View Services <span aria-hidden="true">→</span>
+        </a>
+        <a class="button secondary" href="/writing/">
+          Read Articles <span aria-hidden="true">→</span>
+        </a>
+      </div>
+      <div class="intro-links">
+        <a href={site.cv}>Download CV · PDF ↗</a>
         <a href="/about/#experience">Experience →</a>
         <a href={site.github}>GitHub ↗</a>
       </div>
     </section>
-    <section class="section" aria-labelledby="selected-work">
-      <div class="section-heading">
+    <section class="home-section" aria-labelledby="featured-writing">
+      <div class="editorial-section-head">
         <div>
-          <p class="eyebrow">01 / Selected work</p>
-          <h2 id="selected-work">From data to defensible evidence.</h2>
-        </div>
-        <a class="text-link" href="/work/">
-          All projects →
-        </a>
-      </div>
-      <div class="project-grid">
-        {projects.slice(0, 2).map((project) => (
-          <ProjectEntry project={project} />
-        ))}
-      </div>
-      <div class="featured-third">
-        <ProjectEntry project={projects[2]} compact />
-        <aside class="project-note">
-          <h3>Methods, code and caveats.</h3>
-          <p>
-            Each case study links to the actual work and explains its limits.
-            Coursework, team prototypes and software demonstrations are
-            identified separately.
-          </p>
-        </aside>
-      </div>
-    </section>
-    <section class="section" aria-labelledby="services-title">
-      <div class="section-heading">
-        <div>
-          <p class="eyebrow">02 / Working together</p>
-          <h2 id="services-title">A defined task. A useful deliverable.</h2>
-        </div>
-        <a class="text-link" href="/services/">
-          Services & scope →
-        </a>
-      </div>
-      <div class="service-grid">
-        {services.map((service, i) => (
-          <article class="service-summary">
-            <span class="number">0{i + 1}</span>
-            <div>
-              <h3>
-                <a href={`/services/${service.id}/`}>{service.data.title}</a>
-              </h3>
-              <p>{service.data.summary}</p>
-            </div>
-          </article>
-        ))}
-      </div>
-    </section>
-    <section class="section" aria-labelledby="writing-title">
-      <div class="section-heading">
-        <div>
-          <p class="eyebrow">03 / Writing</p>
-          <h2 id="writing-title">Notes worth keeping.</h2>
+          <p class="eyebrow">01 / Writing</p>
+          <h2 id="featured-writing">Ideas, methods & field notes.</h2>
         </div>
         <a class="text-link" href="/writing/">
-          Writing library →
+          View All Articles →
         </a>
       </div>
       {articles.length ? (
-        articles
-          .slice(0, 3)
-          .map((article) => <ArticleEntry article={article} />)
-      ) : (
-        <div class="writing-summary">
-          <div>
-            <p>
-              A place for practical methods, research notes and lessons from
-              building things.
+        <>
+          {articles.some((article) => article.data.draft) && (
+            <p class="demo-context">
+              Demonstration drafts for design review. These articles are
+              unpublished and have no publication dates.
             </p>
-            <p>
-              No articles published yet. For now, the{' '}
-              <a href="/work/">project case studies</a> contain the methods,
-              evidence and limitations behind my work.
-            </p>
+          )}
+          <div class="featured-articles">
+            {articles.map((article) => (
+              <FeaturedArticle article={article} />
+            ))}
           </div>
-          <ul class="topic-list">
+        </>
+      ) : (
+        <div class="writing-launch">
+          <p>
+            No articles published yet. The library is ready for completed,
+            reviewed writing. For methods and evidence now, explore the{' '}
+            <a href="/portfolio/">portfolio case studies</a>.
+          </p>
+          <ul class="writing-topics-inline">
             {Object.values(categories).map((category) => (
               <li>{category.label}</li>
             ))}
@@ -141,17 +91,70 @@ const articles = (
         </div>
       )}
     </section>
-    <section class="section background-grid" aria-labelledby="background-title">
+    <section class="home-section" aria-labelledby="services-title">
+      <div class="editorial-section-head">
+        <div>
+          <p class="eyebrow">02 / Services</p>
+          <h2 id="services-title">Practical support, clearly scoped.</h2>
+        </div>
+        <a class="text-link" href="/services/">
+          View All Services →
+        </a>
+      </div>
+      <div class="five-services">
+        {services.map((service, index) => (
+          <article class="service-tile">
+            <ServiceIcon kind={index + 1} />
+            <h3>
+              <a href={`/services/${service.id}/`}>{service.data.title}</a>
+            </h3>
+            <p>{service.data.summary}</p>
+            <a class="service-scope" href={`/services/${service.id}/`}>
+              Scope & evidence <span aria-hidden="true">→</span>
+            </a>
+          </article>
+        ))}
+      </div>
+    </section>
+    <section class="home-section" aria-labelledby="selected-work">
+      <div class="editorial-section-head">
+        <div>
+          <p class="eyebrow">03 / Selected work</p>
+          <h2 id="selected-work">A closer look at the evidence.</h2>
+        </div>
+        <a class="text-link" href="/portfolio/">
+          View Full Portfolio →
+        </a>
+      </div>
+      <div class="compact-work">
+        {projects.map((project) => (
+          <article>
+            <p class="eyebrow">
+              {project.data.kind} · {project.data.period}
+            </p>
+            <h3>
+              <a href={`/portfolio/${project.id}/`}>
+                {project.data.shortTitle} <span aria-hidden="true">↗</span>
+              </a>
+            </h3>
+            <p>{project.data.summary}</p>
+            <a class="text-link" href={`/portfolio/${project.id}/`}>
+              Methods, results & limitations →
+            </a>
+          </article>
+        ))}
+      </div>
+    </section>
+    <section
+      class="home-section home-background"
+      aria-labelledby="background-title"
+    >
       <div>
-        <p class="eyebrow">04 / Background</p>
+        <p class="eyebrow">04 / Education & experience</p>
         <h2 id="background-title">
-          Biology meets a practical computing foundation.
+          A foundation in biology.
+          <br />A practical computing focus.
         </h2>
-        <p>
-          I studied Bioinformatics at Quaid-i-Azam University. My interests
-          include microbial genomics, transcriptomics and evaluating how well
-          models transfer to new data.
-        </p>
         <a class="text-link" href="/about/">
           About & experience →
         </a>
@@ -180,22 +183,27 @@ const articles = (
         </li>
       </ol>
     </section>
-    <section class="section contact-band" aria-labelledby="contact-title">
+    <section class="home-section home-contact" aria-labelledby="contact-title">
       <div>
         <p class="eyebrow">05 / Contact</p>
-        <h2 id="contact-title">Have a question to work on?</h2>
+        <h2 id="contact-title">What are you working on?</h2>
         <p>
-          For research opportunities, graduate study or a scoped data and
-          software project, start with the question and the output you need.
+          For research opportunities or a defined data and software task, start
+          with the question and the output you need.
         </p>
       </div>
-      <div class="actions">
-        <a class="button" href="/contact/">
-          Get in touch →
+      <div>
+        <a class="contact-email" href={`mailto:${site.email}`}>
+          {site.email}
         </a>
-        <a class="text-link" href={site.linkedin}>
-          LinkedIn ↗
-        </a>
+        <div class="actions">
+          <a class="text-link" href="/contact/">
+            Contact & project enquiries →
+          </a>
+          <a class="text-link" href={site.linkedin}>
+            LinkedIn ↗
+          </a>
+        </div>
       </div>
     </section>
   </div>

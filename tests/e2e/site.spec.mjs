@@ -5,15 +5,16 @@ const sources = await articleSources();
 const amr = sources.find((a) => a.id === 'amr-validation');
 const routes = [
   '/',
-  '/work/',
-  '/work/genomic-amr/',
-  '/work/notch2-rnaseq/',
-  '/work/pathoscope/',
-  '/work/data-quality-workbench/',
-  '/work/reviewflow/',
-  '/work/site-audit-kit/',
+  '/portfolio/',
+  '/portfolio/genomic-amr/',
+  '/portfolio/notch2-rnaseq/',
+  '/portfolio/pathoscope/',
+  '/portfolio/data-quality-workbench/',
+  '/portfolio/reviewflow/',
+  '/portfolio/site-audit-kit/',
   '/services/',
-  '/services/data-preparation/',
+  '/services/web-development/',
+  '/services/technical-seo/',
   '/services/analysis-figures/',
   '/services/python-development/',
   '/services/bioinformatics-support/',
@@ -22,6 +23,7 @@ const routes = [
   '/contact/',
 ];
 const article = 'http://127.0.0.1:4322/writing/bioinformatics/amr-validation/';
+const demos = sources.filter((article) => article.data.demo);
 test('direct routes, console, network privacy and axe', async ({ page }) => {
   const errors = [];
   const remote = [];
@@ -49,7 +51,7 @@ test('layouts reflow at required widths', async ({ page }, testInfo) => {
     await page.setViewportSize({ width, height: 900 });
     for (const route of [
       '/',
-      '/work/',
+      '/portfolio/',
       '/services/',
       '/writing/',
       '/about/',
@@ -84,13 +86,13 @@ test('layouts reflow at required widths', async ({ page }, testInfo) => {
 });
 test('recruiter and client paths work in two clicks', async ({ page }) => {
   await page.goto('/');
-  await page.getByRole('link', { name: 'View Portfolio' }).click();
+  await page.getByRole('link', { name: 'Explore Portfolio' }).click();
   await page.getByRole('link', { name: 'Read case study' }).first().click();
   await expect(
     page.getByRole('link', { name: 'View source on GitHub' }),
   ).toBeVisible();
   await page.goto('/');
-  await page.getByRole('link', { name: 'Explore Services' }).click();
+  await page.getByRole('link', { name: 'View Services' }).click();
   await page.getByRole('link', { name: 'Discuss a project' }).click();
   await expect(
     page.getByRole('link', { name: 'its.ekramah@outlook.com', exact: true }),
@@ -110,7 +112,7 @@ test('keyboard skip link, visible navigation and text zoom', async ({
   ).toBeFocused();
   await page.keyboard.press('Enter');
   await expect(page.locator('main')).toBeFocused();
-  for (const name of ['Work', 'Services', 'Writing', 'About', 'Contact'])
+  for (const name of ['Portfolio', 'Services', 'Writing', 'About', 'Contact'])
     await expect(
       page
         .getByRole('navigation', { name: 'Main navigation' })
@@ -219,4 +221,63 @@ test('scientific authoring renders code, equations, tables and an MDX figure', a
     .analyze();
   expect(result.violations).toEqual([]);
   expect(errors).toEqual([]);
+});
+
+test('demo preview contains five long drafts, category routes and the revised homepage order', async ({
+  page,
+}, testInfo) => {
+  expect(demos).toHaveLength(5);
+  await page.goto('http://127.0.0.1:4323/');
+  await expect(page.locator('.featured-article')).toHaveCount(3);
+  await expect(page.locator('.service-tile')).toHaveCount(5);
+  await expect(page.locator('.compact-work article')).toHaveCount(2);
+  expect(
+    (
+      await page
+        .locator('main section > .editorial-section-head .eyebrow')
+        .allTextContents()
+    ).map((text) => text.trim()),
+  ).toEqual(['01 / Writing', '02 / Services', '03 / Selected work']);
+  for (const width of [390, 768, 1440]) {
+    await page.setViewportSize({ width, height: 900 });
+    for (const [name, url] of [
+      ['home-demo', '/'],
+      ['writing-demo', '/writing/'],
+      ['article-demo', demos[0].url],
+      ['category-demo', `/writing/${demos[0].data.category}/`],
+    ]) {
+      await page.goto(`http://127.0.0.1:4323${url}`);
+      expect(
+        await page.evaluate(
+          () => document.documentElement.scrollWidth <= innerWidth,
+        ),
+      ).toBe(true);
+      if (testInfo.project.name === 'chromium')
+        await page.screenshot({
+          path: `qa/screenshots/${name}-${width}.png`,
+          fullPage: true,
+        });
+    }
+  }
+  for (const demo of demos) {
+    await page.goto(`http://127.0.0.1:4323${demo.url}`);
+    await expect(page.locator('h1')).toHaveCount(1);
+    await expect(page.locator('main')).toContainText('DEMO DRAFT');
+    expect(
+      (await page.locator('.prose').innerText()).split(/\s+/).length,
+    ).toBeGreaterThan(900);
+    await expect(page.locator('meta[name="robots"]')).toHaveAttribute(
+      'content',
+      'noindex, nofollow',
+    );
+    await expect(page.locator('time')).toHaveCount(0);
+    const result = await new AxeBuilder({ page })
+      .withTags(['wcag2a', 'wcag2aa', 'wcag21aa', 'wcag22aa'])
+      .analyze();
+    expect(result.violations).toEqual([]);
+    const production = await page.request.get(
+      `http://127.0.0.1:4321${demo.url}`,
+    );
+    expect(production.status()).toBe(404);
+  }
 });

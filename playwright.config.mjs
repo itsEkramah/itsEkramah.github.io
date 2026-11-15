@@ -13,6 +13,11 @@ export default defineConfig({
   ],
   webServer: [
     {
+      command: 'node scripts/serve.mjs .demo-build 4323',
+      url: 'http://127.0.0.1:4323',
+      reuseExistingServer: !process.env.CI,
+    },
+    {
       command: 'node scripts/serve.mjs dist 4321',
       url: 'http://127.0.0.1:4321',
       reuseExistingServer: !process.env.CI,
