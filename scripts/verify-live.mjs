@@ -113,7 +113,7 @@ try {
       );
       assert.equal(
         await page
-          .locator('meta[http-equiv="Content-Security-Policy"]')
+          .locator('meta[http-equiv="content-security-policy"]')
           .count(),
         1,
       );

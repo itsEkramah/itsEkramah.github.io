@@ -15,5 +15,6 @@ Release review: 15 November 2026. No known unresolved release blocker after the 
 | Content visibility | Draft source in a public repository | Drafts are excluded from deployed pages, feeds and sitemaps, but committed Markdown source is publicly readable. Keep confidential manuscripts elsewhere. |
 | Trusted-source risk | MDX | MDX executes at build time. Review it as code; no public uploads or CMS authentication were added. |
 | Deferred | Optional CMS and EU.org domain | CMS trade-offs are documented; no provider installed. No custom-domain or DNS migration performed. |
+| Maintenance | Initial Dependabot proposals | Update PRs are open for review and remain unmerged. They are independent of the successful website release; validate compatibility before accepting them. |
 
 Resolved during implementation: clean-checkout report-directory failure; a credential-pattern false positive in an ordinary heading slug; small citation targets; mobile/keyboard skip-link behaviour; vulnerable nested math dependency; and delayed Writing controls causing layout shift. Historical failed runs are retained in GitHub Actions. Re-run validation after future changes.

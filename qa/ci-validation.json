@@ -1,0 +1,9 @@
+{
+  "result": "PASS",
+  "sourceCommit": "416ce14d5ef4caf9e0c51131b22ea6e9d36df40c",
+  "runUrl": "https://github.com/itsEkramah/itsEkramah.github.io/actions/runs/43690932062",
+  "jobId": 132741243647,
+  "browserTests": { "passed": 27, "failed": 0, "duration": "1.1m", "engines": ["Chromium", "Firefox", "WebKit"] },
+  "validation": ["npm ci", "lint", "Astro check", "static build", "5 unit checks", "isolated publishing and unpublishing", "internal links", "secret patterns", "full dependency audit", "production dependency audit", "author and demo preview builds", "browser and axe checks"],
+  "localFollowup": "The targeted no-JavaScript regression also passed in all three engines; raw local report is local-no-js-results.json. Historical failed runs remain in Actions; the final run above passed all 27 tests."
+}

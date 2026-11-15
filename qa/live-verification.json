@@ -1,0 +1,326 @@
+{
+  "checkedAt": "2026-11-15T07:47:17.370Z",
+  "origin": "https://itsekramah.github.io",
+  "routes": [
+    {
+      "path": "/404.html",
+      "status": 200
+    },
+    {
+      "path": "/about/",
+      "status": 200
+    },
+    {
+      "path": "/contact/",
+      "status": 200
+    },
+    {
+      "path": "/",
+      "status": 200
+    },
+    {
+      "path": "/portfolio/data-quality-workbench/",
+      "status": 200
+    },
+    {
+      "path": "/portfolio/genomic-amr/",
+      "status": 200
+    },
+    {
+      "path": "/portfolio/",
+      "status": 200
+    },
+    {
+      "path": "/portfolio/notch2-rnaseq/",
+      "status": 200
+    },
+    {
+      "path": "/portfolio/pathoscope/",
+      "status": 200
+    },
+    {
+      "path": "/portfolio/reviewflow/",
+      "status": 200
+    },
+    {
+      "path": "/portfolio/site-audit-kit/",
+      "status": 200
+    },
+    {
+      "path": "/services/analysis-figures/",
+      "status": 200
+    },
+    {
+      "path": "/services/bioinformatics-support/",
+      "status": 200
+    },
+    {
+      "path": "/services/",
+      "status": 200
+    },
+    {
+      "path": "/services/python-development/",
+      "status": 200
+    },
+    {
+      "path": "/services/technical-seo/",
+      "status": 200
+    },
+    {
+      "path": "/services/web-development/",
+      "status": 200
+    },
+    {
+      "path": "/work/data-quality-workbench/",
+      "status": 200
+    },
+    {
+      "path": "/work/genomic-amr/",
+      "status": 200
+    },
+    {
+      "path": "/work/",
+      "status": 200
+    },
+    {
+      "path": "/work/notch2-rnaseq/",
+      "status": 200
+    },
+    {
+      "path": "/work/pathoscope/",
+      "status": 200
+    },
+    {
+      "path": "/work/reviewflow/",
+      "status": 200
+    },
+    {
+      "path": "/work/site-audit-kit/",
+      "status": 200
+    },
+    {
+      "path": "/writing/bioinformatics/",
+      "status": 200
+    },
+    {
+      "path": "/writing/bioinformatics/reproducible-genomics-before-the-pipeline/",
+      "status": 200
+    },
+    {
+      "path": "/writing/business-seo/",
+      "status": 200
+    },
+    {
+      "path": "/writing/business-seo/what-ninety-days-can-prove-about-seo/",
+      "status": 200
+    },
+    {
+      "path": "/writing/data-analytics/first-hour-with-a-messy-dataset/",
+      "status": 200
+    },
+    {
+      "path": "/writing/data-analytics/",
+      "status": 200
+    },
+    {
+      "path": "/writing/",
+      "status": 200
+    },
+    {
+      "path": "/writing/medicine-pharma/",
+      "status": 200
+    },
+    {
+      "path": "/writing/medicine-pharma/reading-amr-data-without-overclaiming/",
+      "status": 200
+    },
+    {
+      "path": "/writing/software-web/",
+      "status": 200
+    },
+    {
+      "path": "/writing/software-web/small-websites-fast-accessible-maintainable/",
+      "status": 200
+    },
+    {
+      "path": "/robots.txt",
+      "status": 200
+    },
+    {
+      "path": "/sitemap-index.xml",
+      "status": 200
+    },
+    {
+      "path": "/sitemap-0.xml",
+      "status": 200
+    },
+    {
+      "path": "/feed.xml",
+      "status": 200
+    },
+    {
+      "path": "/EKRAMAH_s_CV..pdf",
+      "status": 200
+    },
+    {
+      "path": "/this-page-does-not-exist-release-check/",
+      "status": 404
+    },
+    {
+      "path": "/writing/bioinformatics/amr-validation/",
+      "status": 404,
+      "draft": true
+    },
+    {
+      "path": "/writing/data-analytics/data-validation-draft/",
+      "status": 404,
+      "draft": true
+    },
+    {
+      "path": "/writing/medicine-pharma/medicine-evidence-draft/",
+      "status": 404,
+      "draft": true
+    },
+    {
+      "path": "/writing/business-seo/seo-experiment-draft/",
+      "status": 404,
+      "draft": true
+    },
+    {
+      "path": "/writing/software-web/software-authoring-draft/",
+      "status": 404,
+      "draft": true
+    }
+  ],
+  "browser": [
+    {
+      "path": "/",
+      "width": 320,
+      "status": "PASS",
+      "overflow": false
+    },
+    {
+      "path": "/portfolio/",
+      "width": 320,
+      "status": "PASS",
+      "overflow": false
+    },
+    {
+      "path": "/services/",
+      "width": 320,
+      "status": "PASS",
+      "overflow": false
+    },
+    {
+      "path": "/writing/",
+      "width": 320,
+      "status": "PASS",
+      "overflow": false
+    },
+    {
+      "path": "/writing/data-analytics/first-hour-with-a-messy-dataset/",
+      "width": 320,
+      "status": "PASS",
+      "overflow": false
+    },
+    {
+      "path": "/",
+      "width": 390,
+      "status": "PASS",
+      "overflow": false
+    },
+    {
+      "path": "/portfolio/",
+      "width": 390,
+      "status": "PASS",
+      "overflow": false
+    },
+    {
+      "path": "/services/",
+      "width": 390,
+      "status": "PASS",
+      "overflow": false
+    },
+    {
+      "path": "/writing/",
+      "width": 390,
+      "status": "PASS",
+      "overflow": false
+    },
+    {
+      "path": "/writing/data-analytics/first-hour-with-a-messy-dataset/",
+      "width": 390,
+      "status": "PASS",
+      "overflow": false
+    },
+    {
+      "path": "/",
+      "width": 1440,
+      "status": "PASS",
+      "overflow": false
+    },
+    {
+      "path": "/portfolio/",
+      "width": 1440,
+      "status": "PASS",
+      "overflow": false
+    },
+    {
+      "path": "/services/",
+      "width": 1440,
+      "status": "PASS",
+      "overflow": false
+    },
+    {
+      "path": "/writing/",
+      "width": 1440,
+      "status": "PASS",
+      "overflow": false
+    },
+    {
+      "path": "/writing/data-analytics/first-hour-with-a-messy-dataset/",
+      "width": 1440,
+      "status": "PASS",
+      "overflow": false
+    }
+  ],
+  "notes": [
+    "Chromium live smoke; cross-engine axe and publishing checks are recorded separately. Header values are observed hosting behaviour, not site-configured guarantees."
+  ],
+  "headers": {
+    "content-type": "text/html; charset=utf-8",
+    "strict-transport-security": "max-age=31556952",
+    "x-frame-options": null,
+    "content-security-policy": null,
+    "x-content-type-options": null
+  },
+  "httpRedirect": {
+    "status": 301,
+    "location": "https://itsekramah.github.io/"
+  },
+  "publishedArticles": [
+    {
+      "id": "first-hour-with-a-messy-dataset",
+      "category": "data-analytics"
+    },
+    {
+      "id": "reading-amr-data-without-overclaiming",
+      "category": "medicine-pharma"
+    },
+    {
+      "id": "reproducible-genomics-before-the-pipeline",
+      "category": "bioinformatics"
+    },
+    {
+      "id": "small-websites-fast-accessible-maintainable",
+      "category": "software-web"
+    },
+    {
+      "id": "what-ninety-days-can-prove-about-seo",
+      "category": "business-seo"
+    }
+  ],
+  "consoleErrors": [],
+  "thirdPartyRequests": [],
+  "result": "PASS"
+}

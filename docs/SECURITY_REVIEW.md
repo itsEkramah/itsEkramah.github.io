@@ -24,6 +24,8 @@ The original old HTML/CSS and CV remain in the repository as requested. Static o
 
 GitHub Pages does not honour a `_headers` file for arbitrary response headers. No such file is supplied. A meta CSP cannot enforce `frame-ancestors`, report-only policy or every response-header directive. HSTS, X-Frame-Options, certificate policy and server request logs are hosting concerns. Actual live headers and redirects require measurement after the new site is deployed.
 
+Post-deployment measurement on 15 November 2026: HTTP redirected to HTTPS with 301 and the host sent HSTS `max-age=31556952`. No X-Frame-Options, X-Content-Type-Options or CSP response header was observed. The generated meta CSP was verified on live core pages. See `qa/live-verification.json`; hosting behaviour can change independently of this repository.
+
 GitHub/DNS MFA, account recovery, branch protection and environment approvals were not changed. No DNS, EU.org/deSEC configuration, custom-domain setting, credential or OAuth grant was created. These require owner actions/approval where applicable.
 
 Residual risks include dependency compromise beyond advisory coverage, trusted MDX build execution, malicious reviewed content, public-email spam, copies of previously published material and host-controlled clickjacking/header limitations. Keep permissions small, review updates, preserve recovery access and revoke leaked credentials immediately.
