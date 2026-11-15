@@ -14,7 +14,7 @@ body {
   -webkit-font-smoothing: antialiased;
 }
 a {
-  color: var(--teal);
+  color: var(--accent);
   text-underline-offset: 0.22em;
   text-decoration-thickness: 1px;
 }
@@ -26,7 +26,7 @@ button:focus-visible,
 input:focus-visible,
 select:focus-visible,
 summary:focus-visible {
-  outline: 3px solid var(--teal);
+  outline: 3px solid var(--accent);
   outline-offset: 5px;
 }
 button,
@@ -79,7 +79,7 @@ p {
   margin-bottom: 1.2rem;
 }
 ::selection {
-  background: #d2e4dd;
+  background: var(--selection);
 }
 [hidden] {
   display: none !important;
@@ -95,7 +95,7 @@ p {
   z-index: 20;
   padding: 12px 20px;
   background: var(--ink);
-  color: white;
+  color: var(--on-accent);
 }
 .skip:focus {
   top: 12px;
@@ -115,7 +115,7 @@ p {
   letter-spacing: -0.06em;
 }
 .wordmark span {
-  color: var(--teal);
+  color: var(--accent);
 }
 .wordmark {
   display: inline-flex;
@@ -143,7 +143,7 @@ p {
 .preview-notice {
   background: var(--pale);
   border-bottom: 1px solid var(--border);
-  color: var(--teal);
+  color: var(--accent);
   padding-block: 8px;
   font-size: 0.7rem;
 }
@@ -164,8 +164,8 @@ p {
 }
 .copy-code {
   border: 1px solid var(--border);
-  background: white;
-  color: var(--teal);
+  background: var(--surface);
+  color: var(--accent);
   padding: 6px 12px;
   min-height: 36px;
 }
@@ -192,7 +192,7 @@ p {
 }
 .site-header nav a:hover,
 .site-header nav a[aria-current] {
-  color: var(--teal);
+  color: var(--accent);
   text-decoration: underline;
   text-underline-offset: 7px;
 }
@@ -210,7 +210,7 @@ p {
   font-weight: 600;
   letter-spacing: 0.11em;
   text-transform: uppercase;
-  color: var(--teal);
+  color: var(--accent);
   margin-bottom: 18px;
 }
 .hero {
@@ -232,7 +232,7 @@ p {
 }
 .hero h1 em {
   font-weight: 400;
-  color: var(--teal);
+  color: var(--accent);
 }
 .hero-bottom {
   display: grid;
@@ -261,9 +261,9 @@ p {
   padding: 11px 20px;
   font-size: 0.83rem;
   font-weight: 600;
-  background: var(--teal);
-  color: white;
-  border: 1px solid var(--teal);
+  background: var(--accent);
+  color: var(--on-accent);
+  border: 1px solid var(--accent);
   display: inline-flex;
   align-items: center;
   justify-content: center;
@@ -272,11 +272,11 @@ p {
   border-radius: 2px;
 }
 .button:hover {
-  background: #284b4f;
+  background: var(--accent-hover);
   text-decoration: none;
 }
 .button.secondary {
-  color: var(--teal);
+  color: var(--accent);
   background: transparent;
 }
 .button.secondary:hover {
@@ -327,7 +327,7 @@ p {
 }
 .project-figure {
   display: block;
-  background: white;
+  background: var(--surface);
   padding: 14px;
   border: 1px solid var(--border);
   margin: 0 0 24px;
@@ -351,13 +351,13 @@ p {
   text-decoration: none;
 }
 .project-entry h3 a:hover {
-  color: var(--teal);
+  color: var(--accent);
   text-decoration: underline;
 }
 .project-entry h3 span {
   font-family: var(--body);
   font-size: 1.1rem;
-  color: var(--teal);
+  color: var(--accent);
 }
 .project-entry p:not(.eyebrow) {
   color: var(--muted);
@@ -365,7 +365,7 @@ p {
 }
 .project-entry .tools {
   font-size: 0.73rem !important;
-  color: var(--teal) !important;
+  color: var(--accent) !important;
 }
 .compact {
   border-top: 1px solid var(--border);
@@ -404,7 +404,7 @@ p {
   gap: 18px;
 }
 .service-summary .number {
-  color: var(--teal);
+  color: var(--accent);
   font-size: 0.7rem;
   padding-top: 4px;
 }
@@ -573,7 +573,7 @@ p {
 .prose blockquote {
   margin: 2rem 0;
   padding-left: 24px;
-  border-left: 2px solid var(--teal);
+  border-left: 2px solid var(--accent);
   color: var(--muted);
 }
 .prose pre {
@@ -601,7 +601,7 @@ p {
 .figure-detail {
   margin: 32px 0;
   padding: 20px;
-  background: white;
+  background: var(--surface);
   border: 1px solid var(--border);
 }
 figcaption {
@@ -614,7 +614,7 @@ figcaption {
   background: var(--pale);
   padding: 24px 28px;
   margin-block: 32px;
-  border-left: 2px solid var(--teal);
+  border-left: 2px solid var(--accent);
 }
 .limit-note h2 {
   font-family: var(--body);
@@ -650,7 +650,7 @@ figcaption {
 .service-detail-grid aside {
   background: var(--surface);
   padding: 30px;
-  border-top: 2px solid var(--teal);
+  border-top: 2px solid var(--accent);
   align-self: start;
 }
 .service-detail-grid ul {
@@ -702,7 +702,7 @@ figcaption {
   gap: 28px 50px;
 }
 .skills dt {
-  color: var(--teal);
+  color: var(--accent);
   font-size: 0.8rem;
   font-weight: 600;
   margin-bottom: 8px;
@@ -782,9 +782,9 @@ figcaption {
 .filters input,
 .filters select {
   padding: 10px;
-  border: 1px solid #899a99;
+  border: 1px solid var(--control-border);
   border-radius: 0;
-  background: white;
+  background: var(--surface);
   color: var(--ink);
   min-width: 0;
 }
@@ -792,8 +792,8 @@ figcaption {
   align-self: end;
   min-height: 46px;
   padding-inline: 18px;
-  color: var(--teal);
-  border: 1px solid #899a99;
+  color: var(--accent);
+  border: 1px solid var(--control-border);
   background: transparent;
 }
 .article-entry {
@@ -817,7 +817,7 @@ figcaption {
 .draft-banner {
   background: var(--pale);
   padding: 16px 24px;
-  color: var(--teal);
+  color: var(--accent);
   font-size: 0.85rem;
 }
 .toc {
@@ -826,7 +826,7 @@ figcaption {
   border: 1px solid var(--border);
 }
 .toc summary {
-  color: var(--teal);
+  color: var(--accent);
   font-weight: 600;
 }
 .toc ul {
@@ -847,12 +847,12 @@ figcaption {
   list-style: none;
   padding: 0;
   margin-block: 14px;
-  color: var(--teal);
+  color: var(--accent);
   font-size: 0.75rem;
 }
 .draft-label {
   font-size: 0.75rem;
-  color: var(--teal);
+  color: var(--accent);
 }
 .katex-display {
   overflow-x: auto;
@@ -860,11 +860,11 @@ figcaption {
   padding-block: 8px;
 }
 .prose pre {
-  background: #fff;
+  background: var(--surface);
 }
 .token.comment,
 .token.prolog {
-  color: #52615c;
+  color: var(--muted);
 }
 .token.keyword,
 .token.boolean {
@@ -880,7 +880,7 @@ figcaption {
 }
 .token.operator,
 .token.punctuation {
-  color: #345f64;
+  color: var(--accent);
 }
 .error-page {
   padding-block: 90px 120px;
@@ -1108,7 +1108,7 @@ figcaption {
     display: none;
   }
   body {
-    background: white;
+    background: var(--surface);
     color: black;
   }
   .wrap {

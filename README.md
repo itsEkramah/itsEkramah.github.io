@@ -37,6 +37,8 @@ Portfolio, About and the homepage background preview use the same verified profi
 
 The local navigation/portfolio correction is documented in [its review report](qa/navigation-review/REVIEW.md), with desktop/mobile screenshots and browser evidence. This revision requires owner approval before production deployment. Set `QA_OUTPUT_DIR=qa/navigation-review` when running browser checks to keep review evidence separate from the original release.
 
+The owner subsequently approved **Forest & Paper** for the local design: warm paper `#F7F5EF`, charcoal `#242A27`, forest `#315448` and white surfaces. Shared colour tokens live in `src/styles/tokens.css`; browser theme colour and branding SVGs use the same palette. The [theme review](qa/forest-paper/REVIEW.md) contains the latest screenshots and contrast/browser evidence. Production deployment still requires explicit approval.
+
 ## Review the new design with the five demo articles
 
 ```sh

@@ -7,7 +7,7 @@
   margin-bottom: 20px;
 }
 .intro-editorial h1 em {
-  color: var(--teal);
+  color: var(--accent);
   font-weight: 400;
 }
 .intro-editorial .eyebrow {
@@ -65,7 +65,7 @@
 }
 .featured-article {
   border: 1px solid var(--border);
-  background: white;
+  background: var(--surface);
   padding: 23px 24px 14px;
   display: flex;
   flex-direction: column;
@@ -87,7 +87,7 @@
   text-decoration: none;
 }
 .featured-article h3 a:hover {
-  color: var(--teal);
+  color: var(--accent);
   text-decoration: underline;
 }
 .featured-article .article-summary {
@@ -130,13 +130,13 @@
   align-content: start;
   gap: 7px 18px;
   font-size: 0.78rem;
-  color: var(--teal);
+  color: var(--accent);
 }
 .five-services {
   display: grid;
   grid-template-columns: repeat(5, minmax(0, 1fr));
   border: 1px solid var(--border);
-  background: white;
+  background: var(--surface);
 }
 .service-tile {
   padding: 23px 19px 17px;
@@ -149,7 +149,7 @@
   border-right: 0;
 }
 .service-tile > svg {
-  color: var(--teal);
+  color: var(--accent);
   margin-bottom: 17px;
 }
 .service-tile h3 {
@@ -163,7 +163,7 @@
   text-decoration: none;
 }
 .service-tile h3 a:hover {
-  color: var(--teal);
+  color: var(--accent);
   text-decoration: underline;
 }
 .service-tile p {
@@ -203,7 +203,7 @@
   text-decoration: none;
 }
 .compact-work h3 a:hover {
-  color: var(--teal);
+  color: var(--accent);
   text-decoration: underline;
 }
 .compact-work p:not(.eyebrow) {

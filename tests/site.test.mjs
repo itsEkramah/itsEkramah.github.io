@@ -70,7 +70,14 @@ test('Markdown strips executable HTML and unsafe URLs while keeping code', async
   assert.match(result.code, /<pre/);
   assert.match(result.code, /safe/);
 });
-test('normal text palette pairs meet AA contrast', () => {
+test('actual theme tokens meet text and control contrast requirements', async () => {
+  const stylesheet = await readFile('src/styles/tokens.css', 'utf8');
+  const tokens = Object.fromEntries(
+    [...stylesheet.matchAll(/--([\w-]+):\s*#([a-f\d]{6});/gi)].map((match) => [
+      match[1],
+      match[2],
+    ]),
+  );
   const luminance = (hex) => {
     const rgb = hex
       .match(/[a-f\d]{2}/gi)
@@ -78,9 +85,21 @@ test('normal text palette pairs meet AA contrast', () => {
       .map((c) => (c <= 0.04045 ? c / 12.92 : ((c + 0.055) / 1.055) ** 2.4));
     return rgb[0] * 0.2126 + rgb[1] * 0.7152 + rgb[2] * 0.0722;
   };
-  for (const fg of ['20262B', '4C585B', '345F64'])
-    for (const bg of ['F8F7F3', 'FFFFFF', 'E9F0ED']) {
-      const l = [luminance(fg), luminance(bg)].sort((a, b) => b - a);
-      assert.ok((l[0] + 0.05) / (l[1] + 0.05) >= 4.5, `${fg} on ${bg}`);
-    }
+  const contrast = (fg, bg) => {
+    const l = [luminance(fg), luminance(bg)].sort((a, b) => b - a);
+    return (l[0] + 0.05) / (l[1] + 0.05);
+  };
+  for (const fg of ['ink', 'muted', 'accent'])
+    for (const bg of ['canvas', 'surface', 'pale'])
+      assert.ok(contrast(tokens[fg], tokens[bg]) >= 4.5, `${fg} on ${bg}`);
+  for (const bg of ['accent', 'accent-hover'])
+    assert.ok(
+      contrast(tokens['on-accent'], tokens[bg]) >= 4.5,
+      `button text on ${bg}`,
+    );
+  for (const bg of ['canvas', 'surface'])
+    assert.ok(
+      contrast(tokens['control-border'], tokens[bg]) >= 3,
+      `control boundary on ${bg}`,
+    );
 });
