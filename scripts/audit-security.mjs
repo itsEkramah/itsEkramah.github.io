@@ -5,7 +5,7 @@ const patterns = [
   /(?:gh[pousr]_[A-Za-z0-9]{30,}|github_pat_[A-Za-z0-9_]{30,})/g,
   /AKIA[0-9A-Z]{16}/g,
   /-----BEGIN (?:RSA |EC |OPENSSH )?PRIVATE KEY-----/g,
-  /sk-(?:proj-)?[A-Za-z0-9_-]{30,}/g,
+  /(?<![A-Za-z0-9_-])sk-(?:proj-)?[A-Za-z0-9_-]{30,}/g,
 ];
 const findings = [];
 let scanned = 0;
