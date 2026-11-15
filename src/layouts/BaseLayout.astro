@@ -109,8 +109,8 @@ const isAbout = Astro.url.pathname === '/about/';
     {['review', 'demo'].includes(import.meta.env.MODE) && (
       <div class="preview-notice">
         <p class="wrap">
-          Unpublished demo preview · Draft articles are visible for review. They
-          are excluded from the production website.
+          Site preview · Publication status is shown on each article.
+          Unpublished drafts remain excluded from the production website.
         </p>
       </div>
     )}

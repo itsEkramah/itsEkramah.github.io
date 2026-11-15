@@ -18,6 +18,9 @@ export async function featuredArticles() {
       .sort(
         (a, b) =>
           Number(b.data.featured) - Number(a.data.featured) ||
+          (a.data.featured && b.data.featured
+            ? a.data.featureOrder - b.data.featureOrder
+            : 0) ||
           +b.data.publishedAt! - +a.data.publishedAt!,
       )
       .slice(0, 3);
