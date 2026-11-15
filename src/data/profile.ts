@@ -4,7 +4,7 @@ export const profile = {
   name: 'Muhammad Ekramah',
   qualification: 'BS Bioinformatics graduate, Quaid-i-Azam University',
   summary:
-    'My background combines genomics, biostatistics and Python development. I have worked with AMR surveillance data, evaluated genomic prediction models, analysed RNA-seq data and contributed backend workflows to a research software prototype.',
+    'Biological questions keep me curious; data and code are how I explore them. My work has taken me through AMR surveillance, genomic prediction and RNA-seq analysis, alongside building backend workflows with a research software team. I also build practical software tools and web applications. Now, I’m looking to deepen that experience through postgraduate study in bioinformatics and data science.',
   education: {
     degree: 'BS in Bioinformatics',
     institution: 'Quaid-i-Azam University, Islamabad',

@@ -2,7 +2,7 @@
   padding-block: 46px 36px;
 }
 .intro-editorial h1 {
-  font-size: clamp(2.5rem, 4.7vw, 4.15rem);
+  font-size: clamp(2.5rem, 3.7vw, 3.35rem);
   max-width: 1060px;
   margin-bottom: 20px;
 }
