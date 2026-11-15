@@ -12,6 +12,7 @@ import { spawnSync } from 'node:child_process';
 import assert from 'node:assert/strict';
 import { filesIn } from './html.mjs';
 const root = process.cwd();
+await mkdir(path.join(root, 'qa'), { recursive: true });
 const fixtureParent = path.join(root, '.qa-fixtures');
 await mkdir(fixtureParent, { recursive: true });
 const fixture = await mkdtemp(path.join(fixtureParent, 'publishing-'));
