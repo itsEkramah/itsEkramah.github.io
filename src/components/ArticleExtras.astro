@@ -1,0 +1,29 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import { articleUrl } from '../lib/site';
+import { visibleArticles } from '../lib/content';
+import { relatedArticles } from '../lib/related';
+interface Props {
+  article: CollectionEntry<'articles'>;
+}
+const { article } = Astro.props;
+const related = relatedArticles(article, await visibleArticles());
+---
+
+<ul class="tags" aria-label="Article tags">
+  {article.data.tags.map((tag) => (
+    <li>{tag}</li>
+  ))}
+</ul>
+{related.length > 0 && (
+  <section class="evidence">
+    <h2>Related reading</h2>
+    <ul>
+      {related.map((a) => (
+        <li>
+          <a href={articleUrl(a)}>{a.data.title} →</a>
+        </li>
+      ))}
+    </ul>
+  </section>
+)}

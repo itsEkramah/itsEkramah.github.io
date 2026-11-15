@@ -1,0 +1,38 @@
+---
+import type { CollectionEntry } from 'astro:content';
+import { articleUrl, dateLabel } from '../lib/site';
+import { categories } from '../lib/taxonomy';
+interface Props {
+  article: CollectionEntry<'articles'>;
+}
+const { article } = Astro.props;
+---
+
+<article
+  class="article-entry"
+  data-article
+  data-category={article.data.category}
+  data-search={`${article.data.title} ${article.data.description} ${article.data.tags.join(' ')}`.toLowerCase()}
+>
+  <p class="eyebrow">
+    {categories[article.data.category].label} ·{' '}
+    {article.data.format.replace('-', ' ')}
+  </p>
+  <h2>
+    <a href={articleUrl(article)}>
+      {article.data.title} <span aria-hidden="true">→</span>
+    </a>
+  </h2>
+  <p>{article.data.description}</p>
+  <ul class="tags" aria-label="Tags">
+    {article.data.tags.map((tag) => (
+      <li>{tag}</li>
+    ))}
+  </ul>
+  {article.data.draft && <p class="draft-label">Unpublished draft</p>}
+  {article.data.publishedAt && (
+    <time datetime={article.data.publishedAt.toISOString()}>
+      {dateLabel(article.data.publishedAt)}
+    </time>
+  )}
+</article>

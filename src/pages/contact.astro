@@ -1,0 +1,57 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { site } from '../lib/site';
+---
+
+<BaseLayout
+  title="Contact"
+  description="Contact Muhammad Ekramah about research opportunities, graduate study or a scoped data, Python or bioinformatics project."
+>
+  <div class="wrap">
+    <header class="page-head">
+      <p class="eyebrow">Contact / Start with the question</p>
+      <h1>Let’s make the scope clear.</h1>
+      <p class="lede">
+        Research opportunities, graduate study, or a practical piece of data and
+        software work. A short description is enough to start.
+      </p>
+    </header>
+    <div class="contact-layout">
+      <div>
+        <p class="eyebrow">Email</p>
+        <p>
+          <a class="contact-email" href={`mailto:${site.email}`}>
+            {site.email}
+          </a>
+        </p>
+        <div class="quick-links">
+          <a href={site.linkedin}>LinkedIn ↗</a>
+          <a href={site.github}>GitHub ↗</a>
+          <a href={site.cv}>CV · PDF ↗</a>
+        </div>
+      </div>
+      <aside>
+        <h2>A useful first message</h2>
+        <ul>
+          <li>The question or task you’re working on.</li>
+          <li>The output you need and any timing constraints.</li>
+          <li>A link to public material, if relevant.</li>
+        </ul>
+        <p>
+          Please keep patient identifiers, confidential datasets and credentials
+          out of your message. We can agree on a suitable way to share permitted
+          material after discussing scope.
+        </p>
+      </aside>
+    </div>
+    <section class="section">
+      <h2>Privacy, simply.</h2>
+      <p>
+        This website has no contact form, analytics, advertising or tracking
+        cookies. Email opens your own mail app; external links take you to
+        services with their own privacy policies. The hosting provider may
+        process ordinary request logs.
+      </p>
+    </section>
+  </div>
+</BaseLayout>

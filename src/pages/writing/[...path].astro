@@ -1,0 +1,61 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import ArticleLayout from '../../layouts/ArticleLayout.astro';
+import ArticleEntry from '../../components/ArticleEntry.astro';
+import { visibleArticles } from '../../lib/content';
+import { categories, type Category } from '../../lib/taxonomy';
+import type { CollectionEntry } from 'astro:content';
+export async function getStaticPaths() {
+  const articles = await visibleArticles();
+  const paths = articles.map((article) => ({
+    params: { path: `${article.data.category}/${article.id}` },
+    props: {
+      article,
+      category: undefined as Category | undefined,
+      categoryArticles: [] as CollectionEntry<'articles'>[],
+    },
+  }));
+  for (const category of Object.keys(categories) as Category[]) {
+    const categoryArticles = articles.filter(
+      (a) => !a.data.draft && a.data.category === category,
+    );
+    if (categoryArticles.length >= 1)
+      paths.push({
+        params: { path: category },
+        props: { article: undefined!, category, categoryArticles },
+      });
+  }
+  return paths;
+}
+interface Props {
+  article?: CollectionEntry<'articles'>;
+  category?: Category;
+  categoryArticles: CollectionEntry<'articles'>[];
+}
+const { article, category, categoryArticles } = Astro.props;
+---
+
+{article ? (
+  <ArticleLayout article={article} />
+) : (
+  category && (
+    <BaseLayout
+      title={categories[category].label}
+      description={categories[category].description}
+    >
+      <div class="wrap">
+        <header class="page-head">
+          <p class="eyebrow">Writing / Category</p>
+          <h1>{categories[category].label}</h1>
+          <p class="lede">{categories[category].description}</p>
+          <a class="text-link" href="/writing/">
+            ← All writing
+          </a>
+        </header>
+        {categoryArticles.map((a) => (
+          <ArticleEntry article={a} />
+        ))}
+      </div>
+    </BaseLayout>
+  )
+)}

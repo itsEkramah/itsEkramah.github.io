@@ -1,0 +1,81 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import {
+  getCollection,
+  getEntry,
+  render,
+  type CollectionEntry,
+} from 'astro:content';
+export async function getStaticPaths() {
+  return (await getCollection('services')).map((service) => ({
+    params: { slug: service.id },
+    props: { service },
+  }));
+}
+interface Props {
+  service: CollectionEntry<'services'>;
+}
+const { service } = Astro.props;
+const { data } = service;
+const { Content } = await render(service);
+const projects = await Promise.all(
+  data.relatedProjectIds.map((p) => getEntry(p)),
+);
+---
+
+<BaseLayout title={data.title} description={data.summary}>
+  <div class="wrap">
+    <nav class="breadcrumbs" aria-label="Breadcrumb">
+      <a href="/">Home</a>
+      <span aria-hidden="true">/</span>
+      <a href="/services/">Services</a>
+      <span aria-hidden="true">/</span>
+      <span aria-current="page">{data.title}</span>
+    </nav>
+    <header class="page-head">
+      <p class="eyebrow">Service / Defined scope</p>
+      <h1>{data.title}</h1>
+      <p class="lede">{data.summary}</p>
+      <p>
+        For {data.audience.charAt(0).toLowerCase() + data.audience.slice(1)}
+      </p>
+    </header>
+    <div class="service-detail-grid">
+      <div>
+        <div class="prose">
+          <Content />
+        </div>
+        <h2>Typical deliverables</h2>
+        <ul>
+          {data.deliverables.map((d) => (
+            <li>{d}</li>
+          ))}
+        </ul>
+        <section class="evidence">
+          <h2>Related work</h2>
+          <ul>
+            {projects.map(
+              (p) =>
+                p && (
+                  <li>
+                    <a href={`/work/${p.id}/`}>{p.data.shortTitle} →</a>
+                  </li>
+                ),
+            )}
+          </ul>
+        </section>
+      </div>
+      <aside>
+        <h2>Boundaries</h2>
+        <ul>
+          {data.boundaries.map((b) => (
+            <li>{b}</li>
+          ))}
+        </ul>
+        <a class="button" href="/contact/">
+          Discuss your task →
+        </a>
+      </aside>
+    </div>
+  </div>
+</BaseLayout>

@@ -1,0 +1,11 @@
+:root {
+  --canvas: #f8f7f3;
+  --surface: #ffffff;
+  --ink: #20262b;
+  --muted: #4c585b;
+  --teal: #345f64;
+  --border: #d9deda;
+  --pale: #e9f0ed;
+  --heading: Georgia, 'Times New Roman', serif;
+  --body: -apple-system, BlinkMacSystemFont, 'Segoe UI', Arial, sans-serif;
+}
