@@ -35,9 +35,9 @@ Original root HTML/CSS/assets are preserved as the migration baseline. Astro dep
 
 Portfolio, About and the homepage background preview use the same verified profile data. Project frontmatter includes `methods` and `resultSummary`; service frontmatter includes `tools` and `method`, alongside existing deliverables, boundaries and related-project references. Edit those content records rather than copying facts into page components.
 
-The local navigation/portfolio correction is documented in [its review report](qa/navigation-review/REVIEW.md), with desktop/mobile screenshots and browser evidence. This revision requires owner approval before production deployment. Set `QA_OUTPUT_DIR=qa/navigation-review` when running browser checks to keep review evidence separate from the original release.
+The navigation/portfolio correction is documented in [its review report](qa/navigation-review/REVIEW.md), with desktop/mobile screenshots and browser evidence. The owner explicitly approved deployment of the complete revision on 15 November 2026. Set `QA_OUTPUT_DIR=qa/navigation-review` when running browser checks to keep review evidence separate from the original release.
 
-The owner subsequently approved **Forest & Paper** for the local design: warm paper `#F7F5EF`, charcoal `#242A27`, forest `#315448` and white surfaces. Shared colour tokens live in `src/styles/tokens.css`; browser theme colour and branding SVGs use the same palette. The [theme review](qa/forest-paper/REVIEW.md) contains the latest screenshots and contrast/browser evidence. Production deployment still requires explicit approval.
+The owner approved **Forest & Paper**: warm paper `#F7F5EF`, charcoal `#242A27`, forest `#315448` and white surfaces. Shared colour tokens live in `src/styles/tokens.css`; browser theme colour and branding SVGs use the same palette. The [theme review](qa/forest-paper/REVIEW.md) contains screenshots and contrast/browser evidence. Its local-only status describes the review stage before deployment approval; subsequent production changes require fresh approval.
 
 ## Review the new design with the five demo articles
 

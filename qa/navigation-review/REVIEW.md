@@ -1,5 +1,7 @@
 # Navigation and portfolio correction — local review
 
+Historical predeployment evidence. The owner subsequently approved publishing the complete revision, including institution links and Forest & Paper, on 15 November 2026.
+
 15 November 2026. Base release: `10ed1eaf422dd947ddfa7c97c461f153f70a0986`. Branch: `codex/navigation-portfolio-restructure`.
 
 **Not deployed.** No push to production, DNS change, dependency addition or new service integration was performed. The public site remains on the base release. Owner approval is required before merging or deploying this revision.

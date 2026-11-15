@@ -1,5 +1,7 @@
 # Forest & Paper — local theme review
 
+Historical predeployment evidence. The owner subsequently approved publishing this complete revision on 15 November 2026; the deployment workflow must pass validation before release.
+
 15 November 2026. Applied on `codex/navigation-portfolio-restructure`, following the owner-approved navigation revision and institution links (local base `10bfa19`). **Not deployed.** Remote production remains at `10ed1eaf422dd947ddfa7c97c461f153f70a0986`; no push or deployment was performed.
 
 ## Applied palette
