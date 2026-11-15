@@ -13,7 +13,15 @@ const { compact = false } = Astro.props;
       <div>
         <h3>{entry.position}</h3>
         <p class="organization">
-          {entry.organization} · {entry.location}
+          {entry.website ? (
+            <a href={entry.website}>
+              {entry.organization} · {entry.location}
+            </a>
+          ) : (
+            <>
+              {entry.organization} · {entry.location}
+            </>
+          )}
         </p>
         {!compact && (
           <>

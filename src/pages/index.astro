@@ -166,7 +166,10 @@ const articles = await featuredArticles();
           <div>
             <h3>{profile.education.degree}</h3>
             <p>
-              {profile.education.institution} · CGPA {profile.education.cgpa}
+              <a href={profile.education.institutionUrl}>
+                {profile.education.institution}
+              </a>{' '}
+              · CGPA {profile.education.cgpa}
             </p>
           </div>
         </li>
@@ -176,7 +179,15 @@ const articles = await featuredArticles();
             <div>
               <h3>{entry.position}</h3>
               <p>
-                {entry.organization} · {entry.location}
+                {entry.website ? (
+                  <a href={entry.website}>
+                    {entry.organization} · {entry.location}
+                  </a>
+                ) : (
+                  <>
+                    {entry.organization} · {entry.location}
+                  </>
+                )}
               </p>
             </div>
           </li>

@@ -8,7 +8,9 @@ export const profile = {
   education: {
     degree: 'BS in Bioinformatics',
     institution: 'Quaid-i-Azam University, Islamabad',
+    institutionUrl: 'https://qau.edu.pk/',
     centre: 'National Centre for Bioinformatics',
+    centreUrl: 'https://ncb.mdrip.com.pk/',
     period: 'September 2022–September 2026',
     shortPeriod: '2022–2026',
     cgpa: '3.40 / 4.00',
@@ -27,6 +29,7 @@ export const profile = {
   experience: [
     {
       organization: 'National Institutes of Health (NIH)',
+      website: 'https://www.nih.org.pk/',
       location: 'Islamabad, Pakistan',
       position: 'Research Intern',
       period: 'Jul–Aug 2025',
@@ -38,6 +41,7 @@ export const profile = {
     },
     {
       organization: 'Digital Empowerment Network',
+      website: undefined,
       location: 'Remote',
       position: 'Python Developer Intern',
       period: 'Jul–Sep 2024',

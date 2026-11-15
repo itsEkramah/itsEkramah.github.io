@@ -65,9 +65,11 @@ import ExperienceTimeline from '../components/ExperienceTimeline.astro';
         <p>
           {profile.education.period}
           <br />
-          <a href="https://ncb.mdrip.com.pk/">{profile.education.centre}</a>
+          <a href={profile.education.centreUrl}>{profile.education.centre}</a>
           <br />
-          <a href="https://qau.edu.pk/">{profile.education.institution}</a>
+          <a href={profile.education.institutionUrl}>
+            {profile.education.institution}
+          </a>
         </p>
         <p>CGPA: {profile.education.cgpa}</p>
       </div>

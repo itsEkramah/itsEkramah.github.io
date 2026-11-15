@@ -61,9 +61,9 @@ const { education } = profile;
         <div>
           <h3>{education.degree}</h3>
           <p>
-            {education.institution}
+            <a href={education.institutionUrl}>{education.institution}</a>
             <br />
-            {education.centre}
+            <a href={education.centreUrl}>{education.centre}</a>
           </p>
         </div>
         <div>
