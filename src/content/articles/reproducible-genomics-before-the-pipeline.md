@@ -3,15 +3,21 @@ title: 'Reproducible Genomics Starts Before You Run the Pipeline'
 description: 'A practical framework for sample metadata, environment records and validation choices in genomic workflows.'
 category: bioinformatics
 format: essay
-tags: [demo, educational]
-draft: true
-reviewed: false
-demo: true
+tags: ['Genomics', 'Reproducibility', 'Research methods']
+draft: false
+reviewed: true
+demo: false
 featured: true
 featureOrder: 1
+publishedAt: 2026-11-15
+references:
+  - label: 'Snakemake: Distribution and Reproducibility'
+    url: https://snakemake.readthedocs.io/en/stable/snakefiles/deployment.html
+  - label: 'Nextflow: Caching and resuming'
+    url: https://docs.seqera.io/nextflow/cache-and-resume
+  - label: 'scikit-learn: Common pitfalls and data leakage'
+    url: https://scikit-learn.org/stable/common_pitfalls.html
 ---
-
-> **DEMO DRAFT — NOT PUBLISHED.** This sample was prepared to test the article library, layout, headings, and reading experience. Verify technical details, add genuine references and original examples, and remove this notice only when ready to publish.
 
 A sequencing analysis is rarely one command. It is a chain of decisions: which samples belong together, whether reads pass quality checks, how reference sequences are selected, what software versions are used, and which assumptions shape the interpretation. A result can look convincing on a slide and still be difficult to reproduce when a colleague tries the same analysis six months later. That gap is why reproducibility should be designed into a genomics workflow from the beginning, rather than added as a paragraph at the end of a report.
 

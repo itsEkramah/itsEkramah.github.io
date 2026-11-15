@@ -4,8 +4,9 @@ import { Image } from 'astro:assets';
 interface Props {
   project: CollectionEntry<'projects'>;
   compact?: boolean;
+  priority?: boolean;
 }
-const { project, compact = false } = Astro.props;
+const { project, compact = false, priority = false } = Astro.props;
 const { data, id } = project;
 ---
 
@@ -23,7 +24,8 @@ const { data, id } = project;
         widths={[480, 800, 1200]}
         sizes="(max-width: 700px) 92vw, 560px"
         format="webp"
-        loading="lazy"
+        loading={priority ? 'eager' : 'lazy'}
+        fetchpriority={priority ? 'high' : 'auto'}
       />
     </a>
   )}

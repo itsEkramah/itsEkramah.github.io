@@ -34,7 +34,7 @@ export default defineConfig({
         "default-src 'self'",
         "img-src 'self'",
         "font-src 'self'",
-        "connect-src 'none'",
+        "connect-src 'self'",
         "object-src 'none'",
         "base-uri 'none'",
         "form-action 'none'",

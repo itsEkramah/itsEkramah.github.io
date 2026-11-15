@@ -45,8 +45,12 @@ const projects = (await getCollection('projects')).sort(
       <div class="work-list">
         {projects
           .filter((p) => p.data.kind !== 'Software demonstration')
-          .map((project) => (
-            <ProjectEntry project={project} compact={!project.data.image} />
+          .map((project, index) => (
+            <ProjectEntry
+              project={project}
+              compact={!project.data.image}
+              priority={index === 0}
+            />
           ))}
       </div>
     </section>

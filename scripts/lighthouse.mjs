@@ -7,6 +7,7 @@ const ownedServers = [];
 for (const [directory, port] of [
   ['dist', 4321],
   ['.qa-build', 4322],
+  ['.demo-build', 4323],
 ]) {
   const url = `http://127.0.0.1:${port}/`;
   if (
@@ -41,8 +42,8 @@ const pages = [
   ['services', 'http://127.0.0.1:4321/services/'],
   ['writing', 'http://127.0.0.1:4321/writing/'],
   [
-    'article-review',
-    'http://127.0.0.1:4322/writing/bioinformatics/amr-validation/',
+    'article-demo',
+    'http://127.0.0.1:4323/writing/bioinformatics/reproducible-genomics-before-the-pipeline/',
   ],
 ];
 const summary = [];

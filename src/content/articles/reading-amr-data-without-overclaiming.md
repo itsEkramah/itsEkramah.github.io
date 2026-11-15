@@ -3,15 +3,19 @@ title: 'Reading Antimicrobial Resistance Data Without Overclaiming'
 description: 'How denominators, sampling and susceptibility methods shape what an AMR dataset can support.'
 category: medicine-pharma
 format: essay
-tags: [demo, educational]
-draft: true
-reviewed: false
-demo: true
+tags: ['AMR', 'Surveillance', 'Research methods']
+draft: false
+reviewed: true
+demo: false
 featured: true
 featureOrder: 4
+publishedAt: 2026-11-15
+references:
+  - label: 'WHO: GLASS manual for AMR surveillance in common bacteria (2023)'
+    url: https://www.who.int/publications/i/item/9789240076600
+  - label: 'EUCAST: Definition of S, I and R'
+    url: https://www.eucast.org/bacteria/clinical-breakpoints-and-interpretation/definition-of-s-i-and-r/
 ---
-
-> **DEMO DRAFT — NOT PUBLISHED.** This sample was prepared to test the article library, layout, headings, and reading experience. Verify technical details, add genuine references and original examples, and remove this notice only when ready to publish.
 
 Antimicrobial resistance is often presented through a heatmap, a percentage, or a ranking of drugs. Those summaries are useful, but they can hide the most important questions: who was sampled, why the sample was collected, what laboratory method was used, and how an isolate was classified as susceptible or resistant. A chart cannot be interpreted responsibly without the clinical and surveillance context that produced it.
 
@@ -33,11 +37,11 @@ The selection mechanism matters even when data volume is large. Tens of thousand
 
 Susceptibility categories are assigned using defined breakpoints and methods. Breakpoints can differ by antimicrobial agent, organism, testing standard, and revision year. A dataset that mixes standards or time periods needs careful harmonization. Changes in apparent resistance over time may partly reflect laboratory definitions rather than a biological shift.
 
-Retain raw MIC or inhibition-zone measurements when available, alongside the interpreted categories. Do not silently transform intermediate or unknown results into resistant or susceptible. If categories are combined for analysis, explain the rule, the rationale, and the information lost.
+Retain raw MIC or inhibition-zone measurements when available, alongside the interpreted categories. Keep category meanings tied to the stated standard: in [EUCAST terminology](https://www.eucast.org/bacteria/clinical-breakpoints-and-interpretation/definition-of-s-i-and-r/), I describes susceptibility with increased exposure, rather than the older intermediate category. Do not silently collapse I, intermediate categories from other systems, or unknown results into resistant or susceptible. If categories are combined for analysis, explain the rule, the rationale, and the information lost.
 
 ## Deduplication needs a policy
 
-Repeated isolates from the same patient can distort aggregate estimates. A common surveillance approach is to define a first-isolate rule for a particular organism and analysis period, but the appropriate policy depends on the study's purpose and governing surveillance guidance. For a longitudinal question, removing all subsequent records may discard meaningful information about changing susceptibility.
+Repeated isolates from the same patient can distort aggregate estimates. A common surveillance approach, discussed in the [WHO GLASS surveillance manual](https://www.who.int/publications/i/item/9789240076600), is to define a first-isolate rule for a particular organism and analysis period, but the appropriate policy depends on the study's purpose and governing surveillance guidance. For a longitudinal question, removing all subsequent records may discard meaningful information about changing susceptibility.
 
 Before applying any rule, quantify duplicates. Report the number of unique patients, episodes if defined, isolates, and tests. Readers should see which denominator is used for each percentage. Store deduplication code rather than making undocumented manual deletions in a spreadsheet.
 

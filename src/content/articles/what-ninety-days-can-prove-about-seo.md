@@ -3,15 +3,19 @@ title: 'What Can a New Website Prove About SEO in Ninety Days?'
 description: 'Plan a transparent search experiment that separates technical changes, observations and unsupported ranking claims.'
 category: business-seo
 format: essay
-tags: [demo, educational]
-draft: true
-reviewed: false
-demo: true
+tags: ['Technical SEO', 'Measurement', 'Content strategy']
+draft: false
+reviewed: true
+demo: false
 featured: true
 featureOrder: 5
+publishedAt: 2026-11-15
+references:
+  - label: 'Google: SEO Starter Guide'
+    url: https://developers.google.com/search/docs/fundamentals/seo-starter-guide
+  - label: 'Google Search Console: Performance report'
+    url: https://support.google.com/webmasters/answer/7576553
 ---
-
-> **DEMO DRAFT — NOT PUBLISHED.** This sample was prepared to test the article library, layout, headings, and reading experience. Verify technical details, add genuine references and original examples, and remove this notice only when ready to publish.
 
 Launching a personal website creates a useful opportunity to study search visibility in public. It does not create an instant case study of ranking success. A new domain may attract little search traffic at first, and even a technically correct page may not appear for a competitive query. The valuable experiment is to document what was published, what was measured, and which conclusions the evidence can support.
 

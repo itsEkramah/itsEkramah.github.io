@@ -17,7 +17,7 @@ Development shows marked drafts. `npm run build` followed by `npm run preview` s
 
 Create a Markdown or MDX file in `src/content/articles/`. The library, populated category pages, homepage’s three featured articles, related reading, RSS, metadata and sitemap update automatically. No layout edits are required. Portfolio is available at `/portfolio/`; the older `/work/` routes are noindex aliases with Portfolio canonicals. **[The publishing guide](docs/PUBLISHING.md)** covers VS Code, GitHub web editing, previewing, figures, equations, updates and unpublishing.
 
-Five owner-supplied long-form demonstration articles are included, one per category, alongside internal authoring examples. The AMR note awaits owner review; initially no article is published. Draft files in this public repository remain readable on GitHub; they are excluded from the generated website, not confidential.
+Five owner-supplied long-form articles are published with explicit owner approval dated 15 November 2026, one per category. Five internal authoring drafts remain unpublished, including the separate AMR validation note. Draft files in this public repository remain readable on GitHub; they are excluded from the generated website, not confidential.
 
 | Content                              | Location                   |
 | ------------------------------------ | -------------------------- |
@@ -39,7 +39,7 @@ npm run demo:build
 npm run demo:preview
 ```
 
-Open the printed address (port 4323). This mode shows only the supplied demonstration drafts and any genuinely published articles, with a visible preview notice. Drafts have no publication dates. Category pages and filters work here for design review. `npm run qa:article` is the broader author-review build, also including internal authoring examples. Neither preview directory is deployed. The ordinary production build contains only real published articles and an honest empty state when there are none.
+Open the printed address (port 4323). This mode shows published articles and any explicitly marked demonstration drafts, with a visible preview notice. Unpublished drafts have no invented publication dates. Category pages and filters work here for design review. `npm run qa:article` is the broader author-review build, also including internal authoring examples. Neither preview directory is deployed. The ordinary production build contains only real published articles and an honest empty state when there are none.
 
 The homepage order is introduction → featured writing → five services → two compact projects → background → contact. It has no portrait or fixed sidebar. Full figures and case studies are on the Portfolio pages.
 

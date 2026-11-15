@@ -3,15 +3,21 @@ title: 'The First Hour With a Messy Dataset: A Practical Audit'
 description: 'A question-first data audit: preserve the source, inspect missingness and make cleaning decisions traceable.'
 category: data-analytics
 format: essay
-tags: [demo, educational]
-draft: true
-reviewed: false
-demo: true
+tags: ['Data quality', 'Python', 'Reproducibility']
+draft: false
+reviewed: true
+demo: false
 featured: true
 featureOrder: 2
+publishedAt: 2026-11-15
+references:
+  - label: 'pandas: Working with missing data'
+    url: https://pandas.pydata.org/docs/user_guide/missing_data.html
+  - label: 'pandas: Merge, join, concatenate and compare'
+    url: https://pandas.pydata.org/docs/user_guide/merging.html
+  - label: 'scikit-learn: Common pitfalls and data leakage'
+    url: https://scikit-learn.org/stable/common_pitfalls.html
 ---
-
-> **DEMO DRAFT — NOT PUBLISHED.** This sample was prepared to test the article library, layout, headings, and reading experience. Verify technical details, add genuine references and original examples, and remove this notice only when ready to publish.
 
 A data-analysis project often begins with an apparently simple request: “Can you make a dashboard from this spreadsheet?” The temptation is to load the file and begin plotting. Yet the first hour is better spent checking what the file actually represents. A polished chart built on duplicated records, mismatched dates, and unclear units can be worse than no chart, because it makes a mistake look convincing.
 

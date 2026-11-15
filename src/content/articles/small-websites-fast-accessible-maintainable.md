@@ -3,15 +3,21 @@ title: 'A Small Website Can Be Fast, Accessible, and Maintainable'
 description: 'A practical case for clear navigation, readable content and a dependable static publishing workflow.'
 category: software-web
 format: essay
-tags: [demo, educational]
-draft: true
-reviewed: false
-demo: true
+tags: ['Accessibility', 'Web development', 'Static websites']
+draft: false
+reviewed: true
+demo: false
 featured: true
 featureOrder: 3
+publishedAt: 2026-11-15
+references:
+  - label: 'W3C: Web Content Accessibility Guidelines 2.2'
+    url: https://www.w3.org/TR/WCAG22/
+  - label: 'MDN: HTML as a basis for accessibility'
+    url: https://developer.mozilla.org/en-US/docs/Learn_web_development/Core/Accessibility/HTML
+  - label: 'Astro: Content collections'
+    url: https://docs.astro.build/en/guides/content-collections/
 ---
-
-> **DEMO DRAFT — NOT PUBLISHED.** This sample was prepared to test the article library, layout, headings, and reading experience. Verify technical details, add genuine references and original examples, and remove this notice only when ready to publish.
 
 A professional website does not need a complicated application architecture. For a portfolio, technical blog, or small business presence, a carefully built static website can provide excellent performance and a lower maintenance burden. The important work lies in choosing the right content structure, making navigation understandable, and testing what real visitors experience.
 

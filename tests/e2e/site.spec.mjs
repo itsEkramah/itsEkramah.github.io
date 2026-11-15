@@ -23,7 +23,14 @@ const routes = [
   '/contact/',
 ];
 const article = 'http://127.0.0.1:4322/writing/bioinformatics/amr-validation/';
-const demos = sources.filter((article) => article.data.demo);
+const suppliedIds = [
+  'reproducible-genomics-before-the-pipeline',
+  'reading-amr-data-without-overclaiming',
+  'first-hour-with-a-messy-dataset',
+  'small-websites-fast-accessible-maintainable',
+  'what-ninety-days-can-prove-about-seo',
+];
+const demos = sources.filter((article) => suppliedIds.includes(article.id));
 test('direct routes, console, network privacy and axe', async ({ page }) => {
   const errors = [];
   const remote = [];
@@ -223,7 +230,7 @@ test('scientific authoring renders code, equations, tables and an MDX figure', a
   expect(errors).toEqual([]);
 });
 
-test('demo preview contains five long drafts, category routes and the revised homepage order', async ({
+test('five supplied articles have dates, category routes and the revised homepage order', async ({
   page,
 }, testInfo) => {
   expect(demos).toHaveLength(5);
@@ -262,7 +269,7 @@ test('demo preview contains five long drafts, category routes and the revised ho
   for (const demo of demos) {
     await page.goto(`http://127.0.0.1:4323${demo.url}`);
     await expect(page.locator('h1')).toHaveCount(1);
-    await expect(page.locator('main')).toContainText('DEMO DRAFT');
+    await expect(page.locator('main')).not.toContainText('DEMO DRAFT');
     expect(
       (await page.locator('.prose').innerText()).split(/\s+/).length,
     ).toBeGreaterThan(900);
@@ -270,7 +277,7 @@ test('demo preview contains five long drafts, category routes and the revised ho
       'content',
       'noindex, nofollow',
     );
-    await expect(page.locator('time')).toHaveCount(0);
+    await expect(page.locator('time')).toHaveCount(1);
     const result = await new AxeBuilder({ page })
       .withTags(['wcag2a', 'wcag2aa', 'wcag21aa', 'wcag22aa'])
       .analyze();
@@ -278,6 +285,9 @@ test('demo preview contains five long drafts, category routes and the revised ho
     const production = await page.request.get(
       `http://127.0.0.1:4321${demo.url}`,
     );
-    expect(production.status()).toBe(404);
+    expect(production.status()).toBe(200);
+    await page.goto(`http://127.0.0.1:4321${demo.url}`);
+    await expect(page.locator('meta[name="robots"]')).toHaveCount(0);
+    await expect(page.locator('time')).toHaveText('15 November 2026');
   }
 });

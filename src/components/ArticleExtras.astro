@@ -7,7 +7,11 @@ interface Props {
   article: CollectionEntry<'articles'>;
 }
 const { article } = Astro.props;
-const related = relatedArticles(article, await visibleArticles(), reviewMode);
+const articles = await visibleArticles();
+const matched = relatedArticles(article, articles, reviewMode);
+const related = matched.length
+  ? matched
+  : articles.filter((a) => a.id !== article.id && !a.data.draft).slice(0, 3);
 ---
 
 <ul class="tags" aria-label="Article tags">
@@ -17,7 +21,7 @@ const related = relatedArticles(article, await visibleArticles(), reviewMode);
 </ul>
 {related.length > 0 && (
   <section class="evidence">
-    <h2>Related reading</h2>
+    <h2>{matched.length ? 'Related reading' : 'More from the library'}</h2>
     <ul>
       {related.map((a) => (
         <li>
