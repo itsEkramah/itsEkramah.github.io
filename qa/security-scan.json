@@ -1,0 +1,6 @@
+{
+  "scanned": 169,
+  "historyCommits": 18,
+  "findings": [],
+  "limitation": "Pattern-based source/history/output scan; does not prove the absence of secrets."
+}

@@ -1,0 +1,12 @@
+{
+  "result": "PASS",
+  "scenarios": [
+    "publish Markdown in all five categories",
+    "publish MDX",
+    "automatic homepage/archive/category/tags/dates/SEO/sitemap/feed",
+    "related reading",
+    "draft exclusion",
+    "unpublish and rebuild"
+  ],
+  "note": "Synthetic content was generated only inside an isolated temporary checkout, never in site sources."
+}

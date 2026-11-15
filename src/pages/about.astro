@@ -1,0 +1,139 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+import { site } from '../lib/site';
+---
+
+<BaseLayout
+  title="About & experience"
+  description="Muhammad Ekramah's bioinformatics education at Quaid-i-Azam University, NIH research internship and Python development experience."
+>
+  <div class="wrap">
+    <header class="page-head">
+      <p class="eyebrow">About / Background & direction</p>
+      <h1>A biological question is where I start.</h1>
+      <p class="lede">
+        I’m Muhammad Ekramah, a Bioinformatics graduate from Quaid-i-Azam
+        University, Islamabad. I use Python and R to explore biological data and
+        build tools that make analysis easier to inspect and repeat.
+      </p>
+      <div class="actions">
+        <a class="button" href={site.cv}>
+          Download CV · PDF ↗
+        </a>
+        <a class="text-link" href={site.github}>
+          GitHub ↗
+        </a>
+        <a class="text-link" href={site.linkedin}>
+          LinkedIn ↗
+        </a>
+      </div>
+    </header>
+    <div class="about-layout">
+      <section class="prose">
+        <h2>Research interests</h2>
+        <p>
+          My academic projects have focused on microbial genomics, antimicrobial
+          resistance and transcriptomics. They have made me particularly
+          interested in how experimental design, data quality and evaluation
+          choices affect the conclusions we can draw.
+        </p>
+        <p>
+          I am applying for MSc programmes in Bioinformatics and Data Science to
+          strengthen my foundations in statistics, machine learning and
+          computational biology.
+        </p>
+        <p>
+          I also work on practical Python and data tasks: preparing checked
+          datasets, producing figures and building small tools with documented
+          outputs.
+        </p>
+        <a class="text-link" href="/portfolio/">
+          Explore my work →
+        </a>
+      </section>
+      <section id="experience">
+        <h2>Experience</h2>
+        <ol class="timeline">
+          <li>
+            <span class="period">Jul–Aug 2025</span>
+            <div>
+              <h3>Research Intern</h3>
+              <p>National Institutes of Health · Islamabad</p>
+              <p>
+                Analysed AMR surveillance data with R and the AMR package.
+                Gained exposure to PCR diagnostics, Oxford Nanopore MinION
+                sequencing and bulk RNA-seq workflows.
+              </p>
+            </div>
+          </li>
+          <li>
+            <span class="period">Jul–Sep 2024</span>
+            <div>
+              <h3>Python Developer Intern</h3>
+              <p>Digital Empowerment Network · Remote</p>
+              <p>
+                Worked on FastAPI/PostgreSQL backend services, data processing
+                with Pandas and NumPy, and visualisation utilities for GitHub
+                Classroom analytics.
+              </p>
+            </div>
+          </li>
+        </ol>
+      </section>
+    </div>
+    <section class="section background-grid" id="education">
+      <div>
+        <p class="eyebrow">Education</p>
+        <h2>BS in Bioinformatics</h2>
+        <p>
+          September 2022–September 2026
+          <br />
+          <a href="https://ncb.mdrip.com.pk/">
+            National Centre for Bioinformatics
+          </a>
+          <br />
+          <a href="https://qau.edu.pk/">Quaid-i-Azam University, Islamabad</a>
+        </p>
+        <p>CGPA: 3.40 / 4.00</p>
+      </div>
+      <div>
+        <h3>Selected foundations</h3>
+        <p>
+          Probability and Biostatistics, Bioinformatics Computing, Genomics,
+          Functional Genomics, Systems Biology, Artificial Intelligence, Data
+          Structures and Algorithms, Modelling and Simulation.
+        </p>
+        <p>
+          Coursework, internships and independent demonstrations are labelled in
+          the <a href="/portfolio/">portfolio</a>; they are not presented as
+          equivalent to employment or client delivery.
+        </p>
+      </div>
+    </section>
+    <section class="section">
+      <p class="eyebrow">Tools & methods</p>
+      <h2>A practical working toolkit.</h2>
+      <dl class="skills">
+        <div>
+          <dt>Programming</dt>
+          <dd>Python, R, Bash, SQL</dd>
+        </div>
+        <div>
+          <dt>Data & statistics</dt>
+          <dd>
+            Pandas, NumPy, scikit-learn, grouped validation, bootstrap
+            intervals, PCA and FDR correction
+          </dd>
+        </div>
+        <div>
+          <dt>Bioinformatics</dt>
+          <dd>Genomic unitigs, bulk RNA-seq, PyDESeq2, DESeq2 and BLAST</dd>
+        </div>
+        <div>
+          <dt>Research software</dt>
+          <dd>Git, Jupyter, FastAPI and PostgreSQL</dd>
+        </div>
+      </dl>
+    </section>
+  </div>
+</BaseLayout>

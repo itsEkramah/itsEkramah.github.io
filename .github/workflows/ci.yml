@@ -1,0 +1,48 @@
+name: Validation
+on:
+  pull_request:
+  push:
+    branches: [main, 'codex/**']
+  workflow_call:
+permissions:
+  contents: read
+jobs:
+  validate:
+    runs-on: ubuntu-latest
+    timeout-minutes: 20
+    env:
+      ASTRO_TELEMETRY_DISABLED: '1'
+    steps:
+      - uses: actions/checkout@3d3c42e5aac5ba805825da76410c181273ba90b1 # v7
+        with:
+          fetch-depth: 0
+          persist-credentials: false
+      - uses: actions/setup-node@249970729cb0ef3589644e2896645e5dc5ba9c38 # v6
+        with:
+          node-version-file: .nvmrc
+          cache: npm
+      - run: npm ci
+      - run: npm run lint
+      - run: npm run check
+      - run: npm run build
+      - run: npm run test
+      - run: npm run test:publishing
+      - run: npm run audit:links
+      - run: npm run audit:security
+      - run: npm audit --audit-level=high
+      - run: npm audit --omit=dev --audit-level=high
+      - run: npm run qa:article
+      - run: npm run demo:build
+      - run: npx playwright install --with-deps chromium firefox webkit
+      - run: npm run test:e2e
+      - uses: actions/upload-artifact@b7c566a772e6b6bfb58ed0dc250532a479d7789f # v6
+        if: always()
+        with:
+          name: quality-evidence
+          path: |
+            qa/screenshots/
+            qa/playwright-results.json
+            qa/link-audit.json
+            qa/security-scan.json
+            test-results/
+          retention-days: 14

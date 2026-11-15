@@ -1,0 +1,77 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import ProjectEntry from '../../components/ProjectEntry.astro';
+import { getCollection } from 'astro:content';
+import { site } from '../../lib/site';
+const projects = (await getCollection('projects')).sort(
+  (a, b) => a.data.order - b.data.order,
+);
+---
+
+<BaseLayout
+  title="Portfolio"
+  description="Academic bioinformatics projects, a genomics team prototype and practical Python software demonstrations, with source code and explicit limitations."
+>
+  <div class="wrap">
+    <header class="page-head">
+      <p class="eyebrow">Portfolio / Selected projects</p>
+      <h1>Methods made inspectable.</h1>
+      <p class="lede">
+        Research questions, real implementations and the evidence behind them.
+        Each project explains the context, my contribution and the limits of the
+        result.
+      </p>
+      <div class="actions">
+        <a class="text-link" href={site.cv}>
+          Download CV · PDF ↗
+        </a>
+        <a class="text-link" href={site.github}>
+          GitHub repositories ↗
+        </a>
+        <a class="text-link" href="/about/#experience">
+          Experience →
+        </a>
+      </div>
+    </header>
+    <section aria-labelledby="academic-title">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">01 / Academic & research software</p>
+          <h2 id="academic-title">
+            Biological questions, computational methods.
+          </h2>
+        </div>
+      </div>
+      <div class="work-list">
+        {projects
+          .filter((p) => p.data.kind !== 'Software demonstration')
+          .map((project, index) => (
+            <ProjectEntry
+              project={project}
+              compact={!project.data.image}
+              priority={index === 0}
+            />
+          ))}
+      </div>
+    </section>
+    <section class="section" aria-labelledby="software-title">
+      <div class="section-heading">
+        <div>
+          <p class="eyebrow">02 / Applied software</p>
+          <h2 id="software-title">Small tools with a clear purpose.</h2>
+        </div>
+      </div>
+      <p class="lede">
+        AI-assisted portfolio demonstrations with public setup and validation
+        records. These are demonstrations, not client-delivery case studies.
+      </p>
+      <div class="work-list">
+        {projects
+          .filter((p) => p.data.kind === 'Software demonstration')
+          .map((project) => (
+            <ProjectEntry project={project} compact />
+          ))}
+      </div>
+    </section>
+  </div>
+</BaseLayout>

@@ -1,0 +1,51 @@
+{
+  "name": "ekramah-professional-site",
+  "version": "1.0.0",
+  "private": true,
+  "overrides": {
+    "katex": "$katex"
+  },
+  "type": "module",
+  "engines": {
+    "node": ">=24.20.0 <25",
+    "npm": ">=11"
+  },
+  "scripts": {
+    "dev": "astro dev --host 127.0.0.1",
+    "build": "astro build",
+    "preview": "astro preview --host 127.0.0.1",
+    "check": "astro check",
+    "lint": "prettier --check src scripts tests *.mjs *.json .github README.md",
+    "format": "prettier --write src scripts tests *.mjs *.json .github README.md",
+    "test": "node --test tests/*.test.mjs",
+    "test:e2e": "playwright test",
+    "test:publishing": "node scripts/test-publishing.mjs",
+    "audit:links": "node scripts/audit-links.mjs",
+    "audit:external": "node scripts/audit-external.mjs",
+    "audit:security": "node scripts/audit-security.mjs",
+    "audit:licenses": "node scripts/license-inventory.mjs",
+    "qa:article": "node scripts/preview-article.mjs",
+    "demo:build": "astro build --mode demo --outDir .demo-build",
+    "demo:preview": "node scripts/serve.mjs .demo-build 4323",
+    "qa:lighthouse": "node scripts/lighthouse.mjs"
+  },
+  "dependencies": {
+    "@astrojs/markdown-remark": "7.3.9",
+    "@astrojs/mdx": "8.1.6",
+    "@astrojs/sitemap": "3.7.5",
+    "astro": "7.4.12",
+    "katex": "0.19.1",
+    "rehype-katex": "7.0.1",
+    "rehype-sanitize": "6.0.0",
+    "remark-math": "6.0.0"
+  },
+  "devDependencies": {
+    "@astrojs/check": "0.9.12",
+    "@axe-core/playwright": "4.14.0",
+    "@playwright/test": "1.65.1",
+    "lighthouse": "13.6.0",
+    "prettier": "3.10.1",
+    "prettier-plugin-astro": "1.1.2",
+    "typescript": "5.9.3"
+  }
+}

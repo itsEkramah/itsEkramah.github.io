@@ -1,0 +1,189 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import ArticleEntry from '../../components/ArticleEntry.astro';
+import { categories, type Category } from '../../lib/taxonomy';
+import { visibleArticles, reviewMode } from '../../lib/content';
+const articles = await visibleArticles();
+const populated = (Object.keys(categories) as Category[]).filter((id) =>
+  articles.some((a) => a.data.category === id),
+);
+---
+
+<BaseLayout
+  title="Writing"
+  description="Research notes and practical writing across bioinformatics, biomedical data, analytics, software and technical SEO."
+  noindex={reviewMode}
+>
+  <div class="wrap">
+    <header class="page-head">
+      <p class="eyebrow">Writing / An independent notebook</p>
+      <h1>
+        Understand it. Build it.
+        <br />
+        Write it down.
+      </h1>
+      <p class="lede">
+        Methods, research notes and lessons from practical work. Organised by
+        subject, with sources and limitations close to the claims.
+      </p>
+    </header>
+    {articles.length > 0 ? (
+      <section aria-labelledby="articles-title">
+        <h2 id="articles-title">All writing</h2>
+        {reviewMode && (
+          <p class="draft-banner">
+            Local review: unpublished drafts are visible here only. The
+            production archive excludes them.
+          </p>
+        )}
+        <form class="filters" id="writing-filters" role="search">
+          <label>
+            Search writing
+            <input
+              type="search"
+              name="q"
+              id="writing-query"
+              placeholder="Title, topic or tag"
+              disabled
+            />
+          </label>
+          <label>
+            Category
+            <select name="category" id="writing-category" disabled>
+              <option value="all">All categories</option>
+              {populated.map((id) => (
+                <option value={id}>{categories[id].label}</option>
+              ))}
+            </select>
+          </label>
+          <button type="reset" disabled>
+            Clear filters
+          </button>
+        </form>
+        <noscript>
+          <p>
+            Search needs JavaScript. All articles and the category links below
+            remain available.
+          </p>
+        </noscript>
+        <p id="writing-count" role="status" aria-live="polite">
+          {articles.length} {articles.length === 1 ? 'article' : 'articles'}
+        </p>
+        <div id="article-list">
+          {articles.map((article) => (
+            <ArticleEntry article={article} />
+          ))}
+        </div>
+        <p id="no-results" hidden>
+          No articles match these filters. Try a different word or clear the
+          filters.
+        </p>
+      </section>
+    ) : (
+      <section class="empty-writing" aria-labelledby="empty-title">
+        <h2 id="empty-title">No articles published yet.</h2>
+        <p>
+          The library will grow as completed pieces are ready. In the meantime,
+          the <a href="/portfolio/">project case studies</a> include actual
+          methods, results and limitations.
+        </p>
+      </section>
+    )}
+    <section aria-labelledby="topics-title">
+      <h2 id="topics-title" class="topics-title">
+        Five fields of inquiry.
+      </h2>
+      <p>
+        Subjects for this library. Category links appear as articles are
+        published.
+      </p>
+      <div class="topic-directory">
+        {Object.entries(categories).map(([id, category]) => (
+          <article>
+            <h3>
+              {articles.filter((a) => a.data.category === id).length >= 1 ? (
+                <a href={`/writing/${id}/`}>{category.label} →</a>
+              ) : (
+                category.label
+              )}
+            </h3>
+            <p>{category.description}</p>
+          </article>
+        ))}
+      </div>
+    </section>
+  </div>
+</BaseLayout>
+<script>
+  const form = document.querySelector<HTMLFormElement>('#writing-filters');
+  if (form) {
+    const query = document.querySelector<HTMLInputElement>('#writing-query')!;
+    const category =
+      document.querySelector<HTMLSelectElement>('#writing-category')!;
+    const count = document.querySelector<HTMLElement>('#writing-count')!;
+    const empty = document.querySelector<HTMLElement>('#no-results')!;
+    const entries = [
+      ...document.querySelectorAll<HTMLElement>('[data-article]'),
+    ];
+    const params = new URLSearchParams(location.search);
+    query.value = params.get('q') || '';
+    if (
+      [...category.options].some(
+        (option) => option.value === params.get('category'),
+      )
+    )
+      category.value = params.get('category')!;
+    function filter(updateUrl = true) {
+      const words = query.value
+        .trim()
+        .toLocaleLowerCase()
+        .split(/\s+/)
+        .filter(Boolean);
+      let visible = 0;
+      entries.forEach((entry) => {
+        entry.hidden = !(
+          (category.value === 'all' ||
+            entry.dataset.category === category.value) &&
+          words.every((word) => entry.dataset.search?.includes(word))
+        );
+        if (!entry.hidden) visible++;
+      });
+      count.textContent = `${visible} ${visible === 1 ? 'article' : 'articles'}`;
+      empty.hidden = visible > 0;
+      if (updateUrl) {
+        const url = new URL(location.href);
+        query.value.trim()
+          ? url.searchParams.set('q', query.value.trim())
+          : url.searchParams.delete('q');
+        category.value !== 'all'
+          ? url.searchParams.set('category', category.value)
+          : url.searchParams.delete('category');
+        history.replaceState(null, '', url);
+      }
+    }
+    query.disabled = false;
+    category.disabled = false;
+    form.querySelector<HTMLButtonElement>('button[type="reset"]')!.disabled =
+      false;
+    filter(false);
+    form.addEventListener('submit', (event) => {
+      event.preventDefault();
+      filter();
+    });
+    form.addEventListener('input', () => filter());
+    form.addEventListener('change', () => filter());
+    form.addEventListener('reset', () => {
+      query.value = '';
+      category.value = 'all';
+      filter();
+      query.focus();
+    });
+    window.addEventListener('popstate', () => {
+      const params = new URLSearchParams(location.search);
+      query.value = params.get('q') || '';
+      category.value = params.get('category') || 'all';
+      if (!category.value) category.value = 'all';
+      filter(false);
+    });
+  }
+</script>

@@ -1,0 +1,36 @@
+---
+import { site } from '../lib/site';
+const path = Astro.url.pathname;
+const links = [
+  ['Portfolio', '/portfolio/'],
+  ['Services', '/services/'],
+  ['Writing', '/writing/'],
+  ['About', '/about/'],
+  ['Contact', '/contact/'],
+];
+---
+
+<a class="skip" href="#main" tabindex="0">
+  Skip to content
+</a>
+<header class="site-header wrap">
+  <a class="wordmark" href="/" aria-label="Muhammad Ekramah — home">
+    <span class="brand-monogram" aria-hidden="true">
+      ME
+    </span>
+    <span class="brand-name">Muhammad Ekramah</span>
+  </a>
+  <nav aria-label="Main navigation">
+    {links.map(([label, href]) => (
+      <a href={href} aria-current={path.startsWith(href) ? 'page' : undefined}>
+        {label}
+      </a>
+    ))}
+    <a href={site.cv} class="nav-cv">
+      CV <span class="tiny">PDF ↗</span>
+    </a>
+    <a href={site.github} class="nav-github">
+      GitHub <span aria-hidden="true">↗</span>
+    </a>
+  </nav>
+</header>
