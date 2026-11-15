@@ -23,7 +23,8 @@ Five owner-supplied long-form articles are published with explicit owner approva
 | ------------------------------------ | -------------------------- |
 | Project case studies                 | `src/content/projects/`    |
 | Services                             | `src/content/services/`    |
-| Biography, education and experience  | `src/pages/about.astro`    |
+| Education, experience and skills     | `src/data/profile.ts`      |
+| Biography and research interests     | `src/pages/about.astro`    |
 | Homepage introduction                | `src/pages/index.astro`    |
 | Contact, social profiles and CV path | `src/lib/site.ts`          |
 | Colours and system fonts             | `src/styles/tokens.css`    |
@@ -31,6 +32,10 @@ Five owner-supplied long-form articles are published with explicit owner approva
 | Public CV                            | `public/EKRAMAH_s_CV..pdf` |
 
 Original root HTML/CSS/assets are preserved as the migration baseline. Astro deploys only `dist/`. The pre-migration baseline is commit `47469fe`.
+
+Portfolio, About and the homepage background preview use the same verified profile data. Project frontmatter includes `methods` and `resultSummary`; service frontmatter includes `tools` and `method`, alongside existing deliverables, boundaries and related-project references. Edit those content records rather than copying facts into page components.
+
+The local navigation/portfolio correction is documented in [its review report](qa/navigation-review/REVIEW.md), with desktop/mobile screenshots and browser evidence. This revision requires owner approval before production deployment. Set `QA_OUTPUT_DIR=qa/navigation-review` when running browser checks to keep review evidence separate from the original release.
 
 ## Review the new design with the five demo articles
 

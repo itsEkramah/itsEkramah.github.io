@@ -326,18 +326,15 @@ p {
   min-width: 0;
 }
 .project-figure {
-  display: flex;
-  align-items: center;
-  justify-content: center;
+  display: block;
   background: white;
   padding: 14px;
   border: 1px solid var(--border);
-  aspect-ratio: 1.8;
-  margin-bottom: 24px;
+  margin: 0 0 24px;
 }
 .project-figure img {
   width: 100%;
-  height: 100%;
+  height: auto;
   object-fit: contain;
 }
 .project-entry .eyebrow {
@@ -906,9 +903,6 @@ figcaption {
   }
   .site-header nav a {
     font-size: 0.8rem;
-  }
-  .nav-github {
-    display: none !important;
   }
   .hero-bottom {
     grid-template-columns: 1fr;

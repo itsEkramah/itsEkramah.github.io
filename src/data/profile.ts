@@ -1,0 +1,81 @@
+// Verified against the existing public CV and project records. Shared by
+// Portfolio, About and the compact homepage background preview.
+export const profile = {
+  name: 'Muhammad Ekramah',
+  qualification: 'BS Bioinformatics graduate, Quaid-i-Azam University',
+  summary:
+    'My background combines genomics, biostatistics and Python development. I have worked with AMR surveillance data, evaluated genomic prediction models, analysed RNA-seq data and contributed backend workflows to a research software prototype.',
+  education: {
+    degree: 'BS in Bioinformatics',
+    institution: 'Quaid-i-Azam University, Islamabad',
+    centre: 'National Centre for Bioinformatics',
+    period: 'September 2022–September 2026',
+    shortPeriod: '2022–2026',
+    cgpa: '3.40 / 4.00',
+    coursework: [
+      'Probability and Biostatistics',
+      'Bioinformatics Computing',
+      'Genomics',
+      'Functional Genomics',
+      'Systems Biology',
+      'Artificial Intelligence',
+      'Data Structures and Algorithms',
+      'Modelling and Simulation',
+      'Database Management Systems',
+    ],
+  },
+  experience: [
+    {
+      organization: 'National Institutes of Health (NIH)',
+      location: 'Islamabad, Pakistan',
+      position: 'Research Intern',
+      period: 'Jul–Aug 2025',
+      responsibilities: [
+        'Used R and the AMR package to analyse antimicrobial-resistance surveillance data, including wastewater data, and summarise susceptibility patterns.',
+        'Gained exposure to PCR-based diagnostics, Oxford Nanopore MinION sequencing and bulk RNA-seq workflows.',
+      ],
+      tools: ['R', 'AMR package'],
+    },
+    {
+      organization: 'Digital Empowerment Network',
+      location: 'Remote',
+      position: 'Python Developer Intern',
+      period: 'Jul–Sep 2024',
+      responsibilities: [
+        'Worked on Python backend services and REST APIs using FastAPI and PostgreSQL.',
+        'Automated data cleaning and processing with Pandas and NumPy, and developed visualisation utilities for GitHub Classroom analytics as part of a team.',
+      ],
+      tools: ['Python', 'FastAPI', 'PostgreSQL', 'Pandas', 'NumPy'],
+    },
+  ],
+  skills: [
+    {
+      category: 'Programming & Backend',
+      items: 'Python, R, Bash, FastAPI and REST APIs',
+    },
+    {
+      category: 'Bioinformatics & Genomics',
+      items:
+        'Genomic unitigs, bulk RNA-seq, BLAST, PyDESeq2, DESeq2, FastQC, fastp, HISAT2 and featureCounts',
+    },
+    {
+      category: 'Data Science & Statistics',
+      items:
+        'Pandas, NumPy, PCA, bootstrap intervals and multiple-testing correction',
+    },
+    {
+      category: 'Machine Learning',
+      items:
+        'scikit-learn, logistic regression, random forests, feature selection and grouped cross-validation',
+    },
+    {
+      category: 'Databases & Development Tools',
+      items: 'PostgreSQL, SQL, SQLite, Git/GitHub, Linux and Jupyter',
+    },
+    {
+      category: 'Scientific Analysis & Visualization',
+      items:
+        'Differential-expression analysis, negative-binomial modelling, PCA plots, sample-distance heatmaps and gene-expression plots',
+    },
+  ],
+} as const;

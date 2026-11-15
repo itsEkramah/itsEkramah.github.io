@@ -3,6 +3,13 @@ title: RNA-seq analysis of Notch2 knockout neural stem cells
 shortTitle: Reading an RNA-seq experiment
 summary: A public-data reanalysis that keeps biological replication, sample structure and the limits of differential expression in view.
 kind: Academic project
+methods:
+  [
+    Combine technical files into biological samples,
+    PyDESeq2 differential-expression analysis,
+    PCA and sample-distance review,
+  ]
+resultSummary: '121 genes met FDR < 0.05 among 21,531 retained genes. Three samples per condition and the distinct WT3 sample limit interpretation.'
 period: 2025–2026
 order: 2
 featured: true

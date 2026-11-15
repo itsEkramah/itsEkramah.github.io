@@ -2,6 +2,7 @@
 import { site } from '../lib/site';
 const path = Astro.url.pathname;
 const links = [
+  ['Home', '/'],
   ['Portfolio', '/portfolio/'],
   ['Services', '/services/'],
   ['Writing', '/writing/'],
@@ -22,7 +23,19 @@ const links = [
   </a>
   <nav aria-label="Main navigation">
     {links.map(([label, href]) => (
-      <a href={href} aria-current={path.startsWith(href) ? 'page' : undefined}>
+      <a
+        href={href}
+        aria-current={
+          (
+            href === '/'
+              ? path === '/'
+              : path.startsWith(href) ||
+                (href === '/portfolio/' && path.startsWith('/work/'))
+          )
+            ? 'page'
+            : undefined
+        }
+      >
         {label}
       </a>
     ))}

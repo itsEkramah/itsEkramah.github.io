@@ -2,6 +2,8 @@
 title: Data Analysis & Visualization
 summary: Checked datasets, descriptive analysis and clearly labelled figures using Python or R.
 order: 2
+tools: [Python, R, Pandas, NumPy]
+method: Check the unit of observation and data quality, preserve original data, then choose summaries and figures appropriate to the design.
 audience: Researchers and small teams working with tabular data or preparing exploratory reports.
 deliverables:
   [

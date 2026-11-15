@@ -5,29 +5,31 @@ interface Props {
   project: CollectionEntry<'projects'>;
   compact?: boolean;
   priority?: boolean;
+  detailed?: boolean;
 }
-const { project, compact = false, priority = false } = Astro.props;
+const {
+  project,
+  compact = false,
+  priority = false,
+  detailed = false,
+} = Astro.props;
 const { data, id } = project;
 ---
 
 <article class:list={['project-entry', { compact }]}>
   {!compact && data.image && (
-    <a
-      href={`/portfolio/${id}/`}
-      class="project-figure"
-      tabindex="-1"
-      aria-hidden="true"
-    >
+    <figure class="project-figure">
       <Image
         src={data.image}
-        alt=""
+        alt={data.imageAlt || ''}
         widths={[480, 800, 1200]}
         sizes="(max-width: 700px) 92vw, 560px"
         format="webp"
         loading={priority ? 'eager' : 'lazy'}
         fetchpriority={priority ? 'high' : 'auto'}
       />
-    </a>
+      {data.imageCaption && <figcaption>{data.imageCaption}</figcaption>}
+    </figure>
   )}
   <div class="project-copy">
     <p class="eyebrow">
@@ -41,8 +43,34 @@ const { data, id } = project;
     </h3>
     <p>{data.summary}</p>
     <p class="tools">{data.tools.join(' / ')}</p>
-    <a class="text-link" href={`/portfolio/${id}/`}>
-      Read case study <span aria-hidden="true">→</span>
-    </a>
+    {detailed && (
+      <dl class="project-facts">
+        <div>
+          <dt>Methods</dt>
+          <dd>{data.methods.join('; ')}.</dd>
+        </div>
+        <div>
+          <dt>Results</dt>
+          <dd>{data.resultSummary}</dd>
+        </div>
+        <div>
+          <dt>Limitations</dt>
+          <dd>{data.limitations}</dd>
+        </div>
+      </dl>
+    )}
+    <div class="actions project-actions">
+      <a class="text-link" href={`/portfolio/${id}/`}>
+        Read case study <span aria-hidden="true">→</span>
+      </a>
+      <a class="text-link" href={data.repoUrl}>
+        GitHub ↗
+      </a>
+      {data.demoUrl && (
+        <a class="text-link" href={data.demoUrl}>
+          Video demo ↗
+        </a>
+      )}
+    </div>
   </div>
 </article>

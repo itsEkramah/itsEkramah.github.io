@@ -1,6 +1,8 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import { site } from '../lib/site';
+import { profile } from '../data/profile';
+import ExperienceTimeline from '../components/ExperienceTimeline.astro';
 ---
 
 <BaseLayout
@@ -53,56 +55,25 @@ import { site } from '../lib/site';
       </section>
       <section id="experience">
         <h2>Experience</h2>
-        <ol class="timeline">
-          <li>
-            <span class="period">Jul–Aug 2025</span>
-            <div>
-              <h3>Research Intern</h3>
-              <p>National Institutes of Health · Islamabad</p>
-              <p>
-                Analysed AMR surveillance data with R and the AMR package.
-                Gained exposure to PCR diagnostics, Oxford Nanopore MinION
-                sequencing and bulk RNA-seq workflows.
-              </p>
-            </div>
-          </li>
-          <li>
-            <span class="period">Jul–Sep 2024</span>
-            <div>
-              <h3>Python Developer Intern</h3>
-              <p>Digital Empowerment Network · Remote</p>
-              <p>
-                Worked on FastAPI/PostgreSQL backend services, data processing
-                with Pandas and NumPy, and visualisation utilities for GitHub
-                Classroom analytics.
-              </p>
-            </div>
-          </li>
-        </ol>
+        <ExperienceTimeline />
       </section>
     </div>
     <section class="section background-grid" id="education">
       <div>
         <p class="eyebrow">Education</p>
-        <h2>BS in Bioinformatics</h2>
+        <h2>{profile.education.degree}</h2>
         <p>
-          September 2022–September 2026
+          {profile.education.period}
           <br />
-          <a href="https://ncb.mdrip.com.pk/">
-            National Centre for Bioinformatics
-          </a>
+          <a href="https://ncb.mdrip.com.pk/">{profile.education.centre}</a>
           <br />
-          <a href="https://qau.edu.pk/">Quaid-i-Azam University, Islamabad</a>
+          <a href="https://qau.edu.pk/">{profile.education.institution}</a>
         </p>
-        <p>CGPA: 3.40 / 4.00</p>
+        <p>CGPA: {profile.education.cgpa}</p>
       </div>
       <div>
         <h3>Selected foundations</h3>
-        <p>
-          Probability and Biostatistics, Bioinformatics Computing, Genomics,
-          Functional Genomics, Systems Biology, Artificial Intelligence, Data
-          Structures and Algorithms, Modelling and Simulation.
-        </p>
+        <p>{profile.education.coursework.join('; ')}.</p>
         <p>
           Coursework, internships and independent demonstrations are labelled in
           the <a href="/portfolio/">portfolio</a>; they are not presented as
@@ -114,25 +85,12 @@ import { site } from '../lib/site';
       <p class="eyebrow">Tools & methods</p>
       <h2>A practical working toolkit.</h2>
       <dl class="skills">
-        <div>
-          <dt>Programming</dt>
-          <dd>Python, R, Bash, SQL</dd>
-        </div>
-        <div>
-          <dt>Data & statistics</dt>
-          <dd>
-            Pandas, NumPy, scikit-learn, grouped validation, bootstrap
-            intervals, PCA and FDR correction
-          </dd>
-        </div>
-        <div>
-          <dt>Bioinformatics</dt>
-          <dd>Genomic unitigs, bulk RNA-seq, PyDESeq2, DESeq2 and BLAST</dd>
-        </div>
-        <div>
-          <dt>Research software</dt>
-          <dd>Git, Jupyter, FastAPI and PostgreSQL</dd>
-        </div>
+        {profile.skills.map((skill) => (
+          <div>
+            <dt>{skill.category}</dt>
+            <dd>{skill.items}</dd>
+          </div>
+        ))}
       </dl>
     </section>
   </div>

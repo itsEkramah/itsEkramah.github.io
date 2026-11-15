@@ -1,0 +1,190 @@
+.page-head.destination-head {
+  padding-block: 40px 28px;
+  max-width: 900px;
+}
+.page-head.destination-head h1 {
+  font-size: clamp(2.35rem, 4.4vw, 3.35rem);
+  margin-bottom: 16px;
+}
+.page-head.destination-head .lede {
+  font-size: 1.05rem;
+  max-width: 780px;
+}
+.qualification {
+  font-weight: 600;
+  margin-bottom: 12px;
+}
+.professional-links {
+  gap: 16px 26px;
+  margin-top: 22px;
+}
+.section-nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px 26px;
+  padding-block: 16px;
+  border-block: 1px solid var(--border);
+  margin-bottom: 28px;
+}
+.section-nav a,
+.section-nav > span {
+  display: inline-flex;
+  align-items: center;
+  min-height: 40px;
+  font-size: 0.9rem;
+}
+.portfolio-section {
+  padding-block: 24px 32px;
+}
+.portfolio-section + .portfolio-section {
+  border-top: 1px solid var(--border);
+}
+.portfolio-section h2 {
+  font-size: clamp(1.9rem, 3vw, 2.5rem);
+}
+.education-record {
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 24px;
+}
+.education-record h3 {
+  font-family: var(--heading);
+  margin-bottom: 10px;
+}
+.education-record p {
+  margin-bottom: 8px;
+}
+.coursework {
+  max-width: 90ch;
+  font-size: 0.95rem;
+  color: var(--muted);
+  margin-bottom: 0;
+}
+.professional-skills {
+  margin-block: 24px 0;
+  gap: 24px 48px;
+}
+.professional-skills dt {
+  font-size: 1rem;
+  color: var(--ink);
+}
+.professional-skills dd {
+  font-size: 0.95rem;
+}
+.section-intro {
+  max-width: 80ch;
+  color: var(--muted);
+}
+.portfolio-projects {
+  padding-bottom: 0;
+  gap: 36px;
+}
+.portfolio-projects > article:last-child:nth-child(odd) {
+  grid-column: 1 / -1;
+}
+.project-facts {
+  font-size: 0.95rem;
+  margin-block: 20px;
+  max-width: 85ch;
+}
+.project-facts > div + div {
+  margin-top: 14px;
+}
+.project-facts dt {
+  font-weight: 600;
+}
+.project-facts dd {
+  margin: 4px 0 0;
+  color: var(--muted);
+}
+.project-actions {
+  gap: 10px 24px;
+  align-items: center;
+}
+.additional-projects {
+  display: grid;
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 30px;
+}
+.additional-projects .project-entry h3 {
+  font-size: 1.5rem;
+}
+.portfolio-contact {
+  padding-bottom: 40px;
+}
+.portfolio-contact > p {
+  max-width: 75ch;
+}
+.services-page .service-directory {
+  margin-bottom: 16px;
+}
+.services-page .service-index {
+  gap: 32px 48px;
+}
+.services-page .service-index article {
+  min-width: 0;
+  padding-top: 22px;
+  scroll-margin-top: 20px;
+}
+.services-page .service-index h2 {
+  font-size: 1.8rem;
+}
+.services-page .service-index h3 {
+  font-family: var(--body);
+  font-size: 1rem;
+  font-weight: 600;
+  letter-spacing: 0;
+  margin: 20px 0 10px;
+}
+.services-page .service-index p,
+.services-page .service-index ul {
+  font-size: 0.95rem;
+}
+.services-page .service-index li {
+  margin-block: 6px;
+}
+.service-evidence span {
+  display: block;
+  color: var(--muted);
+  font-size: 0.85rem;
+  margin-top: 4px;
+}
+.service-actions {
+  gap: 12px 24px;
+}
+.service-actions a {
+  font-size: 0.9rem;
+}
+.writing-page .section-nav {
+  margin-bottom: 30px;
+}
+@media (max-width: 900px) {
+  .additional-projects {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+}
+@media (max-width: 700px) {
+  .page-head.destination-head {
+    padding-block: 30px 22px;
+  }
+  .page-head.destination-head .lede {
+    font-size: 1rem;
+  }
+  .section-nav {
+    gap: 4px 20px;
+  }
+  .portfolio-section {
+    padding-block: 22px 28px;
+  }
+  .education-record {
+    grid-template-columns: 1fr;
+    gap: 8px;
+  }
+  .services-page .service-index {
+    grid-template-columns: 1fr;
+  }
+  .professional-links {
+    gap: 12px 22px;
+  }
+}

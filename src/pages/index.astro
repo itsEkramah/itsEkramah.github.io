@@ -6,6 +6,7 @@ import { getCollection } from 'astro:content';
 import { featuredArticles } from '../lib/content';
 import { categories } from '../lib/taxonomy';
 import { site } from '../lib/site';
+import { profile } from '../data/profile';
 import '../styles/home.css';
 const projects = (await getCollection('projects', ({ data }) => data.featured))
   .sort((a, b) => a.data.order - b.data.order)
@@ -48,7 +49,7 @@ const articles = await featuredArticles();
       </div>
       <div class="intro-links">
         <a href={site.cv}>Download CV · PDF ↗</a>
-        <a href="/about/#experience">Experience →</a>
+        <a href="/portfolio/#experience">Experience →</a>
         <a href={site.github}>GitHub ↗</a>
       </div>
     </section>
@@ -155,32 +156,31 @@ const articles = await featuredArticles();
           A foundation in biology.
           <br />A practical computing focus.
         </h2>
-        <a class="text-link" href="/about/">
-          About & experience →
+        <a class="text-link" href="/portfolio/#education">
+          Education & experience →
         </a>
       </div>
       <ol class="timeline">
         <li>
-          <span class="period">2022–2026</span>
+          <span class="period">{profile.education.shortPeriod}</span>
           <div>
-            <h3>BS in Bioinformatics</h3>
-            <p>Quaid-i-Azam University · CGPA 3.40 / 4.00</p>
+            <h3>{profile.education.degree}</h3>
+            <p>
+              {profile.education.institution} · CGPA {profile.education.cgpa}
+            </p>
           </div>
         </li>
-        <li>
-          <span class="period">Jul–Aug 2025</span>
-          <div>
-            <h3>Research Intern</h3>
-            <p>National Institutes of Health, Islamabad</p>
-          </div>
-        </li>
-        <li>
-          <span class="period">Jul–Sep 2024</span>
-          <div>
-            <h3>Python Developer Intern</h3>
-            <p>Digital Empowerment Network · Remote</p>
-          </div>
-        </li>
+        {profile.experience.map((entry) => (
+          <li>
+            <span class="period">{entry.period}</span>
+            <div>
+              <h3>{entry.position}</h3>
+              <p>
+                {entry.organization} · {entry.location}
+              </p>
+            </div>
+          </li>
+        ))}
       </ol>
     </section>
     <section class="home-section home-contact" aria-labelledby="contact-title">

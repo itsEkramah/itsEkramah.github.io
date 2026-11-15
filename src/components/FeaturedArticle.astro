@@ -2,11 +2,12 @@
 import type { CollectionEntry } from 'astro:content';
 import { categories } from '../lib/taxonomy';
 import { articleUrl, dateLabel } from '../lib/site';
+import { readingMinutes } from '../lib/reading';
 interface Props {
   article: CollectionEntry<'articles'>;
 }
 const { article } = Astro.props;
-const words = (article.body || '').split(/\s+/).filter(Boolean).length;
+const minutes = readingMinutes(article.body);
 ---
 
 <article class="featured-article">
@@ -25,10 +26,8 @@ const words = (article.body || '').split(/\s+/).filter(Boolean).length;
             </time>
           )}
     </span>
-    <span
-      aria-label={`Estimated reading time: ${Math.ceil(words / 220)} minutes`}
-    >
-      {Math.ceil(words / 220)} min read
+    <span aria-label={`Estimated reading time: ${minutes} minutes`}>
+      {minutes} min read
     </span>
   </div>
   <a class="text-link" href={articleUrl(article)}>

@@ -1,66 +1,107 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import { getCollection } from 'astro:content';
+import '../../styles/destinations.css';
 const services = (await getCollection('services')).sort(
   (a, b) => a.data.order - b.data.order,
 );
+const projects = await getCollection('projects');
+function evidenceFor(service: (typeof services)[number]) {
+  const related = service.data.relatedProjectIds
+    .map((ref) => projects.find((p) => p.id === ref.id))
+    .filter((p) => p !== undefined);
+  return (
+    related.find((p) => p.data.kind !== 'Software demonstration') || related[0]
+  );
+}
 ---
 
 <BaseLayout
   title="Services"
-  description="Scoped data preparation, research figures, Python development and bioinformatics support. Concrete deliverables, evidence and clear project boundaries."
+  description="Bioinformatics research support, data analysis, Python automation and backend development, web development and technical SEO. Review deliverables, methods and relevant evidence."
 >
-  <div class="wrap">
-    <header class="page-head">
-      <p class="eyebrow">Services / Working together</p>
-      <h1>Make the next step manageable.</h1>
+  <div class="wrap services-page">
+    <header class="page-head destination-head">
+      <p class="eyebrow">Services / Scope, deliverables & evidence</p>
+      <h1>Services</h1>
       <p class="lede">
-        For researchers and small teams who need a defined piece of data or
-        software work, with readable code and clear deliverables.
+        Defined support for research, data and software work. Choose a service
+        to review possible deliverables, relevant methods and the evidence
+        behind the scope.
       </p>
       <a class="button" href="/contact/">
         Discuss a project →
       </a>
     </header>
-    <div class="service-index">
-      {services.map((service, i) => (
-        <article>
-          <p class="eyebrow">0{i + 1} / Service</p>
-          <h2>
-            <a href={`/services/${service.id}/`}>{service.data.title}</a>
-          </h2>
-          <p>{service.data.summary}</p>
-          <p class="audience">
-            For{' '}
-            {service.data.audience.charAt(0).toLowerCase() +
-              service.data.audience.slice(1)}
-          </p>
-          <ul>
-            {service.data.deliverables.map((d) => (
-              <li>{d}</li>
-            ))}
-          </ul>
-          <a class="text-link" href={`/services/${service.id}/`}>
-            Scope, evidence & boundaries →
-          </a>
-        </article>
+    <nav class="section-nav service-directory" aria-label="Service categories">
+      {services.map((service) => (
+        <a href={`#${service.id}`}>{service.data.title}</a>
       ))}
+    </nav>
+    <div class="service-index">
+      {services.map((service) => {
+        const evidence = evidenceFor(service);
+        return (
+          <article id={service.id} aria-labelledby={`${service.id}-title`}>
+            <h2 id={`${service.id}-title`}>{service.data.title}</h2>
+            <p>{service.data.summary}</p>
+            <p class="audience">
+              For{' '}
+              {service.data.audience.charAt(0).toLowerCase() +
+                service.data.audience.slice(1)}
+            </p>
+            <h3>Possible deliverables</h3>
+            <ul>
+              {service.data.deliverables.map((d) => (
+                <li>{d}</li>
+              ))}
+            </ul>
+            <p class="service-tools">
+              <strong>Tools:</strong> {service.data.tools.join(', ')}
+            </p>
+            <p class="service-method">
+              <strong>Approach:</strong> {service.data.method}
+            </p>
+            {evidence && (
+              <p class="service-evidence">
+                <strong>Relevant work:</strong>{' '}
+                <a href={`/portfolio/${evidence.id}/`}>
+                  {evidence.data.shortTitle} →
+                </a>
+                <span>
+                  {evidence.data.kind}
+                  {evidence.id === 'pathoscope'
+                    ? ' · backend contribution'
+                    : ''}
+                </span>
+              </p>
+            )}
+            <div class="actions service-actions">
+              <a class="text-link" href={`/services/${service.id}/`}>
+                Scope, evidence & boundaries →
+              </a>
+              <a class="text-link" href="/contact/">
+                Request a project →
+              </a>
+            </div>
+          </article>
+        );
+      })}
     </div>
-    <section class="section background-grid">
+    <section class="section background-grid" aria-labelledby="process-title">
       <div>
-        <p class="eyebrow">The process</p>
-        <h2>A small sample, then a clear scope.</h2>
+        <h2 id="process-title">How we start</h2>
       </div>
       <div>
         <p>
-          Start with your question, an anonymised sample and the output you
-          need. We agree on scope and a first milestone, preserve the original
-          data, document decisions and review the result together.
+          Share your question, an anonymised sample and the output you need. We
+          agree on scope and a first milestone, preserve original data, document
+          decisions and review the result together.
         </p>
         <p>
-          Research support is limited to transparent methods and accurate
-          contributions. Clinical interpretation, guaranteed scientific findings
-          and search-ranking promises are outside this scope.
+          Research support covers transparent methods and accurate
+          contributions. Clinical interpretation, guaranteed findings and
+          search-ranking promises are outside this scope.
         </p>
         <a class="text-link" href="/contact/">
           Start a conversation →

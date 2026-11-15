@@ -3,6 +3,13 @@ title: Data Quality Workbench
 shortTitle: Data Quality Workbench
 summary: A local CSV-cleaning demonstration with explicit rules, rejected-row inspection and downloadable audit outputs.
 kind: Software demonstration
+methods:
+  [
+    Explicit CSV validation rules,
+    Rejected-row review,
+    Downloadable audit outputs,
+  ]
+resultSummary: 'Local data-cleaning application with public engine and API validation records; no client-delivery outcomes are claimed.'
 order: 4
 tools: [Python, FastAPI, SQLite, JavaScript]
 domains: [Data quality, Web applications]

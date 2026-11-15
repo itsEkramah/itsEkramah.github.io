@@ -3,6 +3,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import ArticleEntry from '../../components/ArticleEntry.astro';
 import { categories, type Category } from '../../lib/taxonomy';
 import { visibleArticles, reviewMode } from '../../lib/content';
+import '../../styles/destinations.css';
 const articles = await visibleArticles();
 const populated = (Object.keys(categories) as Category[]).filter((id) =>
   articles.some((a) => a.data.category === id),
@@ -14,19 +15,24 @@ const populated = (Object.keys(categories) as Category[]).filter((id) =>
   description="Research notes and practical writing across bioinformatics, biomedical data, analytics, software and technical SEO."
   noindex={reviewMode}
 >
-  <div class="wrap">
-    <header class="page-head">
+  <div class="wrap writing-page">
+    <header class="page-head destination-head">
       <p class="eyebrow">Writing / An independent notebook</p>
-      <h1>
-        Understand it. Build it.
-        <br />
-        Write it down.
-      </h1>
+      <h1>Writing Library</h1>
       <p class="lede">
         Methods, research notes and lessons from practical work. Organised by
         subject, with sources and limitations close to the claims.
       </p>
     </header>
+    <nav class="section-nav" aria-label="Writing categories">
+      {Object.entries(categories).map(([id, category]) =>
+        populated.includes(id as Category) ? (
+          <a href={`/writing/${id}/`}>{category.label} →</a>
+        ) : (
+          <span>{category.label}</span>
+        ),
+      )}
+    </nav>
     {articles.length > 0 ? (
       <section aria-labelledby="articles-title">
         <h2 id="articles-title">All writing</h2>
@@ -62,8 +68,8 @@ const populated = (Object.keys(categories) as Category[]).filter((id) =>
         </form>
         <noscript>
           <p>
-            Search needs JavaScript. All articles and the category links below
-            remain available.
+            Search needs JavaScript. All articles and category links remain
+            available.
           </p>
         </noscript>
         <p id="writing-count" role="status" aria-live="polite">
@@ -89,29 +95,6 @@ const populated = (Object.keys(categories) as Category[]).filter((id) =>
         </p>
       </section>
     )}
-    <section aria-labelledby="topics-title">
-      <h2 id="topics-title" class="topics-title">
-        Five fields of inquiry.
-      </h2>
-      <p>
-        Subjects for this library. Category links appear as articles are
-        published.
-      </p>
-      <div class="topic-directory">
-        {Object.entries(categories).map(([id, category]) => (
-          <article>
-            <h3>
-              {articles.filter((a) => a.data.category === id).length >= 1 ? (
-                <a href={`/writing/${id}/`}>{category.label} →</a>
-              ) : (
-                category.label
-              )}
-            </h3>
-            <p>{category.description}</p>
-          </article>
-        ))}
-      </div>
-    </section>
   </div>
 </BaseLayout>
 <script>

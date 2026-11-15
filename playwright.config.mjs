@@ -1,10 +1,14 @@
 import { defineConfig } from '@playwright/test';
+const qaDirectory = process.env.QA_OUTPUT_DIR || 'qa';
 export default defineConfig({
   testDir: './tests/e2e',
   fullyParallel: false,
   workers: 2,
   timeout: 120000,
-  reporter: [['list'], ['json', { outputFile: 'qa/playwright-results.json' }]],
+  reporter: [
+    ['list'],
+    ['json', { outputFile: `${qaDirectory}/playwright-results.json` }],
+  ],
   use: { baseURL: 'http://127.0.0.1:4321', trace: 'retain-on-failure' },
   projects: [
     { name: 'chromium', use: { browserName: 'chromium' } },

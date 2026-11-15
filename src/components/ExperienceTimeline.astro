@@ -1,0 +1,62 @@
+---
+import { profile } from '../data/profile';
+interface Props {
+  compact?: boolean;
+}
+const { compact = false } = Astro.props;
+---
+
+<ol class:list={['timeline', { 'experience-detail': !compact }]}>
+  {profile.experience.map((entry) => (
+    <li>
+      <span class="period">{entry.period}</span>
+      <div>
+        <h3>{entry.position}</h3>
+        <p class="organization">
+          {entry.organization} · {entry.location}
+        </p>
+        {!compact && (
+          <>
+            <ul>
+              {entry.responsibilities.map((responsibility) => (
+                <li>{responsibility}</li>
+              ))}
+            </ul>
+            <p class="experience-tools">
+              <strong>Tools:</strong> {entry.tools.join(', ')}
+            </p>
+          </>
+        )}
+      </div>
+    </li>
+  ))}
+</ol>
+<style>
+  .experience-detail > li {
+    grid-template-columns: 130px 1fr;
+  }
+  .experience-detail h3 {
+    font-size: 1.1rem;
+  }
+  .experience-detail ul {
+    margin: 12px 0;
+    padding-left: 20px;
+  }
+  .experience-detail ul li {
+    display: list-item;
+    border: 0;
+    padding: 0;
+    margin-block: 8px;
+    font-size: 0.95rem;
+  }
+  .experience-detail .organization,
+  .experience-detail .experience-tools {
+    font-size: 0.9rem;
+  }
+  @media (max-width: 700px) {
+    .experience-detail > li {
+      grid-template-columns: 1fr;
+      gap: 8px;
+    }
+  }
+</style>
