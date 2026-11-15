@@ -4,7 +4,7 @@ export const profile = {
   name: 'Muhammad Ekramah',
   qualification: 'BS Bioinformatics graduate, Quaid-i-Azam University',
   summary:
-    'I’m Muhammad Ekramah, a Bioinformatics graduate from Quaid-i-Azam University, Islamabad. My research interests centre on microbial genomics, antimicrobial resistance and transcriptomics, with a focus on reproducible analysis. I use Python and R to explore data, create visualisations and build practical tools, alongside developing software and web applications. I also work on technical SEO and content optimisation. I’m looking to deepen my research and computational skills through postgraduate study in bioinformatics and data science.',
+    'I’m a Bioinformatics graduate from Quaid-i-Azam University, Islamabad. My research interests centre on microbial genomics, antimicrobial resistance and transcriptomics, with a focus on reproducible analysis. I use Python and R to explore data, create visualisations and build practical tools, alongside developing software and web applications. I also work on technical SEO and content optimisation. I’m looking to deepen my research and computational skills through postgraduate study in bioinformatics and data science.',
   education: {
     degree: 'BS in Bioinformatics',
     institution: 'Quaid-i-Azam University, Islamabad',
