@@ -1,5 +1,18 @@
 # Content provenance and review record
 
+Article revision, 16 November 2026: the owner supplied a personal replacement for
+the reproducible-genomics essay and authorised editorial improvements. Preserve
+its opening project-rerun question, first-person graduate context and AMR course
+project lesson. Clarify that identical-profile folds address one overlap risk,
+upstream GWAS leakage remains possible, and containers do not guarantee identical
+outputs across all hardware/platforms. Replace the results table with the owner's
+more accessible narrative; keep the full evidence on the linked project page.
+Retain the URL and 15 November first-publication date, update the summary and
+16 November revision note, and exclude the supplied editing notes from the article.
+Official Git, Conda, uv, renv, Docker, Snakemake, Nextflow and scikit-learn guidance
+was checked. The labelled synthetic Python example was executed successfully;
+no model experiment or new performance result is claimed.
+
 Revision, 16 November 2026: the opening figure redraws existing logistic-regression balanced-accuracy rows from AMR commit `5893f20c9bdb6ca64e91cb7b2043dd7bfb7c1db6`, `results/tables/bootstrap_confidence_intervals.csv`. Shared data/source are in `src/data/research.ts`; text/table alternatives and upstream-GWAS/internal-validation limits accompany the plot. This is not a new model run. Source PNGs are unchanged.
 
 All five essays received bounded worked examples and update notes dated 16 November 2026 under the owner's current editorial authorisation. Four inspected Python examples ran locally: synthetic profile overlap, synthetic S/I/R counts, synthetic CSV audit and read-only public-homepage checks. The software example uses the actual content schema. Synthetic data are labelled; original publication dates/URLs remain unchanged. No patient/client data, SEO performance export or new experimental result was introduced.
