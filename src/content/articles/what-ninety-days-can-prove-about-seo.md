@@ -10,6 +10,8 @@ demo: false
 featured: true
 featureOrder: 5
 publishedAt: 2026-11-15
+updatedAt: 2026-11-16
+relatedProjectIds: [site-audit-kit]
 references:
   - label: 'Google: SEO Starter Guide'
     url: https://developers.google.com/search/docs/fundamentals/seo-starter-guide
@@ -20,6 +22,45 @@ references:
 Launching a personal website creates a useful opportunity to study search visibility in public. It does not create an instant case study of ranking success. A new domain may attract little search traffic at first, and even a technically correct page may not appear for a competitive query. The valuable experiment is to document what was published, what was measured, and which conclusions the evidence can support.
 
 This guide proposes a careful ninety-day search experiment for a professional portfolio and technical blog. It avoids the common mistake of equating publication with indexing, indexing with ranking, or ranking with client-ready commercial results.
+
+## A technical baseline you can inspect today
+
+For this website, a useful first check is whether the homepage exposes a title, a description, one H1 and the intended canonical URL. The following Python 3 script reads only the public homepage. It uses the standard library and does not log visitors or access Search Console.
+
+```python
+from html.parser import HTMLParser
+from urllib.request import urlopen
+
+class PageChecks(HTMLParser):
+    def __init__(self):
+        super().__init__()
+        self.h1_count = 0
+        self.title_count = 0
+        self.canonical = None
+        self.description = None
+
+    def handle_starttag(self, tag, attrs):
+        attrs = dict(attrs)
+        self.h1_count += tag == "h1"
+        self.title_count += tag == "title"
+        if tag == "link" and attrs.get("rel") == "canonical":
+            self.canonical = attrs.get("href")
+        if tag == "meta" and attrs.get("name") == "description":
+            self.description = attrs.get("content")
+
+with urlopen("https://itsekramah.github.io/", timeout=20) as response:
+    html = response.read().decode("utf-8")
+checks = PageChecks()
+checks.feed(html)
+assert checks.h1_count == 1
+assert checks.title_count == 1
+assert checks.canonical == "https://itsekramah.github.io/"
+assert checks.description
+```
+
+Passing those assertions demonstrates those specific HTML properties at the time of the request. It says nothing about impressions, clicks, ranking or conversions. The [Site Audit Kit demonstration](/portfolio/site-audit-kit/) similarly distinguishes inspectable HTML findings from search-performance claims. No Search Console export or commercial SEO outcome is presented here.
+
+_Update, 16 November 2026: added and executed the public-page baseline example, with no change to the original publication date._
 
 ## Define the experiment before the outcome
 

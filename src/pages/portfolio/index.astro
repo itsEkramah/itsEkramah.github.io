@@ -2,6 +2,7 @@
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import ProjectEntry from '../../components/ProjectEntry.astro';
 import ExperienceTimeline from '../../components/ExperienceTimeline.astro';
+import ResearchEvidence from '../../components/ResearchEvidence.astro';
 import { getCollection } from 'astro:content';
 import { site } from '../../lib/site';
 import { profile } from '../../data/profile';
@@ -20,28 +21,37 @@ const { education } = profile;
 
 <BaseLayout
   title="Portfolio & résumé"
-  description="Muhammad Ekramah's verified bioinformatics education, internships, technical skills and selected research and development projects, with CV and source code."
+  description="Muhammad Ekramah's bioinformatics education, internships, technical skills and research projects, with original analysis figures, CV and source code."
 >
   <div class="wrap portfolio-page">
-    <header class="page-head destination-head">
-      <p class="eyebrow">Portfolio / Professional background & selected work</p>
-      <h1>{profile.name}</h1>
-      <p class="qualification">{profile.qualification}</p>
-      <p class="lede">{profile.summary}</p>
-      <div class="actions professional-links">
-        <a class="button" href={site.cv}>
-          Download CV · PDF ↗
-        </a>
-        <a class="text-link" href={site.github}>
-          GitHub ↗
-        </a>
-        <a class="text-link" href={site.linkedin}>
-          LinkedIn ↗
-        </a>
-        <a class="text-link" href="/contact/">
-          Contact →
-        </a>
+    <header class="page-head destination-head portfolio-opening">
+      <div>
+        <p class="eyebrow">
+          Portfolio / Professional background & selected work
+        </p>
+        <h1>{profile.name}</h1>
+        <p class="qualification">{profile.qualification}</p>
+        <p class="lede">{profile.portfolioSummary}</p>
+        <div class="actions professional-links">
+          <a class="button" href={site.cv}>
+            Download CV · PDF ↗
+          </a>
+          <a class="text-link" href={site.github}>
+            GitHub ↗
+          </a>
+          <a class="text-link" href={site.linkedin}>
+            LinkedIn ↗
+          </a>
+          <a class="text-link" href="/contact/">
+            Contact →
+          </a>
+        </div>
+        <p class="portfolio-directions">
+          <a href="#projects">Genomic AMR · RNA-seq · PathoScope</a>
+          <span>Methods, results and my contribution ↓</span>
+        </p>
       </div>
+      <ResearchEvidence />
     </header>
     <nav class="section-nav" aria-label="Portfolio sections">
       <a href="#education">Education</a>
@@ -73,9 +83,13 @@ const { education } = profile;
           </p>
         </div>
       </div>
-      <p class="coursework">
-        <strong>Relevant coursework:</strong> {education.coursework.join('; ')}.
-      </p>
+      <details class="coursework">
+        <summary>Relevant coursework</summary>
+        <p>
+          <strong>Relevant coursework:</strong>{' '}
+          {education.coursework.join('; ')}.
+        </p>
+      </details>
     </section>
     <section
       class="portfolio-section"
@@ -113,11 +127,10 @@ const { education } = profile;
         code.
       </p>
       <div class="work-list portfolio-projects">
-        {principal.map((project, index) => (
+        {principal.map((project) => (
           <ProjectEntry
             project={project}
             compact={!project.data.image}
-            priority={index === 0}
             detailed
           />
         ))}

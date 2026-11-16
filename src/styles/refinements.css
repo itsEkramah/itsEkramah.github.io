@@ -1,0 +1,861 @@
+/* Evidence-led editorial revision. Route-scoped rules override the migration
+   baseline without changing the legacy Work URLs or scientific content. */
+html body {
+  font-size: 1.0625rem;
+}
+.site-header.wrap {
+  padding-block: 18px;
+  gap: 28px;
+}
+.site-header.wrap nav {
+  gap: 8px 19px;
+}
+.site-header.wrap nav a {
+  font-size: 0.875rem;
+}
+.site-header .tiny {
+  font-size: 0.75rem;
+}
+.eyebrow {
+  font-size: 0.8125rem;
+  letter-spacing: 0.065em;
+  font-weight: 500;
+}
+.tools,
+.project-entry .tools {
+  font-size: 0.875rem !important;
+  line-height: 1.6;
+}
+.project-figure figcaption,
+figcaption {
+  font-size: 0.875rem;
+  line-height: 1.6;
+}
+.button,
+.text-link {
+  font-size: 0.9375rem;
+}
+.site-footer .footer-note,
+.site-footer p,
+.site-footer a {
+  font-size: 0.875rem;
+}
+.page-head {
+  padding-block: 38px 26px;
+}
+.page-head h1 {
+  font-size: clamp(2.3rem, 4.4vw, 3.6rem);
+}
+.breadcrumbs {
+  font-size: 0.875rem;
+  padding-top: 22px;
+}
+summary {
+  cursor: pointer;
+  min-height: 32px;
+  padding-block: 4px;
+}
+
+/* A real result, redrawn from immutable public project data. */
+.research-evidence {
+  min-width: 0;
+  margin: 0;
+  padding: 26px 28px 20px;
+  background: var(--surface);
+  border: 1px solid var(--border);
+  align-self: center;
+}
+.figure-heading {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  flex-wrap: wrap;
+  align-items: baseline;
+}
+.figure-heading .eyebrow {
+  margin: 0;
+}
+.figure-kind {
+  color: var(--muted);
+  font-size: 0.8125rem;
+}
+.research-evidence .figure-title {
+  font: 1.65rem/1.25 var(--heading);
+  letter-spacing: -0.025em;
+  margin: 18px 0 20px;
+  max-width: 23ch;
+}
+.research-evidence svg {
+  width: 100%;
+  max-width: 400px;
+  margin-inline: auto;
+  height: auto;
+  display: block;
+  overflow: visible;
+}
+.plot-grid {
+  stroke: var(--border);
+  stroke-width: 1;
+}
+.plot-interval {
+  stroke: var(--accent);
+  stroke-width: 3;
+}
+.plot-point {
+  fill: var(--accent);
+}
+.plot-label {
+  fill: var(--ink);
+  font: 20px var(--body);
+}
+.plot-value {
+  fill: var(--accent);
+  font: 23px var(--heading);
+}
+.plot-axis {
+  fill: var(--muted);
+  font: 18px var(--body);
+}
+.research-evidence figcaption {
+  margin-top: 12px;
+  font-size: 0.875rem;
+}
+.figure-links {
+  border-top: 1px solid var(--border);
+  margin-top: 18px;
+  padding-top: 12px;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: baseline;
+  gap: 8px 22px;
+  font-size: 0.875rem;
+}
+.figure-links details {
+  min-width: 0;
+}
+.figure-links details p {
+  margin-block: 10px 0;
+}
+.research-evidence table {
+  border-collapse: collapse;
+  width: 100%;
+  font-size: 0.875rem;
+}
+.research-evidence th,
+.research-evidence td {
+  text-align: left;
+  padding: 8px 4px;
+  border-bottom: 1px solid var(--border);
+}
+.research-evidence caption {
+  text-align: left;
+  margin-bottom: 8px;
+}
+
+/* Home: one concrete opening, then deliberately different editorial sections. */
+.editorial-home .intro-editorial {
+  display: grid;
+  grid-template-columns: 1.15fr 1fr;
+  align-items: center;
+  gap: 64px;
+  padding-block: 44px 48px;
+}
+.intro-copy {
+  min-width: 0;
+}
+.editorial-home .intro-editorial h1 {
+  font-size: clamp(2.5rem, 4.2vw, 3.65rem);
+  line-height: 1.08;
+  margin-block: 18px 24px;
+  text-wrap: wrap;
+}
+.editorial-home .intro-description {
+  font-size: 1.0625rem;
+  line-height: 1.7;
+  margin-bottom: 24px;
+  max-width: 52ch;
+}
+.editorial-home .intro-editorial .actions {
+  gap: 10px;
+}
+.editorial-home .intro-editorial .button {
+  min-width: 0;
+  font-size: 0.875rem;
+  padding-inline: 17px;
+}
+.editorial-home .intro-links {
+  gap: 10px 20px;
+  margin-top: 14px;
+  font-size: 0.875rem;
+}
+.intro-links a {
+  min-height: 30px;
+  display: inline-flex;
+  align-items: center;
+}
+.next-step {
+  font-size: 0.875rem;
+  color: var(--muted);
+  max-width: 48ch;
+  margin: 14px 0 0;
+}
+.next-step a {
+  display: inline-block;
+}
+.editorial-home .home-section {
+  padding-block: 32px 36px;
+}
+.editorial-home .editorial-section-head {
+  margin-bottom: 24px;
+}
+.editorial-home .editorial-section-head .eyebrow {
+  margin-bottom: 8px;
+}
+.editorial-home .editorial-section-head h2 {
+  font-size: clamp(1.9rem, 2.8vw, 2.5rem);
+}
+.editorial-home .editorial-section-head > a {
+  font-size: 0.9375rem;
+}
+.editorial-home .featured-articles {
+  display: grid;
+  grid-template-columns: 1.15fr 1fr;
+  column-gap: 56px;
+  row-gap: 0;
+}
+.editorial-home .featured-article {
+  background: transparent;
+  border: 0;
+  padding: 0 0 22px;
+  display: block;
+}
+.editorial-home .featured-article:first-child {
+  grid-row: span 2;
+  padding-right: 34px;
+  border-right: 1px solid var(--border);
+}
+.editorial-home .featured-article:nth-child(n + 3) {
+  padding-top: 20px;
+  border-top: 1px solid var(--border);
+}
+.editorial-home .featured-article .eyebrow {
+  font-size: 0.8125rem;
+  margin-bottom: 10px;
+}
+.editorial-home .featured-article h3 {
+  font-size: 1.6rem;
+  line-height: 1.2;
+  margin-bottom: 12px;
+}
+.editorial-home .featured-article:first-child h3 {
+  font-size: clamp(2rem, 2.8vw, 2.6rem);
+  max-width: 23ch;
+}
+.editorial-home .featured-article .article-summary {
+  font-size: 1rem;
+  margin-bottom: 14px;
+}
+.editorial-home .article-card-footer {
+  justify-content: start;
+  gap: 16px;
+  font-size: 0.875rem;
+  border: 0;
+  padding: 0;
+  margin-block: 12px;
+}
+.editorial-home .featured-article .text-link {
+  min-height: 32px;
+  margin: 0;
+  font-size: 0.875rem;
+}
+.editorial-home .five-services {
+  display: grid;
+  grid-template-columns: 1fr;
+  background: none;
+  border: 0;
+}
+.editorial-home .service-tile {
+  display: grid;
+  grid-template-columns: 32px 1.1fr 1.5fr auto;
+  align-items: center;
+  gap: 22px;
+  padding: 16px 0;
+  border: 0;
+  border-bottom: 1px solid var(--border);
+}
+.editorial-home .service-tile:last-child {
+  border-bottom: 0;
+}
+.editorial-home .service-tile > svg {
+  margin: 0;
+  width: 26px;
+  height: 26px;
+}
+.editorial-home .service-tile h3 {
+  font-size: 1.35rem;
+  margin: 0;
+}
+.editorial-home .service-tile p {
+  font-size: 0.9375rem;
+  margin: 0;
+}
+.editorial-home .service-scope {
+  font-size: 0.875rem;
+  margin: 0;
+  min-height: 32px;
+  white-space: nowrap;
+}
+.editorial-home .compact-work {
+  gap: 40px;
+}
+.editorial-home .compact-work .eyebrow {
+  font-size: 0.8125rem;
+}
+.editorial-home .compact-work h3 {
+  font-size: 1.75rem;
+}
+.editorial-home .compact-work p:not(.eyebrow),
+.editorial-home .compact-work .text-link {
+  font-size: 0.9375rem;
+}
+.editorial-home .home-background {
+  gap: 56px;
+}
+.editorial-home .home-background h2 {
+  max-width: 18ch;
+}
+.editorial-home .home-background .timeline {
+  margin: 0;
+}
+.editorial-home .home-background .timeline h3 {
+  font-size: 1.125rem;
+}
+.editorial-home .home-background .timeline p,
+.editorial-home .home-background .period {
+  font-size: 0.875rem;
+}
+.editorial-home .home-contact {
+  gap: 48px;
+}
+.editorial-home .home-contact p {
+  font-size: 1rem;
+}
+
+/* Portfolio: identity plus immediate evidence; résumé order stays intact. */
+.portfolio-page .page-head.destination-head {
+  max-width: none;
+}
+.portfolio-page .portfolio-opening {
+  display: grid;
+  grid-template-columns: 1.15fr 1fr;
+  gap: 64px;
+  align-items: center;
+  padding-block: 40px;
+}
+.portfolio-page .portfolio-opening h1 {
+  font-size: clamp(2.5rem, 4vw, 3.6rem);
+  margin-bottom: 18px;
+}
+.portfolio-page .portfolio-opening .lede {
+  font-size: 1.0625rem;
+  max-width: 47ch;
+}
+.portfolio-page .qualification {
+  font-size: 1rem;
+}
+.portfolio-page .professional-links {
+  gap: 12px 20px;
+  margin-top: 22px;
+}
+.portfolio-directions {
+  margin: 24px 0 0;
+  font-size: 0.9375rem;
+}
+.portfolio-directions span {
+  display: block;
+  color: var(--muted);
+  font-size: 0.875rem;
+  margin-top: 4px;
+}
+.portfolio-page .section-nav {
+  margin-bottom: 8px;
+  padding-block: 12px;
+}
+.portfolio-page .portfolio-section {
+  padding-block: 24px 28px;
+}
+.portfolio-page .portfolio-section h2 {
+  font-size: 2.1rem;
+}
+.portfolio-page .coursework {
+  font-size: 0.9375rem;
+  margin-top: 12px;
+}
+.portfolio-page .coursework p {
+  max-width: 80ch;
+  margin-top: 8px;
+}
+.portfolio-page .professional-skills {
+  grid-template-columns: repeat(3, minmax(0, 1fr));
+  gap: 24px 36px;
+}
+.portfolio-page .professional-skills dt,
+.portfolio-page .professional-skills dd {
+  font-size: 0.9375rem;
+}
+.portfolio-page .timeline > li {
+  padding-block: 18px;
+}
+.portfolio-page .timeline li h3 {
+  font-size: 1.2rem;
+}
+.portfolio-page .timeline li p,
+.portfolio-page .timeline li ul,
+.portfolio-page .timeline .period {
+  font-size: 0.9375rem;
+}
+.portfolio-page .portfolio-projects {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 32px;
+}
+.portfolio-page .portfolio-projects .project-entry {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(0, 1fr);
+  gap: 36px;
+  border-top: 1px solid var(--border);
+  padding-top: 24px;
+}
+.portfolio-page .portfolio-projects .project-entry.compact {
+  display: block;
+  max-width: 80ch;
+}
+.portfolio-page .project-figure {
+  margin: 0;
+  padding: 16px;
+  align-self: start;
+}
+.portfolio-page .project-copy h3 {
+  font-size: 1.9rem;
+}
+.portfolio-page .project-copy p,
+.portfolio-page .project-facts {
+  font-size: 1rem;
+}
+.portfolio-page .project-facts > div + div {
+  margin-top: 12px;
+}
+.portfolio-page .additional-projects .project-copy h3 {
+  font-size: 1.5rem;
+}
+.portfolio-page .additional-projects .project-copy p {
+  font-size: 0.9375rem;
+}
+.figure-inspect {
+  display: inline-flex;
+  align-items: center;
+  min-height: 32px;
+  font-size: 0.875rem;
+  margin-top: 8px;
+}
+
+/* Service comparisons, with supporting detail on the existing detail routes. */
+.services-page .page-head.destination-head {
+  padding-block: 34px 24px;
+  max-width: 900px;
+}
+.services-page .service-directory {
+  margin-bottom: 0;
+  padding-block: 10px;
+}
+.services-page .service-index {
+  display: block;
+  padding-bottom: 24px;
+}
+.services-page .service-index > article {
+  display: grid;
+  grid-template-columns: 1fr 1.65fr;
+  gap: 18px 48px;
+  padding-block: 26px;
+}
+.services-page .service-index h2 {
+  font-size: 1.8rem;
+  margin-bottom: 12px;
+}
+.services-page .service-index p,
+.services-page .service-index ul {
+  font-size: 0.9375rem;
+}
+.services-page .service-index h3 {
+  font-size: 1rem;
+  margin: 0 0 10px;
+}
+.services-page .service-index ul {
+  margin: 0 0 14px;
+}
+.services-page .service-evidence {
+  font-size: 0.875rem;
+  margin-bottom: 12px;
+}
+.services-page .service-evidence span {
+  display: inline;
+  margin-left: 8px;
+  font-size: 0.8125rem;
+}
+.services-page .service-actions {
+  gap: 16px;
+}
+.services-page .service-actions a {
+  font-size: 0.9375rem;
+}
+.service-methods {
+  font-size: 0.875rem;
+  margin-top: 12px;
+}
+.service-methods p {
+  margin-block: 8px;
+}
+.services-page .background-grid {
+  padding-block: 28px;
+}
+
+/* Library controls are a small part of a reading destination. */
+.writing-page .page-head.destination-head {
+  padding-block: 30px 16px;
+}
+.writing-page .page-head .lede {
+  margin-bottom: 12px;
+  font-size: 1.0625rem;
+}
+.writing-page .section-nav {
+  gap: 4px 22px;
+  padding-block: 8px;
+  margin-bottom: 16px;
+}
+.writing-page .section-nav a {
+  font-size: 0.875rem;
+  min-height: 32px;
+}
+.writing-page #articles-title {
+  font: 1.2rem var(--body);
+  letter-spacing: 0;
+  margin-block: 20px 12px;
+}
+.writing-page .filters {
+  padding: 0;
+  border: 0;
+  gap: 12px;
+  margin-bottom: 10px;
+}
+.writing-page .filters label {
+  font-size: 0.875rem;
+  flex: 1 1 200px;
+  gap: 4px;
+}
+.writing-page .filters input,
+.writing-page .filters select {
+  font-size: 0.9375rem;
+  min-height: 44px;
+  padding: 8px 10px;
+}
+.writing-page .filters button {
+  min-height: 44px;
+  font-size: 0.875rem;
+  padding-inline: 14px;
+}
+.writing-page #writing-count {
+  margin: 12px 0;
+  font-size: 0.875rem;
+  color: var(--muted);
+}
+.writing-page .article-entry {
+  max-width: none;
+  padding-block: 22px;
+}
+.writing-page .article-entry h2 {
+  font-size: 1.85rem;
+  max-width: 36ch;
+  margin-bottom: 12px;
+}
+.writing-page .article-entry p {
+  font-size: 1rem;
+  max-width: 76ch;
+  margin-bottom: 12px;
+}
+.article-entry time,
+.article-entry .reading-estimate,
+.tags {
+  font-size: 0.875rem;
+}
+
+/* Comfortable long-form reading and accessible supporting type. */
+.reading {
+  max-width: 46rem;
+}
+.reading > .page-head {
+  padding-block: 30px 20px;
+}
+.reading > .page-head h1 {
+  font-size: clamp(2.2rem, 3.6vw, 3.3rem);
+  line-height: 1.13;
+  margin-bottom: 20px;
+}
+.reading .article-meta {
+  font-size: 0.875rem;
+  gap: 10px 18px;
+}
+.reading .toc {
+  margin-block: 12px 24px;
+  padding: 12px 18px;
+}
+.reading .toc ul,
+.reading .evidence ul {
+  font-size: 1rem;
+}
+.reading .prose h2 {
+  font-size: 1.85rem;
+}
+.reading .prose pre {
+  font-size: 0.9375rem;
+  padding: 18px;
+}
+.reading .prose table {
+  font-size: 0.9375rem;
+}
+.reading figcaption {
+  font-size: 0.875rem;
+}
+.reading .code-toolbar,
+.reading .copy-code {
+  font-size: 0.875rem;
+}
+.reading .figure-detail {
+  padding: 16px;
+}
+.reading .evidence h2 {
+  font-size: 1.65rem;
+}
+.reading .limit-note p {
+  font-size: 1rem;
+}
+.skills dt,
+.skills dd,
+.timeline .period {
+  font-size: 0.9375rem;
+}
+.about-layout .prose {
+  color: var(--ink);
+}
+.contact-layout p,
+.contact-layout li {
+  font-size: 1rem;
+}
+
+@media (max-width: 1050px) {
+  .site-header.wrap {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 8px;
+    padding-block: 12px;
+  }
+  .site-header.wrap nav {
+    display: grid;
+    grid-template-columns: repeat(8, minmax(0, 1fr));
+    gap: 2px 8px;
+    width: 100%;
+  }
+  .site-header.wrap nav a {
+    justify-content: center;
+    overflow-wrap: anywhere;
+    min-width: 0;
+    min-height: 36px;
+  }
+  .site-header.wrap .nav-cv {
+    border: 0;
+    padding-left: 0;
+  }
+  .editorial-home .intro-editorial,
+  .portfolio-page .portfolio-opening {
+    gap: 32px;
+  }
+  .editorial-home .intro-editorial h1 {
+    font-size: 2.8rem;
+  }
+  .editorial-home .intro-editorial .button {
+    font-size: 0.875rem;
+  }
+  .editorial-home .service-tile {
+    grid-template-columns: 28px 1fr 1.4fr;
+    gap: 16px;
+  }
+  .editorial-home .service-scope {
+    grid-column: 2 / -1;
+  }
+  .portfolio-page .professional-skills {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+@media (max-width: 760px) {
+  html body {
+    font-size: 1rem;
+  }
+  .site-header.wrap nav {
+    grid-template-columns: repeat(auto-fit, minmax(min(100%, 4.5rem), 1fr));
+  }
+  .site-header .wordmark .brand-monogram {
+    font-size: 1.5rem;
+  }
+  .site-header .wordmark .brand-name {
+    font-size: 1rem;
+  }
+  .editorial-home .intro-editorial,
+  .portfolio-page .portfolio-opening {
+    grid-template-columns: 1fr;
+    padding-block: 26px 30px;
+    gap: 26px;
+  }
+  .editorial-home .intro-editorial h1 {
+    font-size: clamp(2.25rem, 8.7vw, 3.3rem);
+    max-width: 21ch;
+    margin-block: 12px 18px;
+  }
+  .editorial-home .intro-description {
+    font-size: 1rem;
+    margin-bottom: 20px;
+  }
+  .editorial-home .intro-editorial .actions {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+  }
+  .editorial-home .intro-editorial .button:first-child {
+    grid-column: 1 / -1;
+  }
+  .editorial-home .intro-editorial .button {
+    font-size: 0.875rem;
+  }
+  .editorial-home .intro-links {
+    margin-top: 10px;
+  }
+  .next-step {
+    margin-top: 10px;
+  }
+  .research-evidence {
+    padding: 20px 18px 16px;
+  }
+  .research-evidence .figure-title {
+    font-size: 1.65rem;
+    max-width: 25ch;
+    margin-block: 12px 16px;
+  }
+  .editorial-home .featured-articles {
+    grid-template-columns: 1fr;
+    gap: 0;
+  }
+  .editorial-home .featured-article:first-child {
+    grid-row: auto;
+    padding-right: 0;
+    border-right: 0;
+  }
+  .editorial-home .featured-article:nth-child(n + 2) {
+    border-top: 1px solid var(--border);
+    padding-top: 20px;
+  }
+  .editorial-home .featured-article:first-child h3 {
+    font-size: 2rem;
+  }
+  .editorial-home .featured-article h3 {
+    font-size: 1.6rem;
+  }
+  .editorial-home .editorial-section-head {
+    display: block;
+  }
+  .editorial-home .editorial-section-head > a {
+    margin-top: 12px;
+    display: inline-flex;
+  }
+  .editorial-home .home-section {
+    padding-block: 26px;
+  }
+  .editorial-home .service-tile {
+    grid-template-columns: 26px 1fr;
+    padding-block: 16px;
+    gap: 8px 16px;
+    border-right: 0;
+  }
+  .editorial-home .service-tile p,
+  .editorial-home .service-scope {
+    grid-column: 2;
+  }
+  .editorial-home .service-tile h3 {
+    font-size: 1.35rem;
+  }
+  .editorial-home .service-tile p {
+    font-size: 0.9375rem;
+  }
+  .editorial-home .compact-work,
+  .editorial-home .home-background,
+  .editorial-home .home-contact {
+    grid-template-columns: 1fr;
+    gap: 24px;
+  }
+  .editorial-home .compact-work article + article {
+    padding: 20px 0 0;
+    border: 0;
+    border-top: 1px solid var(--border);
+  }
+  .portfolio-page .portfolio-opening h1 {
+    font-size: 2.2rem;
+  }
+  .portfolio-page .professional-skills,
+  .portfolio-page .portfolio-projects .project-entry {
+    grid-template-columns: 1fr;
+  }
+  .portfolio-page .portfolio-projects .project-entry {
+    gap: 20px;
+  }
+  .portfolio-page .project-copy h3 {
+    font-size: 1.85rem;
+  }
+  .portfolio-page .portfolio-section h2 {
+    font-size: 1.9rem;
+  }
+  .services-page .service-index > article {
+    grid-template-columns: 1fr;
+    gap: 6px;
+  }
+  .services-page .service-index h2 {
+    font-size: 1.7rem;
+  }
+  .writing-page .filters {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    align-items: end;
+  }
+  .writing-page .filters label:first-child {
+    grid-column: 1 / -1;
+  }
+  .writing-page .filters label {
+    min-width: 0;
+  }
+  .writing-page .page-head.destination-head {
+    padding-block: 24px 12px;
+  }
+  .writing-page .page-head .lede {
+    font-size: 1rem;
+  }
+  .writing-page .section-nav {
+    gap: 2px 16px;
+  }
+  .writing-page .article-entry h2 {
+    font-size: 1.6rem;
+  }
+  .reading > .page-head {
+    padding-block: 24px 16px;
+  }
+  .reading > .page-head h1 {
+    font-size: clamp(2.1rem, 7.5vw, 3rem);
+  }
+  .page-head h1 {
+    font-size: clamp(2.3rem, 8vw, 3.3rem);
+  }
+}

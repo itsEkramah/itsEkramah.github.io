@@ -1,0 +1,15 @@
+{
+  "checkedOn": "2026-11-16",
+  "source": "https://github.com/itsEkramah/itsEkramah.github.io/branches/main",
+  "name": "main",
+  "sha": "fdc332bef7a73d23b2a2350bf421b5aba6732c3e",
+  "protected": false,
+  "protection": {
+    "enabled": false,
+    "required_status_checks": {
+      "enforcement_level": "off",
+      "contexts": [],
+      "checks": []
+    }
+  }
+}

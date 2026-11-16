@@ -15,21 +15,25 @@ Development shows marked drafts. `npm run build` followed by `npm run preview` s
 
 ## Authoring
 
+The evidence-led revision uses short `homeSummary` and `portfolioSummary` fields in `src/data/profile.ts`; the full approved `summary` appears on About. The opening chart has one shared, frozen-source record in `src/data/research.ts`. Articles remain collection-generated. Worked examples retain first-publication dates and use `updatedAt` plus a visible update note.
+
 Create a Markdown or MDX file in `src/content/articles/`. The library, populated category pages, homepage’s three featured articles, related reading, RSS, metadata and sitemap update automatically. No layout edits are required. Portfolio is available at `/portfolio/`; the older `/work/` routes are noindex aliases with Portfolio canonicals. **[The publishing guide](docs/PUBLISHING.md)** covers VS Code, GitHub web editing, previewing, figures, equations, updates and unpublishing.
 
 Five owner-supplied long-form articles are published with explicit owner approval dated 15 November 2026, one per category. Five internal authoring drafts remain unpublished, including the separate AMR validation note. Draft files in this public repository remain readable on GitHub; they are excluded from the generated website, not confidential.
 
-| Content                              | Location                   |
-| ------------------------------------ | -------------------------- |
-| Project case studies                 | `src/content/projects/`    |
-| Services                             | `src/content/services/`    |
-| Education, experience and skills     | `src/data/profile.ts`      |
-| Biography and research interests     | `src/pages/about.astro`    |
-| Homepage introduction                | `src/pages/index.astro`    |
-| Contact, social profiles and CV path | `src/lib/site.ts`          |
-| Colours and system fonts             | `src/styles/tokens.css`    |
-| Shared layout                        | `src/styles/global.css`    |
-| Public CV                            | `public/EKRAMAH_s_CV..pdf` |
+| Content                              | Location                     |
+| ------------------------------------ | ---------------------------- |
+| Project case studies                 | `src/content/projects/`      |
+| Services                             | `src/content/services/`      |
+| Education, experience and skills     | `src/data/profile.ts`        |
+| Biography and research interests     | `src/pages/about.astro`      |
+| Homepage introduction                | `src/pages/index.astro`      |
+| Contact, social profiles and CV path | `src/lib/site.ts`            |
+| Colours and system fonts             | `src/styles/tokens.css`      |
+| Shared layout                        | `src/styles/global.css`      |
+| Evidence-led page composition        | `src/styles/refinements.css` |
+| Opening AMR figure values/source     | `src/data/research.ts`       |
+| Public CV                            | `public/EKRAMAH_s_CV..pdf`   |
 
 Original root HTML/CSS/assets are preserved as the migration baseline. Astro deploys only `dist/`. The pre-migration baseline is commit `47469fe`.
 
@@ -74,19 +78,21 @@ For Lighthouse, run `node scripts/serve.mjs dist 4321` and `node scripts/serve.m
 
 See **[acceptance evidence](qa/ACCEPTANCE.md)**, **[security review](docs/SECURITY_REVIEW.md)**, **[content evidence](docs/CONTENT_EVIDENCE.md)** and **[optional CMS evaluation](docs/CMS_EVALUATION.md)**.
 
+The **[evidence-led revision report](qa/evidence-led-release/REVIEW.md)** and its **[acceptance matrix](qa/evidence-led-release/ACCEPTANCE.md)** record the latest design, content, browser and security checks. The [preceding review](qa/independent-review-2026-11-16/REVIEW.md) is retained as historical evidence of the issues that prompted this revision. The owner authorised remediation and deployment on 16 November 2026.
+
 ## Deploy
 
 Repository: `itsEkramah/itsEkramah.github.io`; production branch: `main`.
 
 1. Review the site, factual content and acceptance evidence before approving initial publication.
 2. In **Settings → Pages**, select **GitHub Actions**.
-3. Where supported, protect `main` with required owner review, the **Validation** status check and blocked force pushes. `CODEOWNERS` identifies the reviewer but does not enforce approval without branch rules.
+3. Keep the active **Protected production — reviewed changes** ruleset (`27342891`). It requires a pull request, the GitHub Actions **validate** check, an up-to-date branch and resolved conversations; force pushes and deletion are blocked. Required approvals are zero for the sole-maintainer workflow. This enforces validation, not independent two-person review; `CODEOWNERS` alone does not enforce approval.
 4. Merge approved changes. Deployment waits for validation, builds with the official SHA-pinned `withastro/action` and publishes using `actions/deploy-pages`.
 5. Check Actions, the live homepage, a deep URL, CV, 404, sitemap and HTTPS.
 
 Only the deployment job has `pages: write` and `id-token: write`. Validation and build have read-only contents permissions; PRs do not deploy. The Astro action internally uses `npm install`; the custom build runs `npm ci` and rejects lockfile drift. `.npmrc` disables lifecycle scripts for both. Dependabot proposes monthly dependency/action updates.
 
-This feature branch does not deploy itself. No DNS changes, custom domain, CMS or authentication service are included.
+Branches other than `main` do not deploy themselves. No DNS changes, custom domain, CMS or authentication service are included.
 
 ## Maintenance and rollback
 

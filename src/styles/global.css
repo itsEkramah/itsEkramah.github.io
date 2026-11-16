@@ -55,7 +55,7 @@ h2,
 h3 {
   line-height: 1.15;
   font-weight: 400;
-  text-wrap: balance;
+  text-wrap: wrap;
   overflow-wrap: anywhere;
 }
 h1,
@@ -65,6 +65,7 @@ h2 {
 }
 h1 {
   font-size: clamp(2.8rem, 5.5vw, 4.8rem);
+  text-wrap: balance;
   margin-bottom: 1.5rem;
 }
 h2 {

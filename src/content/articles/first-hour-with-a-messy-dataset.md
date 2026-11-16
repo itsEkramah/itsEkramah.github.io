@@ -10,6 +10,8 @@ demo: false
 featured: true
 featureOrder: 2
 publishedAt: 2026-11-15
+updatedAt: 2026-11-16
+relatedProjectIds: [data-quality-workbench]
 references:
   - label: 'pandas: Working with missing data'
     url: https://pandas.pydata.org/docs/user_guide/missing_data.html
@@ -22,6 +24,32 @@ references:
 A data-analysis project often begins with an apparently simple request: “Can you make a dashboard from this spreadsheet?” The temptation is to load the file and begin plotting. Yet the first hour is better spent checking what the file actually represents. A polished chart built on duplicated records, mismatched dates, and unclear units can be worse than no chart, because it makes a mistake look convincing.
 
 This guide describes a practical first-pass data audit using concepts that apply to Python, R, SQL, or spreadsheets. The goal is not perfect data; it is an inspectable understanding of what you have and what must be resolved before making claims.
+
+## A four-row audit you can run
+
+This **synthetic CSV** contains one repeated row and one missing measurement. It does not represent a real experiment or client file. The Python 3 example reports the issues without silently deleting or imputing anything.
+
+```python
+import csv
+from io import StringIO
+
+source = "sample_id,condition,value\nA,control,12\nA,control,12\nB,treated,\nC,treated,8\n"
+rows = list(csv.DictReader(StringIO(source)))
+report = {
+    "rows": len(rows),
+    "distinct_samples": len({row["sample_id"] for row in rows}),
+    "exact_repeated_rows": len(rows) - len({tuple(row.items()) for row in rows}),
+    "missing_values": sum(not row["value"].strip() for row in rows),
+}
+assert report == {
+    "rows": 4, "distinct_samples": 3,
+    "exact_repeated_rows": 1, "missing_values": 1,
+}
+```
+
+The next decision requires context: should sample A have one record or two measurements? Is B's blank value unavailable, not measured or a recording error? The audit deliberately leaves those questions open. My [Data Quality Workbench demonstration](/portfolio/data-quality-workbench/) develops this separation between explicit rules, rejected-row inspection and downloadable reports; it is an independent software demonstration, not client-delivery evidence.
+
+_Update, 16 November 2026: added and executed the standard-library audit example. Its values are synthetic; no client data were used._
 
 ## Clarify the question before cleaning
 

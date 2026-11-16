@@ -1,0 +1,207 @@
+{
+  "initial": [
+    {
+      "command": "npm run lint",
+      "exitCode": 0,
+      "durationSeconds": 4.4,
+      "log": "qa/raw/evidence-led/verification/lint.log"
+    },
+    {
+      "command": "npm run check",
+      "exitCode": 0,
+      "durationSeconds": 28.7,
+      "log": "qa/raw/evidence-led/verification/check.log"
+    },
+    {
+      "command": "npm run build",
+      "exitCode": 0,
+      "durationSeconds": 11.2,
+      "log": "qa/raw/evidence-led/verification/build.log"
+    },
+    {
+      "command": "npm run test",
+      "exitCode": 0,
+      "durationSeconds": 5.9,
+      "log": "qa/raw/evidence-led/verification/unit.log"
+    },
+    {
+      "command": "npm run test:publishing",
+      "exitCode": 0,
+      "durationSeconds": 29.1,
+      "log": "qa/raw/evidence-led/verification/publishing.log"
+    },
+    {
+      "command": "npm run audit:links",
+      "exitCode": 0,
+      "durationSeconds": 2.1,
+      "log": "qa/raw/evidence-led/verification/links.log"
+    },
+    {
+      "command": "npm run audit:security",
+      "exitCode": 0,
+      "durationSeconds": 6.3,
+      "log": "qa/raw/evidence-led/verification/secrets.log"
+    },
+    {
+      "command": "npm audit --json",
+      "exitCode": 0,
+      "durationSeconds": 3.6,
+      "log": "qa/raw/evidence-led/verification/audit.log"
+    },
+    {
+      "command": "npm audit --omit=dev --json",
+      "exitCode": 0,
+      "durationSeconds": 3.8,
+      "log": "qa/raw/evidence-led/verification/audit-production.log"
+    },
+    {
+      "command": "npm run audit:licenses",
+      "exitCode": 0,
+      "durationSeconds": 1,
+      "log": "qa/raw/evidence-led/verification/licenses.log"
+    },
+    {
+      "command": "npm run audit:external",
+      "exitCode": 0,
+      "durationSeconds": 26.4,
+      "log": "qa/raw/evidence-led/verification/external-links.log"
+    },
+    {
+      "command": "npm run qa:article",
+      "exitCode": 0,
+      "durationSeconds": 25.7,
+      "log": "qa/raw/evidence-led/verification/article-preview.log"
+    },
+    {
+      "command": "npm run demo:build",
+      "exitCode": 0,
+      "durationSeconds": 25.9,
+      "log": "qa/raw/evidence-led/verification/demo-build.log"
+    },
+    {
+      "command": "npx playwright install chromium firefox webkit",
+      "exitCode": 0,
+      "durationSeconds": 7.6,
+      "log": "qa/raw/evidence-led/verification/browsers.log"
+    },
+    {
+      "command": "npm run test:e2e",
+      "exitCode": 1,
+      "durationSeconds": 400.6,
+      "log": "qa/raw/evidence-led/verification/e2e.log"
+    },
+    {
+      "command": "npm run qa:lighthouse",
+      "exitCode": 0,
+      "durationSeconds": 75.2,
+      "log": "qa/raw/evidence-led/verification/lighthouse.log"
+    }
+  ],
+  "removedOptimisation": [
+    {
+      "command": "npx prettier --write README.md",
+      "exitCode": 0,
+      "durationSeconds": 2.9,
+      "log": "qa/raw/evidence-led/final-checks/format.log"
+    },
+    {
+      "command": "npm run lint",
+      "exitCode": 0,
+      "durationSeconds": 3.8,
+      "log": "qa/raw/evidence-led/final-checks/lint.log"
+    },
+    {
+      "command": "npm run check",
+      "exitCode": 0,
+      "durationSeconds": 20.1,
+      "log": "qa/raw/evidence-led/final-checks/check.log"
+    },
+    {
+      "command": "npm run test",
+      "exitCode": 0,
+      "durationSeconds": 3.3,
+      "log": "qa/raw/evidence-led/final-checks/unit.log"
+    },
+    {
+      "command": "npm run qa:article",
+      "exitCode": 0,
+      "durationSeconds": 16.4,
+      "log": "qa/raw/evidence-led/final-checks/article-preview.log"
+    },
+    {
+      "command": "npm run demo:build",
+      "exitCode": 0,
+      "durationSeconds": 21.7,
+      "log": "qa/raw/evidence-led/final-checks/demo-build.log"
+    },
+    {
+      "command": "python qa/raw/evidence-led/check_examples.py",
+      "exitCode": 0,
+      "durationSeconds": 0.9,
+      "log": "qa/raw/evidence-led/final-checks/examples.log"
+    },
+    {
+      "command": "npm run test:e2e",
+      "exitCode": 1,
+      "durationSeconds": 199.2,
+      "log": "qa/raw/evidence-led/final-checks/e2e.log"
+    }
+  ],
+  "final": [
+    {
+      "command": "npx prettier --write README.md",
+      "exitCode": 0,
+      "durationSeconds": 2.8,
+      "log": "qa/raw/evidence-led/final-checks/format.log"
+    },
+    {
+      "command": "npm run lint",
+      "exitCode": 0,
+      "durationSeconds": 3.6,
+      "log": "qa/raw/evidence-led/final-checks/lint.log"
+    },
+    {
+      "command": "npm run check",
+      "exitCode": 0,
+      "durationSeconds": 19.8,
+      "log": "qa/raw/evidence-led/final-checks/check.log"
+    },
+    {
+      "command": "npm run build",
+      "exitCode": 0,
+      "durationSeconds": 10.2,
+      "log": "qa/raw/evidence-led/final-checks/build.log"
+    },
+    {
+      "command": "npm run test",
+      "exitCode": 0,
+      "durationSeconds": 4.1,
+      "log": "qa/raw/evidence-led/final-checks/unit.log"
+    },
+    {
+      "command": "npm run qa:article",
+      "exitCode": 0,
+      "durationSeconds": 11.6,
+      "log": "qa/raw/evidence-led/final-checks/article-preview.log"
+    },
+    {
+      "command": "npm run demo:build",
+      "exitCode": 0,
+      "durationSeconds": 11.6,
+      "log": "qa/raw/evidence-led/final-checks/demo-build.log"
+    },
+    {
+      "command": "python qa/raw/evidence-led/check_examples.py",
+      "exitCode": 0,
+      "durationSeconds": 0.9,
+      "log": "qa/raw/evidence-led/final-checks/examples.log"
+    },
+    {
+      "command": "npm run test:e2e",
+      "exitCode": 0,
+      "durationSeconds": 255.8,
+      "log": "qa/raw/evidence-led/final-checks/e2e.log"
+    }
+  ],
+  "lighthouse": "Final representative lab run: inline-lighthouse.log; see lighthouse-summary.json. Initial lower results, obsolete-label failures and removed section-deferral failures retained in ignored raw logs."
+}

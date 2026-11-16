@@ -47,7 +47,14 @@ test('direct routes, console, network privacy and axe', async ({ page }) => {
     expect(response.status(), route).toBe(200);
     await expect(page.locator('h1')).toHaveCount(1);
     const result = await new AxeBuilder({ page })
-      .withTags(['wcag2a', 'wcag2aa', 'wcag21aa', 'wcag22aa'])
+      .withTags([
+        'wcag2a',
+        'wcag2aa',
+        'wcag21a',
+        'wcag21aa',
+        'wcag22a',
+        'wcag22aa',
+      ])
       .analyze();
     expect(result.violations, route).toEqual([]);
   }
@@ -109,7 +116,7 @@ test('recruiter and client paths work in two clicks', async ({ page }) => {
   expect(cv.status()).toBe(200);
   expect(cv.headers()['content-type']).toContain('application/pdf');
 });
-test('keyboard skip link, visible navigation and text zoom', async ({
+test('keyboard skip link, visible navigation and enlarged rem sizing', async ({
   page,
 }) => {
   await page.setViewportSize({ width: 320, height: 800 });
@@ -126,6 +133,8 @@ test('keyboard skip link, visible navigation and text zoom', async ({
         .getByRole('navigation', { name: 'Main navigation' })
         .getByRole('link', { name, exact: true }),
     ).toBeVisible();
+  // This tests enlarged rem-based sizing. Fixed-pixel body text is unaffected;
+  // native browser zoom and assistive-technology review remain separate checks.
   await page.evaluate(() => (document.documentElement.style.fontSize = '200%'));
   expect(
     await page.evaluate(
@@ -249,12 +258,14 @@ test('five supplied articles have dates, category routes and the revised homepag
   await expect(page.locator('.service-tile')).toHaveCount(5);
   await expect(page.locator('.compact-work article')).toHaveCount(2);
   expect(
-    (
-      await page
-        .locator('main section > .editorial-section-head .eyebrow')
-        .allTextContents()
-    ).map((text) => text.trim()),
-  ).toEqual(['01 / Writing', '02 / Services', '03 / Selected work']);
+    await page
+      .locator('main .home-section')
+      .evaluateAll((sections) =>
+        sections
+          .slice(0, 3)
+          .map((section) => section.getAttribute('aria-labelledby')),
+      ),
+  ).toEqual(['featured-writing', 'services-title', 'selected-work']);
   for (const width of [390, 768, 1440]) {
     await page.setViewportSize({ width, height: 900 });
     for (const [name, url] of [

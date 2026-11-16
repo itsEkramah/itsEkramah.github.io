@@ -10,6 +10,8 @@ demo: false
 featured: true
 featureOrder: 3
 publishedAt: 2026-11-15
+updatedAt: 2026-11-16
+relatedProjectIds: [pathoscope]
 references:
   - label: 'W3C: Web Content Accessibility Guidelines 2.2'
     url: https://www.w3.org/TR/WCAG22/
@@ -22,6 +24,35 @@ references:
 A professional website does not need a complicated application architecture. For a portfolio, technical blog, or small business presence, a carefully built static website can provide excellent performance and a lower maintenance burden. The important work lies in choosing the right content structure, making navigation understandable, and testing what real visitors experience.
 
 This article outlines principles for building a website that remains useful after the initial launch. It focuses on user experience, accessibility, content publishing, and operational reliability rather than a specific framework or fashionable visual effect.
+
+## The publishing decision on this website
+
+This site stores articles as Markdown or trusted MDX, validates their metadata and builds static pages. Adding an article does not require editing the homepage or library component. A minimal draft looks like this:
+
+```yaml
+---
+title: 'A specific question from your work'
+description: 'What the reader will learn from the example.'
+category: software-web
+format: tutorial
+tags: [Astro]
+draft: true
+reviewed: false
+---
+```
+
+The filename supplies the final URL segment. Publishing requires an actual first-publication date, `draft: false` and `reviewed: true`. The same collection supplies the library, category page, related reading, feed and sitemap. Review flags record the author's review; they do not perform a scientific fact check.
+
+| Decision                      | What it makes possible                                                         | What it does not prove                    |
+| ----------------------------- | ------------------------------------------------------------------------------ | ----------------------------------------- |
+| Static, pre-rendered articles | Reading and category navigation without JavaScript                             | Complete accessibility or search ranking  |
+| Typed frontmatter             | Build-time rejection of invalid categories and missing publication review/date | Truth of the article's claims             |
+| Small client-side search      | Filtering existing HTML by title, description and tags                         | A need for a database or search service   |
+| Trusted MDX only              | Reusable scientific figure components                                          | Safe execution of an untrusted submission |
+
+The [publishing guide](https://github.com/itsEkramah/itsEkramah.github.io/blob/main/docs/PUBLISHING.md) documents the actual workflow and its limitations. A reader can inspect the source rather than taking a “maintainable” label on trust.
+
+_Update, 16 November 2026: added this implementation-specific publishing example and preserved the original publication date._
 
 ## Choose an architecture that matches the task
 

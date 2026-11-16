@@ -1,5 +1,7 @@
 # Security and privacy review
 
+Remediation, 16 November 2026: owner-authorised GitHub ruleset `27342891` is Active on `main`: PR, GitHub Actions `validate`, up-to-date branch and conversation resolution required; force pushes/deletion blocked; no bypass actor added. Approval count is zero for a sole-maintainer workflow, not independent second-person review. Branch metadata now reports protected. The older unprotected-branch finding below is historical; current evidence is linked from `qa/evidence-led-release/`.
+
 Scope: static public website, Markdown/MDX content, npm supply chain and GitHub Pages workflow. This review does not certify the owner account, GitHub's infrastructure or third-party destinations.
 
 ## Controls implemented
@@ -31,3 +33,9 @@ GitHub/DNS MFA, account recovery, branch protection and environment approvals we
 Residual risks include dependency compromise beyond advisory coverage, trusted MDX build execution, malicious reviewed content, public-email spam, copies of previously published material and host-controlled clickjacking/header limitations. Keep permissions small, review updates, preserve recovery access and revoke leaked credentials immediately.
 
 Same-origin fetches are permitted so ordinary site resources, including robots.txt, can be inspected; off-origin connections remain blocked. Browser network checks confirm that no analytics or third-party requests are made.
+
+## Fresh review, 16 November 2026
+
+The [fresh review](../qa/independent-review-2026-11-16/REVIEW.md) measured `main` as unprotected, with required status checks disabled. This is an open high-priority production-integrity finding; CODEOWNERS and passing validation do not enforce the intended reviewed publishing process. No repository rules, bypass policy, account configuration or deployment was changed during that review.
+
+The local secret scanner now also covers generated JavaScript, JSON, CSS, XML, SVG, text and source maps. A synthetic generated-JavaScript canary was detected and removed, followed by a clean scan. This expands pattern coverage without certifying the absence of all credentials. The review includes current dependency, live HTTPS/header, outbound-request and content-provenance evidence, and records assistive-technology, account/DNS controls and field Core Web Vitals as not tested.

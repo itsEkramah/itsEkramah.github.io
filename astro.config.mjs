@@ -28,6 +28,9 @@ export default defineConfig({
   output: 'static',
   trailingSlash: 'always',
   compressHTML: true,
+  // Inline small page styles to avoid an extra render-blocking request;
+  // the larger shared stylesheet remains a cacheable external resource.
+  vite: { build: { assetsInlineLimit: 8192 } },
   security: {
     csp: {
       directives: [

@@ -1,0 +1,108 @@
+---
+import { amrEvidence } from '../data/research';
+const x = (value: number) => 28 + ((value - 0.9) / 0.1) * 344;
+---
+
+<figure class="research-evidence">
+  <div class="figure-heading">
+    <span class="eyebrow">Inside the AMR project</span>
+    <span class="figure-kind">Academic research</span>
+  </div>
+  <p class="figure-title">Genomic AMR prediction.</p>
+  <svg
+    viewBox="0 0 400 228"
+    role="img"
+    aria-labelledby="amr-title amr-description"
+  >
+    <title id="amr-title">Internal balanced accuracy for two antibiotics</title>
+    <desc id="amr-description">
+      Logistic regression: azithromycin 0.949, bootstrap interval 0.936 to
+      0.962; ciprofloxacin 0.969, interval 0.963 to 0.975. These internal
+      estimates require independent validation.
+    </desc>
+    {[0.9, 0.95, 1].map((value) => (
+      <line x1={x(value)} x2={x(value)} y1="42" y2="186" class="plot-grid" />
+    ))}
+    {amrEvidence.results.map((result, index) => {
+      const y = 65 + index * 85;
+      return (
+        <g>
+          <text x="28" y={y - 27} class="plot-label">
+            {result.drug}
+          </text>
+          <text x="372" y={y - 27} text-anchor="end" class="plot-value">
+            {result.estimate.toFixed(3)}
+          </text>
+          <line
+            x1={x(result.low)}
+            x2={x(result.high)}
+            y1={y}
+            y2={y}
+            class="plot-interval"
+          />
+          <line
+            x1={x(result.low)}
+            x2={x(result.low)}
+            y1={y - 7}
+            y2={y + 7}
+            class="plot-interval"
+          />
+          <line
+            x1={x(result.high)}
+            x2={x(result.high)}
+            y1={y - 7}
+            y2={y + 7}
+            class="plot-interval"
+          />
+          <circle cx={x(result.estimate)} cy={y} r="6" class="plot-point" />
+        </g>
+      );
+    })}
+    <line x1="28" x2="372" y1="186" y2="186" class="plot-grid" />
+    {[0.9, 0.95, 1].map((value) => (
+      <text x={x(value)} y="213" text-anchor="middle" class="plot-axis">
+        {(value * 100).toFixed(0)}%
+      </text>
+    ))}
+  </svg>
+  <figcaption>
+    Balanced accuracy · 95% profile-group bootstrap intervals. Internal
+    evaluation, not clinical validation.
+  </figcaption>
+  <div class="figure-links">
+    <a href="/portfolio/genomic-amr/">Explore the AMR study →</a>
+    <details>
+      <summary>Values & source</summary>
+      <div class="table-scroll">
+        <table>
+          <caption>
+            {`Logistic regression; ${amrEvidence.resamples} bootstrap resamples`}
+          </caption>
+          <thead>
+            <tr>
+              <th>Antibiotic</th>
+              <th>Estimate</th>
+              <th>95% interval</th>
+            </tr>
+          </thead>
+          <tbody>
+            {amrEvidence.results.map((result) => (
+              <tr>
+                <th>{result.drug}</th>
+                <td>{result.estimate.toFixed(3)}</td>
+                <td>
+                  {result.low.toFixed(3)}–{result.high.toFixed(3)}
+                </td>
+              </tr>
+            ))}
+          </tbody>
+        </table>
+      </div>
+      <a href={amrEvidence.source}>Inspect the original result file ↗</a>
+      <p>
+        Features were supplied after GWAS filtering. Upstream selection leakage
+        cannot be excluded.
+      </p>
+    </details>
+  </div>
+</figure>

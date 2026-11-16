@@ -1,5 +1,11 @@
 # Content provenance and review record
 
+Revision, 16 November 2026: the opening figure redraws existing logistic-regression balanced-accuracy rows from AMR commit `5893f20c9bdb6ca64e91cb7b2043dd7bfb7c1db6`, `results/tables/bootstrap_confidence_intervals.csv`. Shared data/source are in `src/data/research.ts`; text/table alternatives and upstream-GWAS/internal-validation limits accompany the plot. This is not a new model run. Source PNGs are unchanged.
+
+All five essays received bounded worked examples and update notes dated 16 November 2026 under the owner's current editorial authorisation. Four inspected Python examples ran locally: synthetic profile overlap, synthetic S/I/R counts, synthetic CSV audit and read-only public-homepage checks. The software example uses the actual content schema. Synthetic data are labelled; original publication dates/URLs remain unchanged. No patient/client data, SEO performance export or new experimental result was introduced.
+
+The inherited NCB link on a non-university host was replaced with `https://ncb.qau.edu.pk/`, supported by indexed primary university pages, including the centre's own [BINSA page](https://ncb.qau.edu.pk/binsa/) and the [QAU biological-sciences faculty](https://fbs.qau.edu.pk/). Automated access to the university domains returns 403 in this environment. This establishes the institutional address, not successful access in every browser or independent authentication of the owner's degree.
+
 Inspection date: 15 November 2026. Repository baseline: `47469fe`. Existing files, public project sources and the owner's supplied decisions are the factual basis. Handoff claims alone were not treated as independent evidence.
 
 | Material | Evidence used | Implementation decision |

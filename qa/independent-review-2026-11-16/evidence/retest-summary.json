@@ -1,0 +1,15 @@
+{
+  "keyboardRemSizing": {
+    "startTime": "2026-11-16T01:10:07.034Z",
+    "duration": 30874.965,
+    "expected": 3,
+    "skipped": 0,
+    "unexpected": 0,
+    "flaky": 0
+  },
+  "lintExit": 0,
+  "securityExit": 0,
+  "generatedCanaryDetected": true,
+  "generatedCanaryRemoved": true,
+  "noProductionFilesChanged": true
+}

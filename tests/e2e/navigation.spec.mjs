@@ -98,9 +98,7 @@ test('client selects a service and follows scope and evidence to contact', async
     .click();
   const service = page.locator('#python-development');
   await expect(service).toBeInViewport();
-  await service
-    .getByRole('link', { name: 'Scope, evidence & boundaries' })
-    .click();
+  await service.getByRole('link', { name: 'View service' }).click();
   await expect(page.locator('h1')).toHaveText(
     'Python Automation & Backend Development',
   );

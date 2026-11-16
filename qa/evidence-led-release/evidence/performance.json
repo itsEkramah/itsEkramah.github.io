@@ -1,0 +1,62 @@
+[
+  {
+    "page": "home",
+    "performance": 95,
+    "accessibility": 100,
+    "best-practices": 100,
+    "seo": 100,
+    "LCP": 1503.143,
+    "CLS": 0,
+    "TBT": 241.5,
+    "formFactor": "mobile",
+    "INP": "NOT TESTED — no field interaction data"
+  },
+  {
+    "page": "work",
+    "performance": 100,
+    "accessibility": 100,
+    "best-practices": 100,
+    "seo": 100,
+    "LCP": 1365.9639,
+    "CLS": 0,
+    "TBT": 24.5,
+    "formFactor": "mobile",
+    "INP": "NOT TESTED — no field interaction data"
+  },
+  {
+    "page": "services",
+    "performance": 97,
+    "accessibility": 100,
+    "best-practices": 100,
+    "seo": 100,
+    "LCP": 1077.0707,
+    "CLS": 0,
+    "TBT": 184.96465000000012,
+    "formFactor": "mobile",
+    "INP": "NOT TESTED — no field interaction data"
+  },
+  {
+    "page": "writing",
+    "performance": 100,
+    "accessibility": 100,
+    "best-practices": 100,
+    "seo": 100,
+    "LCP": 1058.7644,
+    "CLS": 0,
+    "TBT": 86.11779999999999,
+    "formFactor": "mobile",
+    "INP": "NOT TESTED — no field interaction data"
+  },
+  {
+    "page": "article",
+    "performance": 98,
+    "accessibility": 100,
+    "best-practices": 100,
+    "seo": 100,
+    "LCP": 1238.768,
+    "CLS": 0,
+    "TBT": 158.5,
+    "formFactor": "mobile",
+    "INP": "NOT TESTED — no field interaction data"
+  }
+]

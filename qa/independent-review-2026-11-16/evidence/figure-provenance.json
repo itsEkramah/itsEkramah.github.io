@@ -1,0 +1,16 @@
+[
+  {
+    "name": "amr-robustness.png",
+    "baselineCommit": "47469fe",
+    "baselineBlob": "3d2762a00cf491bf828d3e8047893a6779c096d5",
+    "currentBlob": "3d2762a00cf491bf828d3e8047893a6779c096d5",
+    "identical": true
+  },
+  {
+    "name": "rnaseq-structure.png",
+    "baselineCommit": "47469fe",
+    "baselineBlob": "b789abaf5b9b9f4d7f40f53a3e5fb749b11680ed",
+    "currentBlob": "b789abaf5b9b9f4d7f40f53a3e5fb749b11680ed",
+    "identical": true
+  }
+]
