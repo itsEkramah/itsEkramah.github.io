@@ -273,7 +273,7 @@ test('five supplied articles have dates, category routes and the revised homepag
   expect(demos).toHaveLength(5);
   await page.goto('http://127.0.0.1:4323/');
   await expect(page.locator('.featured-article')).toHaveCount(3);
-  await expect(page.locator('.service-tile')).toHaveCount(5);
+  await expect(page.locator('.home-service-links li')).toHaveCount(5);
   await expect(page.locator('.compact-work article')).toHaveCount(2);
   expect(
     await page

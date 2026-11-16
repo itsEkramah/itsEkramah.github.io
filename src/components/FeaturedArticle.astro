@@ -10,7 +10,7 @@ const { article } = Astro.props;
 const minutes = readingMinutes(article.body);
 ---
 
-<article class="featured-article">
+<article class="featured-article" data-category={article.data.category}>
   <p class="eyebrow">{categories[article.data.category].label}</p>
   <h3>
     <a href={articleUrl(article)}>{article.data.title}</a>

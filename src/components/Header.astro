@@ -19,7 +19,7 @@ const links = [
     <span class="brand-monogram" aria-hidden="true">
       ME
     </span>
-    <span class="brand-name">Muhammad Ekramah</span>
+    {path !== '/' && <span class="brand-name">Muhammad Ekramah</span>}
   </a>
   <nav aria-label="Main navigation">
     {links.map(([label, href]) => (

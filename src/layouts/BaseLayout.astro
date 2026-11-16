@@ -4,6 +4,7 @@ import Footer from '../components/Footer.astro';
 import { site } from '../lib/site';
 import '../styles/global.css';
 import '../styles/refinements.css';
+import '../styles/section-themes.css';
 import StructuredData from '../components/StructuredData.astro';
 interface Props {
   title: string;
@@ -19,10 +20,15 @@ const canonical = new URL(
   site.url,
 );
 const isAbout = Astro.url.pathname === '/about/';
+const segments = Astro.url.pathname.split('/').filter(Boolean);
+const section = segments[0] === 'work' ? 'portfolio' : segments[0] || 'home';
+// Category URLs are generated from validated collection metadata. New articles
+// inherit the same accent without changes to a page or article component.
+const category = section === 'writing' ? segments[1] : undefined;
 ---
 
 <!doctype html>
-<html lang="en">
+<html lang="en" data-section={section} data-category={category}>
   <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1" />

@@ -30,7 +30,7 @@ const projects = await Promise.all(
       <span aria-hidden="true">/</span>
       <span aria-current="page">{categories[data.category].label}</span>
     </nav>
-    <article class="reading">
+    <article class="reading" data-category={data.category}>
       <header class="page-head">
         {data.draft && (
           <p class="draft-banner">

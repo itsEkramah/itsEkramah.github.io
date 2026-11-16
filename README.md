@@ -101,6 +101,26 @@ Branches other than `main` do not deploy themselves. No DNS changes, custom doma
 
 ## Maintenance and rollback
 
+### Homepage photo and section colours
+
+The homepage uses a compact 72px circular identity photo (56px on phones), followed
+by a text introduction. Until an authentic owner-approved photo is supplied, it
+shows decorative initials. To replace them, add an optimised, square headshot to
+`public/assets/profile.webp` and set `photo` in `src/data/profile.ts` to
+`/assets/profile.webp`. The adjacent name supplies identity; the image has empty
+alt text to avoid repeating it. No generated portrait is used.
+
+`src/styles/section-themes.css` defines forest Home/About/Contact, slate Portfolio,
+clay Services and an olive Writing index. Validated article categories select
+their own muted accents automatically on previews, category pages and reading
+pages. Adding an article needs no component or layout edit. The ivory canvas,
+charcoal body text, navigation and publishing behaviour remain shared.
+
+The owner approved this compact profile direction on 16 November 2026. The AMR
+figure remains on Portfolio; the homepage links to projects through its compact
+selected-work preview. This later decision supersedes the earlier home-figure
+placement in historical QA reports.
+
 Monthly: review advisories, links, content accuracy and browser regressions. Review MDX as executable source. Enable account MFA and protect recovery access manually. Do not store tokens in source or `PUBLIC_` variables.
 
 Rollback by reverting the failed release through a reviewed PR, merging to `main` and checking redeployment. Revoke any leaked credentials before considering history cleanup; removing a file alone does not revoke a secret.
