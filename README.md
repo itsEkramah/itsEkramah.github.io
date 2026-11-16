@@ -104,11 +104,13 @@ Branches other than `main` do not deploy themselves. No DNS changes, custom doma
 ### Homepage photo and section colours
 
 The homepage uses a compact 72px circular identity photo (56px on phones), followed
-by a text introduction. Until an authentic owner-approved photo is supplied, it
-shows decorative initials. To replace them, add an optimised, square headshot to
-`public/assets/profile.webp` and set `photo` in `src/data/profile.ts` to
-`/assets/profile.webp`. The adjacent name supplies identity; the image has empty
-alt text to avoid repeating it. No generated portrait is used.
+by a text introduction. The owner supplied the photograph and requested its blue
+background be replaced with a soft sage background and a square crop. The edited
+photo is served locally as a 192px WebP with metadata removed. To replace it, add
+an optimised square headshot to `public/assets/` and update `photo` in
+`src/data/profile.ts`. An empty path restores decorative initials. The adjacent
+name supplies identity; empty image alt text avoids repeating it. This is an
+edited owner photograph, rather than a fabricated person.
 
 `src/styles/section-themes.css` defines forest Home/About/Contact, slate Portfolio,
 clay Services and an olive Writing index. Validated article categories select

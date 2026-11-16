@@ -2,9 +2,8 @@
 // Portfolio, About and the compact homepage background preview.
 export const profile = {
   name: 'Muhammad Ekramah',
-  // Add an owner-approved, locally stored headshot path, e.g. /assets/profile.webp.
-  // A decorative initials placeholder is used until the real photo is supplied.
-  photo: '' as string,
+  // Owner-supplied photograph; background/crop edited at the owner's request.
+  photo: '/assets/profile-headshot.webp',
   qualification: 'BS Bioinformatics graduate, Quaid-i-Azam University',
   homeSummary:
     'I work with biological data, Python and practical software tools—from genomic analysis to useful web applications.',

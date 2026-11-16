@@ -10,9 +10,12 @@ Home, while preserving Portfolio research evidence, source links and caveats.
   introduction, moderate heading, three equal editorial article previews and a
   clay services preview. The name is omitted from the homepage header to avoid
   repeating it next to the identity row. Other headers retain the name.
-- No authentic headshot was available. Decorative initials occupy the reserved
-  72px desktop / 56px mobile space. README explains how to add the real photo.
-  No generated portrait or external image is published.
+- The owner supplied a real formal photograph during this revision and explicitly
+  requested a theme-compatible background edit. The blue background was replaced
+  with soft sage and the portrait cropped square using the image-editing tool.
+  The original file is unchanged. A local 192px WebP, with metadata stripped,
+  occupies the 72px desktop / 56px mobile identity slot. README explains replacement.
+  It is an edited owner photograph, not an invented identity or external image.
 - Forest Home/About/Contact, slate Portfolio, clay Services and olive Writing
   accents share the ivory canvas, charcoal text, navigation and typography.
 - Category metadata automatically selects teal, clay, slate, blue-green or ochre
