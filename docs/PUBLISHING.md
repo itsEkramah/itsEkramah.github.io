@@ -1,5 +1,7 @@
 # Publishing articles independently
 
+Production is protected by an active GitHub ruleset. Use a branch and pull request; the GitHub Actions check `validate` must pass and the branch must be up to date before merge. Direct/force pushes and branch deletion are blocked. Resolve review conversations before merging. The sole-maintainer rule does not require a second-person approval; adding another trusted reviewer later is an account-policy decision. Do not bypass a failing check.
+
 Add or edit an article file, commit it and merge an approved change. The website's layouts and components do not need editing.
 
 ## Categories and metadata
@@ -130,7 +132,9 @@ An invalid category, malformed YAML, bad reference, future date or missing revie
 
 ## Supplied demonstration articles and design preview
 
-The five long-form articles supplied on 15 November 2026 have `demo: true`, `draft: true`, no publication date and their original DEMO DRAFT notices. Run `npm run demo:build` and `npm run demo:preview` to review exactly these five in the finished design. Category pages are available in demo/author preview and carry noindex. Production category pages appear only with genuinely published content.
+The five long-form articles supplied on 15 November 2026 were initially imported with `demo: true`, `draft: true`, no publication date and DEMO DRAFT notices. The owner subsequently approved their publication, recorded below. They are now published educational essays with `draft: false`, `demo: false` and a first-publication date of 15 November 2026. Five separate internal authoring examples remain drafts.
+
+Run `npm run demo:build` and `npm run demo:preview` to inspect published articles and any future drafts explicitly marked `demo: true`. This mode no longer represents a draft-only version of the five published essays. Category pages in demo/author preview carry noindex; production category pages contain only published content.
 
 A demo cannot be published just by setting `draft: false`: validation also requires the demo flag to be removed following explicit owner/editorial approval. Verify technical statements, provide primary references and original examples where needed, then follow the normal review/date workflow. Never treat a formatting example as previously published work.
 

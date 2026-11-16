@@ -1,0 +1,15 @@
+{
+  "stats": {
+    "startTime": "2026-11-16T07:53:26.707Z",
+    "duration": 52818.737,
+    "expected": 6,
+    "skipped": 0,
+    "unexpected": 0,
+    "flaky": 0
+  },
+  "projects": [
+    "chromium",
+    "firefox",
+    "webkit"
+  ]
+}

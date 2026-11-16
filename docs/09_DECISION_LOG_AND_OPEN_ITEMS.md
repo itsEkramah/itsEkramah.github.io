@@ -19,6 +19,7 @@
 - The GitHub Pages repository's exact existence/default branch, and any existing content to preserve.
 
 ## Decision log
+- 2026-11-16: Owner authorised creative/content changes, security hardening, testing and deployment. Retain Forest & Paper; add a source-linked AMR figure, distinct short Home/Portfolio introductions and the full bio on About. Preserve all article URLs/publication dates, adding checked examples with actual update notes. Use compact Services/Writing and readable relative typography. Active ruleset `27342891` requires PR/validate/up-to-date/conversation resolution and blocks force pushes/deletion. No DNS migration included.
 - 2026-11-15: After reviewing the navigation correction, institution links and Forest & Paper theme, the owner explicitly authorised deployment of the complete revision to `https://itsekramah.github.io/`. This approval does not cover DNS or custom-domain migration.
 - 2026-11-15: Owner approved Forest & Paper for the local revision: background `#F7F5EF`, text `#242A27`, forest accent `#315448`, borders `#DADFD7` and white surfaces. This supersedes the original muted-teal palette. Layout, typography, scientific figures, content and URLs are retained. Deployment remains subject to the owner's separate explicit approval.
 - 2026-11-15: User rejected complicated, high-motion personal sites; values recruiter-first usability, authentic editorial writing, clear categories and human-made appearance.

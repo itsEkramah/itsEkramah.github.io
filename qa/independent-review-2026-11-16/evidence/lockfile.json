@@ -1,0 +1,11 @@
+{
+  "lockfileVersion": 3,
+  "packages": 600,
+  "registryHosts": [
+    "registry.npmjs.org"
+  ],
+  "missingIntegrity": [],
+  "declaredInstallScripts": [
+    "node_modules/fsevents"
+  ]
+}

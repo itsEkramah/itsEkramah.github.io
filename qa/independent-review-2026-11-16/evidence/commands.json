@@ -1,0 +1,98 @@
+[
+  {
+    "command": "npm run lint",
+    "exitCode": 1,
+    "durationSeconds": 5.5,
+    "log": "qa/raw/review-2026-11-16/lint.log"
+  },
+  {
+    "command": "npm run check",
+    "exitCode": 0,
+    "durationSeconds": 34.2,
+    "log": "qa/raw/review-2026-11-16/check.log"
+  },
+  {
+    "command": "npm run build",
+    "exitCode": 0,
+    "durationSeconds": 17.4,
+    "log": "qa/raw/review-2026-11-16/build.log"
+  },
+  {
+    "command": "npm run test",
+    "exitCode": 0,
+    "durationSeconds": 5.4,
+    "log": "qa/raw/review-2026-11-16/unit.log"
+  },
+  {
+    "command": "npm run test:publishing",
+    "exitCode": 0,
+    "durationSeconds": 34.7,
+    "log": "qa/raw/review-2026-11-16/publishing.log"
+  },
+  {
+    "command": "npm run audit:links",
+    "exitCode": 0,
+    "durationSeconds": 2.4,
+    "log": "qa/raw/review-2026-11-16/links.log"
+  },
+  {
+    "command": "npm run audit:security",
+    "exitCode": 0,
+    "durationSeconds": 10.6,
+    "log": "qa/raw/review-2026-11-16/secrets.log"
+  },
+  {
+    "command": "npm audit --json",
+    "exitCode": 0,
+    "durationSeconds": 7.2,
+    "log": "qa/raw/review-2026-11-16/audit.log"
+  },
+  {
+    "command": "npm audit --omit=dev --json",
+    "exitCode": 0,
+    "durationSeconds": 5.8,
+    "log": "qa/raw/review-2026-11-16/audit-production.log"
+  },
+  {
+    "command": "npm run audit:licenses",
+    "exitCode": 0,
+    "durationSeconds": 1.7,
+    "log": "qa/raw/review-2026-11-16/licenses.log"
+  },
+  {
+    "command": "npm run audit:external",
+    "exitCode": 0,
+    "durationSeconds": 27.1,
+    "log": "qa/raw/review-2026-11-16/external-links.log"
+  },
+  {
+    "command": "npm run qa:article",
+    "exitCode": 0,
+    "durationSeconds": 15.3,
+    "log": "qa/raw/review-2026-11-16/article-preview.log"
+  },
+  {
+    "command": "npm run demo:build",
+    "exitCode": 0,
+    "durationSeconds": 15.9,
+    "log": "qa/raw/review-2026-11-16/demo-build.log"
+  },
+  {
+    "command": "npx playwright install chromium firefox webkit",
+    "exitCode": 0,
+    "durationSeconds": 7,
+    "log": "qa/raw/review-2026-11-16/browsers.log"
+  },
+  {
+    "command": "npm run test:e2e",
+    "exitCode": 0,
+    "durationSeconds": 276.1,
+    "log": "qa/raw/review-2026-11-16/e2e.log"
+  },
+  {
+    "command": "npm run qa:lighthouse",
+    "exitCode": 0,
+    "durationSeconds": 57.6,
+    "log": "qa/raw/review-2026-11-16/lighthouse.log"
+  }
+]

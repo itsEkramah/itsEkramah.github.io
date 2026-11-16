@@ -1,0 +1,11 @@
+{
+  "browser": "Chromium",
+  "clipboardCopyMatchesRenderedCode": true,
+  "statusAnnounced": true,
+  "skipLinkWorks": true,
+  "focus": {
+    "text": "Explore Portfolio →",
+    "outlineStyle": "solid",
+    "outlineWidth": "3px"
+  }
+}

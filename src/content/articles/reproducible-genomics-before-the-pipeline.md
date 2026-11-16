@@ -10,6 +10,8 @@ demo: false
 featured: true
 featureOrder: 1
 publishedAt: 2026-11-15
+updatedAt: 2026-11-16
+relatedProjectIds: [genomic-amr]
 references:
   - label: 'Snakemake: Distribution and Reproducibility'
     url: https://snakemake.readthedocs.io/en/stable/snakefiles/deployment.html
@@ -20,6 +22,37 @@ references:
 ---
 
 A sequencing analysis is rarely one command. It is a chain of decisions: which samples belong together, whether reads pass quality checks, how reference sequences are selected, what software versions are used, and which assumptions shape the interpretation. A result can look convincing on a slide and still be difficult to reproduce when a colleague tries the same analysis six months later. That gap is why reproducibility should be designed into a genomics workflow from the beginning, rather than added as a paragraph at the end of a report.
+
+## A decision from my AMR project: keep identical profiles together
+
+In my [genomic AMR course project](/portfolio/genomic-amr/), the unit used to group cross-validation folds was the complete genomic feature profile. Splitting rows randomly could put the same feature vector into both training and evaluation data. Grouping identical profiles addresses that particular overlap; it does not establish independence between all related isolates or remove leakage from earlier feature discovery.
+
+The following **synthetic four-row example** makes that overlap inspectable. It is a teaching example, not a sample from the original study and not an evaluation of model performance. It runs with Python 3's standard library.
+
+```python
+profiles = [(1, 0, 1), (1, 0, 1), (0, 1, 0), (0, 0, 1)]
+
+def feature_profiles(indices):
+    return {profiles[index] for index in indices}
+
+# A row split separates rows 0 and 1, but their features are identical.
+overlap = feature_profiles([0, 2]) & feature_profiles([1, 3])
+assert overlap == {(1, 0, 1)}
+
+# Keeping identical profiles together removes this specific overlap.
+assert feature_profiles([0, 1, 2]).isdisjoint(feature_profiles([3]))
+```
+
+The project's real internal results are different evidence from the example above. The [frozen bootstrap result file](https://github.com/itsEkramah/N.Gonorrhoeae-AMR-prediction-ML/blob/5893f20c9bdb6ca64e91cb7b2043dd7bfb7c1db6/results/tables/bootstrap_confidence_intervals.csv) reports these logistic-regression estimates:
+
+| Antibiotic    | Internal balanced accuracy | 95% profile-group bootstrap interval |
+| ------------- | -------------------------: | -----------------------------------: |
+| Azithromycin  |                      0.949 |                          0.936–0.962 |
+| Ciprofloxacin |                      0.969 |                          0.963–0.975 |
+
+These intervals use 500 bootstrap resamples of the same out-of-fold predictions. They do not measure performance on an independently collected cohort. The supplied feature matrices had already been GWAS-filtered; upstream selection leakage cannot be excluded. That is why I describe these as internal estimates and retain independent validation as the next step.
+
+_Update, 16 November 2026: added this checked teaching example and a source-linked account of an actual project decision. The first-publication date is unchanged._
 
 ## Begin with a question, not a tool
 

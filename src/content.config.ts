@@ -10,8 +10,8 @@ const articles = defineCollection({
   loader: glob({ pattern: '**/*.{md,mdx}', base: './src/content/articles' }),
   schema: z
     .object({
-      title: z.string(),
-      description: z.string(),
+      title: z.string().trim().min(1),
+      description: z.string().trim().min(1),
       category: z.enum(categoryIds),
       slug: z
         .string()
@@ -70,7 +70,7 @@ const projects = defineCollection({
   loader: glob({ pattern: '**/*.md', base: './src/content/projects' }),
   schema: ({ image }) =>
     z.object({
-      title: z.string(),
+      title: z.string().trim().min(1),
       shortTitle: z.string(),
       summary: z.string(),
       methods: z.array(z.string()).min(1),
@@ -99,7 +99,7 @@ const projects = defineCollection({
 const services = defineCollection({
   loader: glob({ pattern: '**/*.md', base: './src/content/services' }),
   schema: z.object({
-    title: z.string(),
+    title: z.string().trim().min(1),
     summary: z.string(),
     order: z.number(),
     audience: z.string(),

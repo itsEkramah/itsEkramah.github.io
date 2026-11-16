@@ -60,12 +60,15 @@ const { Content } = await render(project);
             loading="lazy"
           />
           <figcaption>{data.imageCaption}</figcaption>
+          <a class="figure-inspect" href={data.image.src}>
+            Open full-size figure ↗
+          </a>
         </figure>
       )}
       <div class="prose">
         <Content />
       </div>
-      <section class="evidence">
+      <section class="evidence" id="evidence">
         <h2>Evidence & source material</h2>
         <ul>
           {data.verifiedEvidence.map((e) => (

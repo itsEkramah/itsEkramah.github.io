@@ -10,6 +10,8 @@ demo: false
 featured: true
 featureOrder: 4
 publishedAt: 2026-11-15
+updatedAt: 2026-11-16
+relatedProjectIds: [genomic-amr]
 references:
   - label: 'WHO: GLASS manual for AMR surveillance in common bacteria (2023)'
     url: https://www.who.int/publications/i/item/9789240076600
@@ -20,6 +22,29 @@ references:
 Antimicrobial resistance is often presented through a heatmap, a percentage, or a ranking of drugs. Those summaries are useful, but they can hide the most important questions: who was sampled, why the sample was collected, what laboratory method was used, and how an isolate was classified as susceptible or resistant. A chart cannot be interpreted responsibly without the clinical and surveillance context that produced it.
 
 This article is an educational guide to reading antimicrobial susceptibility datasets. It is not clinical advice and should not be used to select treatment for an individual patient.
+
+## Worked example: ten tests, three categories
+
+Consider **ten synthetic unique isolates**, all tested against the same antimicrobial agent with one consistent EUCAST standard: four S, two I and four R. There are no missing tests or repeated isolates in this example. This is arithmetic for an educational example, not patient data, a hospital antibiogram or a treatment recommendation.
+
+```python
+from collections import Counter
+
+results = ["S"] * 4 + ["I"] * 2 + ["R"] * 4
+counts = Counter(results)
+percent = {key: 100 * counts[key] / len(results) for key in ("S", "I", "R")}
+assert percent == {"S": 40.0, "I": 20.0, "R": 40.0}
+```
+
+| Category | Count | Percentage of tested isolates |
+| -------- | ----: | ----------------------------: |
+| S        |     4 |                           40% |
+| I        |     2 |                           20% |
+| R        |     4 |                           40% |
+
+The resistance percentage is 40%, not 60%. Under the stated EUCAST meanings, I is susceptible with increased exposure and must not be pooled with R as a non-susceptible group. Reporting S, I and R separately preserves the distinction. Real data need organism–drug-specific denominators, a deduplication policy and the correct interpretation standard before this arithmetic is useful.
+
+_Update, 16 November 2026: added and executed the synthetic denominator example; retained the original publication date._
 
 ## Start with the unit of analysis
 

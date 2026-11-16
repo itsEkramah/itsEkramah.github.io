@@ -3,6 +3,7 @@ import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import { site } from '../lib/site';
 import '../styles/global.css';
+import '../styles/refinements.css';
 import StructuredData from '../components/StructuredData.astro';
 interface Props {
   title: string;
@@ -54,9 +55,12 @@ const isAbout = Astro.url.pathname === '/about/';
     <meta property="og:image" content={new URL('/social.png', site.url)} />
     <meta
       property="og:image:alt"
-      content="Muhammad Ekramah — Bioinformatics, Data, Research software"
+      content="Muhammad Ekramah — Bioinformatics, data and software development"
     />
-    <meta name="twitter:card" content="summary" />
+    <meta property="og:site_name" content="Muhammad Ekramah" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta name="twitter:card" content="summary_large_image" />
     <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
     <link
       rel="alternate"

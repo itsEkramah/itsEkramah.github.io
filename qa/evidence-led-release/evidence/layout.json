@@ -1,0 +1,150 @@
+{
+  "checkedAt": "2026-11-16T07:55:09.280Z",
+  "checks": [
+    {
+      "name": "home",
+      "width": 390,
+      "overflow": false,
+      "firstFigure": [
+        {
+          "top": 633.671875,
+          "height": 454.796875
+        }
+      ],
+      "firstArticle": []
+    },
+    {
+      "name": "portfolio",
+      "width": 390,
+      "overflow": false,
+      "firstFigure": [
+        {
+          "top": 698.75,
+          "height": 440.796875
+        }
+      ],
+      "firstArticle": []
+    },
+    {
+      "name": "services",
+      "width": 390,
+      "overflow": false,
+      "firstFigure": [],
+      "firstArticle": []
+    },
+    {
+      "name": "writing",
+      "width": 390,
+      "overflow": false,
+      "firstFigure": [],
+      "firstArticle": [
+        763.46875
+      ]
+    },
+    {
+      "name": "article",
+      "width": 390,
+      "overflow": false,
+      "firstFigure": [],
+      "firstArticle": []
+    },
+    {
+      "name": "home",
+      "width": 768,
+      "overflow": false,
+      "firstFigure": [
+        {
+          "top": 145,
+          "height": 538.59375
+        }
+      ],
+      "firstArticle": []
+    },
+    {
+      "name": "portfolio",
+      "width": 768,
+      "overflow": false,
+      "firstFigure": [
+        {
+          "top": 141.046875,
+          "height": 524.59375
+        }
+      ],
+      "firstArticle": []
+    },
+    {
+      "name": "services",
+      "width": 768,
+      "overflow": false,
+      "firstFigure": [],
+      "firstArticle": []
+    },
+    {
+      "name": "writing",
+      "width": 768,
+      "overflow": false,
+      "firstFigure": [],
+      "firstArticle": [
+        584.609375
+      ]
+    },
+    {
+      "name": "article",
+      "width": 768,
+      "overflow": false,
+      "firstFigure": [],
+      "firstArticle": []
+    },
+    {
+      "name": "home",
+      "width": 1440,
+      "overflow": false,
+      "firstFigure": [
+        {
+          "top": 125,
+          "height": 502.578125
+        }
+      ],
+      "firstArticle": []
+    },
+    {
+      "name": "portfolio",
+      "width": 1440,
+      "overflow": false,
+      "firstFigure": [
+        {
+          "top": 121,
+          "height": 488.578125
+        }
+      ],
+      "firstArticle": []
+    },
+    {
+      "name": "services",
+      "width": 1440,
+      "overflow": false,
+      "firstFigure": [],
+      "firstArticle": []
+    },
+    {
+      "name": "writing",
+      "width": 1440,
+      "overflow": false,
+      "firstFigure": [],
+      "firstArticle": [
+        547.015625
+      ]
+    },
+    {
+      "name": "article",
+      "width": 1440,
+      "overflow": false,
+      "firstFigure": [],
+      "firstArticle": []
+    }
+  ],
+  "errors": [],
+  "outbound": [],
+  "fullPageMethod": "Viewport and full-page captures use unmodified CSS. Lazy figures are decoded after scrolling them into view before full-page capture.",
+  "cookies": []
+}

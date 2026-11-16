@@ -1,0 +1,97 @@
+[
+  {
+    "page": "home",
+    "performance": 96,
+    "accessibility": 100,
+    "best-practices": 100,
+    "seo": 100,
+    "LCP": 905.876,
+    "CLS": 0,
+    "TBT": 215.06200000000013,
+    "INP": "NOT TESTED — no field interaction data",
+    "formFactor": "mobile",
+    "screen": {
+      "mobile": true,
+      "width": 412,
+      "height": 823,
+      "deviceScaleFactor": 1.75,
+      "disabled": false
+    }
+  },
+  {
+    "page": "work",
+    "performance": 93,
+    "accessibility": 100,
+    "best-practices": 100,
+    "seo": 100,
+    "LCP": 909.2085999999999,
+    "CLS": 0,
+    "TBT": 306.5,
+    "INP": "NOT TESTED — no field interaction data",
+    "formFactor": "mobile",
+    "screen": {
+      "mobile": true,
+      "width": 412,
+      "height": 823,
+      "deviceScaleFactor": 1.75,
+      "disabled": false
+    }
+  },
+  {
+    "page": "services",
+    "performance": 100,
+    "accessibility": 100,
+    "best-practices": 100,
+    "seo": 100,
+    "LCP": 910.0150000000001,
+    "CLS": 0,
+    "TBT": 20.496250000000032,
+    "INP": "NOT TESTED — no field interaction data",
+    "formFactor": "mobile",
+    "screen": {
+      "mobile": true,
+      "width": 412,
+      "height": 823,
+      "deviceScaleFactor": 1.75,
+      "disabled": false
+    }
+  },
+  {
+    "page": "writing",
+    "performance": 99,
+    "accessibility": 100,
+    "best-practices": 100,
+    "seo": 100,
+    "LCP": 938.9791,
+    "CLS": 0,
+    "TBT": 114,
+    "INP": "NOT TESTED — no field interaction data",
+    "formFactor": "mobile",
+    "screen": {
+      "mobile": true,
+      "width": 412,
+      "height": 823,
+      "deviceScaleFactor": 1.75,
+      "disabled": false
+    }
+  },
+  {
+    "page": "article",
+    "performance": 98,
+    "accessibility": 100,
+    "best-practices": 100,
+    "seo": 100,
+    "LCP": 908.2138,
+    "CLS": 0,
+    "TBT": 161.8931,
+    "INP": "NOT TESTED — no field interaction data",
+    "formFactor": "mobile",
+    "screen": {
+      "mobile": true,
+      "width": 412,
+      "height": 823,
+      "deviceScaleFactor": 1.75,
+      "disabled": false
+    }
+  }
+]

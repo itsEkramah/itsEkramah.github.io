@@ -1,5 +1,12 @@
 {
   "extends": "astro/tsconfigs/strict",
   "include": [".astro/types.d.ts", "**/*"],
-  "exclude": ["dist", ".qa-build", "node_modules"]
+  "exclude": [
+    "dist",
+    ".qa-build",
+    ".demo-build",
+    ".qa-fixtures",
+    "qa/raw",
+    "node_modules"
+  ]
 }

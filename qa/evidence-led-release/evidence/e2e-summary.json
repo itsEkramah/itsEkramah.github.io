@@ -1,0 +1,23 @@
+{
+  "stats": {
+    "startTime": "2026-11-16T02:32:53.260Z",
+    "duration": 253305.231,
+    "expected": 45,
+    "skipped": 0,
+    "unexpected": 0,
+    "flaky": 0
+  },
+  "projects": [
+    {
+      "name": "chromium"
+    },
+    {
+      "name": "firefox"
+    },
+    {
+      "name": "webkit"
+    }
+  ],
+  "sourceReport": "qa/raw/evidence-led/final-checks/browser/playwright-results.json",
+  "tags": "Main route audit includes WCAG 2.1 A label-in-name checks; all current Lighthouse label-in-name checks pass."
+}

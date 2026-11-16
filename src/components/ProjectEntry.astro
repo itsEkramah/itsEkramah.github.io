@@ -29,6 +29,9 @@ const { data, id } = project;
         fetchpriority={priority ? 'high' : 'auto'}
       />
       {data.imageCaption && <figcaption>{data.imageCaption}</figcaption>}
+      <a class="figure-inspect" href={data.image.src}>
+        Open full-size figure ↗
+      </a>
     </figure>
   )}
   <div class="project-copy">

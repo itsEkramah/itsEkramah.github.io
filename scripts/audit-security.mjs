@@ -1,6 +1,6 @@
 import { execFileSync } from 'node:child_process';
 import { readFile, writeFile } from 'node:fs/promises';
-import { readPages, attributes, exists } from './html.mjs';
+import { readPages, attributes, exists, filesIn } from './html.mjs';
 const patterns = [
   /(?:gh[pousr]_[A-Za-z0-9]{30,}|github_pat_[A-Za-z0-9_]{30,})/g,
   /AKIA[0-9A-Z]{16}/g,
@@ -46,6 +46,11 @@ for (const revision of revisions)
     }),
     `git:${revision.slice(0, 12)}`,
   );
+// Generated bundles may contain values that do not appear literally in source.
+// HTML is scanned below along with its resource and navigation surfaces.
+for (const file of await filesIn('dist'))
+  if (/\.(?:[cm]?js|json|css|xml|svg|txt|map)$/i.test(file))
+    scan(await readFile(file, 'utf8'), file);
 for (const { file, html } of await readPages()) {
   scan(html, file);
   if (/\bon\w+\s*=|javascript:|<iframe\b/i.test(html))

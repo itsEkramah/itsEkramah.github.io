@@ -1,0 +1,32 @@
+[
+  {
+    "resource": "/robots.txt",
+    "status": 200,
+    "contentType": "text/plain; charset=utf-8",
+    "draftAMRAbsent": true
+  },
+  {
+    "resource": "/sitemap-index.xml",
+    "status": 200,
+    "contentType": "application/xml",
+    "draftAMRAbsent": true
+  },
+  {
+    "resource": "/sitemap-0.xml",
+    "status": 200,
+    "contentType": "application/xml",
+    "draftAMRAbsent": true
+  },
+  {
+    "resource": "/feed.xml",
+    "status": 200,
+    "contentType": "application/xml",
+    "draftAMRAbsent": true
+  },
+  {
+    "resource": "/EKRAMAH_s_CV..pdf",
+    "status": 200,
+    "contentType": "application/pdf",
+    "draftAMRAbsent": null
+  }
+]

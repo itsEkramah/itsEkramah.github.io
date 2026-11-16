@@ -1,0 +1,22 @@
+{
+  "stats": {
+    "startTime": "2026-11-16T01:00:20.025Z",
+    "duration": 273565.588,
+    "expected": 39,
+    "skipped": 0,
+    "unexpected": 0,
+    "flaky": 0
+  },
+  "projects": [
+    {
+      "name": "chromium"
+    },
+    {
+      "name": "firefox"
+    },
+    {
+      "name": "webkit"
+    }
+  ],
+  "sourceReport": "qa/raw/review-2026-11-16/browser/playwright-results.json"
+}

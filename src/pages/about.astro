@@ -13,11 +13,7 @@ import ExperienceTimeline from '../components/ExperienceTimeline.astro';
     <header class="page-head">
       <p class="eyebrow">About / Background & direction</p>
       <h1>A biological question is where I start.</h1>
-      <p class="lede">
-        I’m Muhammad Ekramah, a Bioinformatics graduate from Quaid-i-Azam
-        University, Islamabad. I use Python and R to explore biological data and
-        build tools that make analysis easier to inspect and repeat.
-      </p>
+      <p class="lede">{profile.summary}</p>
       <div class="actions">
         <a class="button" href={site.cv}>
           Download CV · PDF ↗

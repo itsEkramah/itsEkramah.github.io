@@ -1,6 +1,7 @@
 # 03 — Design System and Art Direction
 
 ## Intent
+Current revision, 16 November 2026: the owner granted creative freedom. The implementation retains Forest & Paper and system fonts, adds a genuine AMR result to the opening, a lead-and-secondary article composition and flat service comparisons. Home/Portfolio introductions are distinct; the full bio belongs on About. Captions/tools are at least 14px, short labels 12–13px or larger, body 16–17px in relative units. See `src/styles/refinements.css` and `qa/evidence-led-release/REVIEW.md`. The provisional palette below is historical.
 An editorial publication crossed with a precise engineering portfolio. **80% full-width editorial / 20% engineering discipline.** Audience should know identity, relevance and where to click inside 10 seconds. Avoid Paco-style experimental interactions, persistent split sidebar, novelty scrolling, large stock hero imagery, generic AI-generated imagery or visual theatrics.
 
 ## Palette

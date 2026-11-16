@@ -3,6 +3,10 @@
 export const profile = {
   name: 'Muhammad Ekramah',
   qualification: 'BS Bioinformatics graduate, Quaid-i-Azam University',
+  homeSummary:
+    'I’m a Bioinformatics graduate from Quaid-i-Azam University, Islamabad. My work spans genomic AMR prediction, RNA-seq analysis and Python backend development for a team research prototype.',
+  portfolioSummary:
+    'I study biological data and develop the software around it. These academic projects and internships trace my work in microbial genomics, transcriptomics and Python development.',
   summary:
     'I’m a Bioinformatics graduate from Quaid-i-Azam University, Islamabad. My research interests centre on microbial genomics, antimicrobial resistance and transcriptomics, with a focus on reproducible analysis. I use Python and R to explore data, create visualisations and build practical tools, alongside developing software and web applications. I also work on technical SEO and content optimisation. I’m looking to deepen my research and computational skills through postgraduate study in bioinformatics and data science.',
   education: {
@@ -10,7 +14,7 @@ export const profile = {
     institution: 'Quaid-i-Azam University, Islamabad',
     institutionUrl: 'https://qau.edu.pk/',
     centre: 'National Centre for Bioinformatics',
-    centreUrl: 'https://ncb.mdrip.com.pk/',
+    centreUrl: 'https://ncb.qau.edu.pk/',
     period: 'September 2022–September 2026',
     shortPeriod: '2022–2026',
     cgpa: '3.40 / 4.00',

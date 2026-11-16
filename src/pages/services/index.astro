@@ -25,9 +25,9 @@ function evidenceFor(service: (typeof services)[number]) {
       <p class="eyebrow">Services / Scope, deliverables & evidence</p>
       <h1>Services</h1>
       <p class="lede">
-        Defined support for research, data and software work. Choose a service
-        to review possible deliverables, relevant methods and the evidence
-        behind the scope.
+        Help with a research dataset, a Python workflow or a small website.
+        Choose the task you need; each service explains the outputs, tools and
+        relevant work.
       </p>
       <a class="button" href="/contact/">
         Discuss a project →
@@ -43,46 +43,53 @@ function evidenceFor(service: (typeof services)[number]) {
         const evidence = evidenceFor(service);
         return (
           <article id={service.id} aria-labelledby={`${service.id}-title`}>
-            <h2 id={`${service.id}-title`}>{service.data.title}</h2>
-            <p>{service.data.summary}</p>
-            <p class="audience">
-              For{' '}
-              {service.data.audience.charAt(0).toLowerCase() +
-                service.data.audience.slice(1)}
-            </p>
-            <h3>Possible deliverables</h3>
-            <ul>
-              {service.data.deliverables.map((d) => (
-                <li>{d}</li>
-              ))}
-            </ul>
-            <p class="service-tools">
-              <strong>Tools:</strong> {service.data.tools.join(', ')}
-            </p>
-            <p class="service-method">
-              <strong>Approach:</strong> {service.data.method}
-            </p>
-            {evidence && (
-              <p class="service-evidence">
-                <strong>Relevant work:</strong>{' '}
-                <a href={`/portfolio/${evidence.id}/`}>
-                  {evidence.data.shortTitle} →
-                </a>
-                <span>
-                  {evidence.data.kind}
-                  {evidence.id === 'pathoscope'
-                    ? ' · backend contribution'
-                    : ''}
-                </span>
+            <div class="service-overview">
+              <h2 id={`${service.id}-title`}>{service.data.title}</h2>
+              <p>{service.data.summary}</p>
+              <p class="audience">
+                For{' '}
+                {service.data.audience.charAt(0).toLowerCase() +
+                  service.data.audience.slice(1)}
               </p>
-            )}
-            <div class="actions service-actions">
-              <a class="text-link" href={`/services/${service.id}/`}>
-                Scope, evidence & boundaries →
-              </a>
-              <a class="text-link" href="/contact/">
-                Request a project →
-              </a>
+            </div>
+            <div class="service-delivery">
+              <h3>Possible deliverables</h3>
+              <ul>
+                {service.data.deliverables.map((d) => (
+                  <li>{d}</li>
+                ))}
+              </ul>
+              <details class="service-methods">
+                <summary>Tools & method</summary>
+                <p class="service-tools">
+                  <strong>Tools:</strong> {service.data.tools.join(', ')}
+                </p>
+                <p class="service-method">
+                  <strong>Approach:</strong> {service.data.method}
+                </p>
+              </details>
+              {evidence && (
+                <p class="service-evidence">
+                  <strong>Relevant work:</strong>{' '}
+                  <a href={`/portfolio/${evidence.id}/`}>
+                    {evidence.data.shortTitle} →
+                  </a>
+                  <span>
+                    {evidence.data.kind}
+                    {evidence.id === 'pathoscope'
+                      ? ' · backend contribution'
+                      : ''}
+                  </span>
+                </p>
+              )}
+              <div class="actions service-actions">
+                <a class="text-link" href={`/services/${service.id}/`}>
+                  View service →
+                </a>
+                <a class="text-link" href="/contact/">
+                  Request a project →
+                </a>
+              </div>
             </div>
           </article>
         );

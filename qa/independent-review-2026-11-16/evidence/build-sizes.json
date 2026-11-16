@@ -1,0 +1,40 @@
+{
+  "files": 56,
+  "totalBytes": 902268,
+  "javascript": [],
+  "sourceMaps": [],
+  "largest": [
+    {
+      "file": "dist/EKRAMAH_s_CV..pdf",
+      "bytes": 157731
+    },
+    {
+      "file": "dist/_astro/rnaseq-structure.CJkB0kX2_B9p2h.webp",
+      "bytes": 126960
+    },
+    {
+      "file": "dist/_astro/amr-robustness.C_k6cjiR_1tzUt3.webp",
+      "bytes": 54652
+    },
+    {
+      "file": "dist/_astro/rnaseq-structure.CJkB0kX2_21YNtP.webp",
+      "bytes": 46204
+    },
+    {
+      "file": "dist/social.png",
+      "bytes": 42074
+    },
+    {
+      "file": "dist/_astro/rnaseq-structure.CJkB0kX2_Z18h3g0.webp",
+      "bytes": 37428
+    },
+    {
+      "file": "dist/_astro/amr-robustness.C_k6cjiR_Z1E9W1x.webp",
+      "bytes": 26554
+    },
+    {
+      "file": "dist/_astro/amr-robustness.C_k6cjiR_21bmd8.webp",
+      "bytes": 22266
+    }
+  ]
+}
