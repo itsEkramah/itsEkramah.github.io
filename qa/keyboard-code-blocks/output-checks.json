@@ -1,0 +1,13 @@
+{
+  "links": {
+    "pages": 35,
+    "checked": 821,
+    "errors": []
+  },
+  "security": {
+    "scanned": 257,
+    "historyCommits": 39,
+    "findings": [],
+    "limitation": "Pattern-based source/history/output scan; does not prove the absence of secrets."
+  }
+}

@@ -227,6 +227,7 @@ test('production excludes drafts and returns a real 404 locally', async ({
 test('scientific authoring renders code, equations, tables and an MDX figure', async ({
   page,
 }) => {
+  await page.setViewportSize({ width: 390, height: 844 });
   const errors = [];
   page.on('console', (message) => {
     if (message.type() === 'error') errors.push(message.text());
@@ -242,6 +243,14 @@ test('scientific authoring renders code, equations, tables and an MDX figure', a
   );
   await expect(page.locator('figure img')).toBeVisible();
   await expect(page.locator('figcaption')).toContainText('MIT licence');
+  await page.getByRole('button', { name: 'Copy code' }).first().focus();
+  await page.keyboard.press('Tab');
+  const mdxCode = page.locator('.prose pre').first();
+  await expect(mdxCode).toBeFocused();
+  await page.keyboard.press('ArrowRight');
+  await expect
+    .poll(() => mdxCode.evaluate((e) => e.scrollLeft))
+    .toBeGreaterThan(0);
   const result = await new AxeBuilder({ page })
     .withTags(['wcag2a', 'wcag2aa', 'wcag21aa', 'wcag22aa'])
     .analyze();

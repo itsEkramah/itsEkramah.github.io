@@ -74,6 +74,8 @@ npm run test:e2e
 
 Browser tests start local production/review servers, test three engines and required widths, run axe and save full-page screenshots. The publishing integration test creates synthetic articles in an isolated temporary checkout, verifies publishing/unpublishing and removes that checkout. It does not change actual article sources.
 
+When changing a Markdown renderer plugin, run `npm run build -- --force` once to clear Astro's generated content cache. Ordinary article edits rebuild normally. Code blocks and wide tables receive keyboard focus at build time, including when JavaScript is disabled.
+
 For Lighthouse, run `node scripts/serve.mjs dist 4321` and `node scripts/serve.mjs .qa-build 4322` in separate terminals, then `npm run qa:lighthouse`. Results are local lab measurements, not field Core Web Vitals.
 
 See **[acceptance evidence](qa/ACCEPTANCE.md)**, **[security review](docs/SECURITY_REVIEW.md)**, **[content evidence](docs/CONTENT_EVIDENCE.md)** and **[optional CMS evaluation](docs/CMS_EVALUATION.md)**.

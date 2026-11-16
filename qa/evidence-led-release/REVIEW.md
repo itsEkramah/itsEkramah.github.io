@@ -55,6 +55,8 @@ README and design/decision records describe distinct introductions, the genuine 
 
 ## H. Residual risks / unverified claims
 
+Post-deployment verification caught one additional mobile failure: horizontally overflowing published code blocks could not receive keyboard focus. The original fixture checks and desktop article audit missed it. The [corrective review](../keyboard-code-blocks/REVIEW.md) records the build-time fix, visible focus, actual Tab/ArrowRight and no-JavaScript regression checks. The new full suite has 48 cases; final CI/deployment conclusions belong to the publication receipt, not this frozen 45-case baseline.
+
 The CV supports source agreement for education, CGPA and internships, not independent university/employer authentication. Public result files support transcription of metrics; original model/RNA-seq analyses were not rerun. Team attribution/video playback, LinkedIn destination content and commercial SEO outcomes are not independently authenticated. The inherited non-university NCB link was replaced with its primary `ncb.qau.edu.pk` address after checking university sources; automated university access remains blocked. No client metric, testimonial, diagnostic readiness or ranking guarantee was added.
 
 Native zoom was attempted but not verified: browser shortcut dispatch did not change zoom, and the native desktop helper could not obtain input geometry. It is not counted as a pass. NVDA/VoiceOver, independent ten-second comprehension testing, real low-end devices, account MFA/recovery and field Core Web Vitals remain NOT TESTED. Draft source in a public repository remains public. Dependency and credential scans cannot certify complete safety. These limitations remain explicit in the handoff.

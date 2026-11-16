@@ -25,7 +25,8 @@ a:focus-visible,
 button:focus-visible,
 input:focus-visible,
 select:focus-visible,
-summary:focus-visible {
+summary:focus-visible,
+.prose pre:focus-visible {
   outline: 3px solid var(--accent);
   outline-offset: 5px;
 }

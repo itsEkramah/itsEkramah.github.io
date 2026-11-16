@@ -90,4 +90,6 @@ IDs below are review identifiers because the PRD does not assign requirement IDs
 
 ## Release gate
 
+Follow-up: [published mobile code accessibility correction](../keyboard-code-blocks/REVIEW.md). A live audit found a keyboard-scroll defect after the original 45-case baseline; the correction adds three engine cases. This matrix preserves the original evidence chronology. Final 48-case CI and deployment verification are reported in the publication receipt.
+
 **GO for protected publication after required CI succeeds**, with the explicit NOT TESTED items above. There are no known unresolved Critical/High implementation findings in this review scope. This is not a claim of complete WCAG conformance, independently authenticated credentials, clinical validation or field performance. New deployment success must be observed after merge; do not infer it from this local matrix.
