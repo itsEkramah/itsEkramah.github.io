@@ -1,8 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 import FeaturedArticle from '../components/FeaturedArticle.astro';
-import ServiceIcon from '../components/ServiceIcon.astro';
-import ResearchEvidence from '../components/ResearchEvidence.astro';
 import EmailLink from '../components/EmailLink.astro';
 import BookingLink from '../components/BookingLink.astro';
 import { getCollection } from 'astro:content';
@@ -24,10 +22,30 @@ const articles = await featuredArticles();
   title="Bioinformatics, data & software development"
   description="Muhammad Ekramah's work in bioinformatics, data analysis and Python software. Explore the portfolio, scoped professional services and technical writing."
 >
-  <div class="wrap editorial-home">
+  <div class="wrap editorial-home profile-home">
     <section class="intro-editorial" aria-labelledby="intro-title">
       <div class="intro-copy">
-        <p class="eyebrow">Genomics · Data analysis · Software</p>
+        <div class="profile-identity">
+          {profile.photo ? (
+            <img
+              class="profile-headshot"
+              src={profile.photo}
+              alt=""
+              width="72"
+              height="72"
+            />
+          ) : (
+            <span class="profile-headshot profile-initials" aria-hidden="true">
+              ME
+            </span>
+          )}
+          <div>
+            <p class="profile-name">{profile.name}</p>
+            <p class="profile-credential">
+              Bioinformatics graduate · Quaid-i-Azam University
+            </p>
+          </div>
+        </div>
         <h1 id="intro-title">
           Bioinformatics &<br />
           software development.
@@ -40,7 +58,7 @@ const articles = await featuredArticles();
           <a class="button secondary" href="/services/">
             View Services <span aria-hidden="true">→</span>
           </a>
-          <a class="button secondary" href="/writing/">
+          <a class="text-link" href="/writing/">
             Read Articles <span aria-hidden="true">→</span>
           </a>
         </div>
@@ -50,13 +68,14 @@ const articles = await featuredArticles();
           <a href={site.github}>GitHub ↗</a>
         </div>
       </div>
-      <ResearchEvidence />
     </section>
     <section class="home-section" aria-labelledby="featured-writing">
       <div class="editorial-section-head">
         <div>
-          <p class="eyebrow">The notebook</p>
-          <h2 id="featured-writing">Writing from the work.</h2>
+          <h2 id="featured-writing">Writing</h2>
+          <p class="section-introduction">
+            Research notes and practical guides.
+          </p>
         </div>
         <a class="text-link" href="/writing/">
           View All Articles →
@@ -91,30 +110,27 @@ const articles = await featuredArticles();
         </div>
       )}
     </section>
-    <section class="home-section" aria-labelledby="services-title">
+    <section
+      class="home-section home-services-preview"
+      aria-labelledby="services-title"
+    >
       <div class="editorial-section-head">
         <div>
-          <p class="eyebrow">Work together</p>
-          <h2 id="services-title">What I can help with.</h2>
+          <h2 id="services-title">Ways I can help</h2>
         </div>
         <a class="text-link" href="/services/">
           View All Services →
         </a>
       </div>
-      <div class="five-services">
-        {services.map((service, index) => (
-          <article class="service-tile">
-            <ServiceIcon kind={index + 1} />
-            <h3>
-              <a href={`/services/${service.id}/`}>{service.data.title}</a>
-            </h3>
-            <p>{service.data.summary}</p>
-            <a class="service-scope" href={`/services/${service.id}/`}>
-              View service <span aria-hidden="true">→</span>
+      <ul class="home-service-links">
+        {services.map((service) => (
+          <li>
+            <a href={`/services/${service.id}/`}>
+              {service.data.title} <span aria-hidden="true">→</span>
             </a>
-          </article>
+          </li>
         ))}
-      </div>
+      </ul>
     </section>
     <section class="home-section" aria-labelledby="selected-work">
       <div class="editorial-section-head">

@@ -2,9 +2,11 @@
 // Portfolio, About and the compact homepage background preview.
 export const profile = {
   name: 'Muhammad Ekramah',
+  // Owner-supplied photograph; background/crop edited at the owner's request.
+  photo: '/assets/profile-headshot.webp',
   qualification: 'BS Bioinformatics graduate, Quaid-i-Azam University',
   homeSummary:
-    'I’m a Bioinformatics graduate from Quaid-i-Azam University, Islamabad. My work spans genomic AMR prediction, RNA-seq analysis and Python backend development for a team research prototype.',
+    'I work with biological data, Python and practical software tools—from genomic analysis to useful web applications.',
   portfolioSummary:
     'I study biological data and develop the software around it. These academic projects and internships trace my work in microbial genomics, transcriptomics and Python development.',
   summary:

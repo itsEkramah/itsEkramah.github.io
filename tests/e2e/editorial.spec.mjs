@@ -7,11 +7,14 @@ const published = (await articleSources())
   .filter((a) => !a.data.draft)
   .slice(0, 5);
 
-test('real research evidence and its limitations are available in the opening', async ({
+test('Home introduces the owner and Portfolio retains real research evidence', async ({
   page,
 }) => {
   for (const width of [390, 768, 1440]) {
     await page.setViewportSize({ width, height: 900 });
+    await page.goto('/');
+    await expect(page.locator('.profile-identity')).toBeVisible();
+    await expect(page.locator('.research-evidence')).toHaveCount(0);
     await page.goto('/portfolio/');
     const figure = page.locator('.research-evidence');
     expect(
