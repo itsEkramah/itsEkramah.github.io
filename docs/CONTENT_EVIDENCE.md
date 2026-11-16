@@ -6,6 +6,8 @@ All five essays received bounded worked examples and update notes dated 16 Novem
 
 The inherited NCB link on a non-university host was replaced with `https://ncb.qau.edu.pk/`, supported by indexed primary university pages, including the centre's own [BINSA page](https://ncb.qau.edu.pk/binsa/) and the [QAU biological-sciences faculty](https://fbs.qau.edu.pk/). Automated access to the university domains returns 403 in this environment. This establishes the institutional address, not successful access in every browser or independent authentication of the owner's degree.
 
+Owner preference, 16 November 2026: replace the spelled-out address on Home, Portfolio and Contact with an Email button. A shared native mail link is wrapped in Google's `data-nosnippet` control. The address remains public in its `mailto:` destination and repository history; this is snippet/display control, not a private contact service or a guarantee of removal from existing search results.
+
 Inspection date: 15 November 2026. Repository baseline: `47469fe`. Existing files, public project sources and the owner's supplied decisions are the factual basis. Handoff claims alone were not treated as independent evidence.
 
 | Material | Evidence used | Implementation decision |

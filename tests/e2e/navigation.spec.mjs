@@ -114,8 +114,11 @@ test('client selects a service and follows scope and evidence to contact', async
   );
   await page.getByRole('link', { name: 'Discuss your task' }).click();
   await expect(
-    page.getByRole('link', { name: 'its.ekramah@outlook.com', exact: true }),
+    page.getByRole('link', { name: 'Email', exact: true }),
   ).toHaveAttribute('href', 'mailto:its.ekramah@outlook.com');
+  await expect(page.locator('body')).not.toContainText(
+    'its.ekramah@outlook.com',
+  );
 });
 
 test('reader browses visible categories, searches and reads an existing article', async ({

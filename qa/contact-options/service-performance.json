@@ -1,0 +1,26 @@
+[
+  {
+    "run": 1,
+    "performance": 92,
+    "benchmark": 357,
+    "LCP": 1142.1475,
+    "TBT": 337,
+    "CLS": 0
+  },
+  {
+    "run": 2,
+    "performance": 86,
+    "benchmark": 360.5,
+    "LCP": 1179.9917,
+    "TBT": 549.5,
+    "CLS": 0
+  },
+  {
+    "run": 3,
+    "performance": 87,
+    "benchmark": 332.5,
+    "LCP": 937.888,
+    "TBT": 517.5,
+    "CLS": 0
+  }
+]

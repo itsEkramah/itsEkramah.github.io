@@ -3,6 +3,7 @@ import BaseLayout from '../../layouts/BaseLayout.astro';
 import ProjectEntry from '../../components/ProjectEntry.astro';
 import ExperienceTimeline from '../../components/ExperienceTimeline.astro';
 import ResearchEvidence from '../../components/ResearchEvidence.astro';
+import EmailLink from '../../components/EmailLink.astro';
 import { getCollection } from 'astro:content';
 import { site } from '../../lib/site';
 import { profile } from '../../data/profile';
@@ -164,9 +165,7 @@ const { education } = profile;
         For research opportunities or a defined development project, get in
         touch with the question and the output you need.
       </p>
-      <a class="contact-email" href={`mailto:${site.email}`}>
-        {site.email}
-      </a>
+      <EmailLink />
       <div class="actions professional-links">
         <a class="button" href="/contact/">
           Contact →

@@ -1,0 +1,12 @@
+---
+import { site } from '../lib/site';
+interface Props {
+  button?: boolean;
+}
+const { button = false } = Astro.props;
+const label = `Book a free ${site.callMinutes}-minute call`;
+---
+
+<a class={button ? 'button secondary' : 'text-link'} href="/contact/#booking">
+  {label} <span aria-hidden="true">→</span>
+</a>

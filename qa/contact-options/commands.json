@@ -1,0 +1,47 @@
+[
+  {
+    "command": "npm run lint",
+    "exitCode": 0,
+    "seconds": 5.8
+  },
+  {
+    "command": "npm run check",
+    "exitCode": 0,
+    "seconds": 22
+  },
+  {
+    "command": "npm run test",
+    "exitCode": 0,
+    "seconds": 3.4
+  },
+  {
+    "command": "npm run test:publishing",
+    "exitCode": 0,
+    "seconds": 63.1
+  },
+  {
+    "command": "npm run audit:links",
+    "exitCode": 0,
+    "seconds": 5.9
+  },
+  {
+    "command": "npm run audit:security",
+    "exitCode": 0,
+    "seconds": 6.8
+  },
+  {
+    "command": "npm audit --json",
+    "exitCode": 0,
+    "seconds": 4.8
+  },
+  {
+    "command": "npm audit --omit=dev --json",
+    "exitCode": 0,
+    "seconds": 3.7
+  },
+  {
+    "command": "npm run audit:external",
+    "exitCode": 0,
+    "seconds": 29.3
+  }
+]

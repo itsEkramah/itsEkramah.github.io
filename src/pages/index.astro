@@ -3,6 +3,8 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 import FeaturedArticle from '../components/FeaturedArticle.astro';
 import ServiceIcon from '../components/ServiceIcon.astro';
 import ResearchEvidence from '../components/ResearchEvidence.astro';
+import EmailLink from '../components/EmailLink.astro';
+import BookingLink from '../components/BookingLink.astro';
 import { getCollection } from 'astro:content';
 import { featuredArticles } from '../lib/content';
 import { categories } from '../lib/taxonomy';
@@ -201,9 +203,7 @@ const articles = await featuredArticles();
         </p>
       </div>
       <div>
-        <a class="contact-email" href={`mailto:${site.email}`}>
-          {site.email}
-        </a>
+        <EmailLink />
         <div class="actions">
           <a class="text-link" href="/contact/">
             Contact & project enquiries →
@@ -211,6 +211,7 @@ const articles = await featuredArticles();
           <a class="text-link" href={site.linkedin}>
             LinkedIn ↗
           </a>
+          <BookingLink />
         </div>
       </div>
     </section>

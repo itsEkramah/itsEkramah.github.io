@@ -4,6 +4,8 @@ export const site = {
   github: 'https://github.com/itsEkramah',
   linkedin: 'https://www.linkedin.com/in/muhammad-ekramah/',
   email: 'its.ekramah@outlook.com',
+  booking: 'https://calendly.com/its-ekramah/30min',
+  callMinutes: 15,
   cv: '/EKRAMAH_s_CV..pdf',
 };
 export const articleUrl = (article: {

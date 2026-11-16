@@ -1,5 +1,8 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import EmailLink from '../components/EmailLink.astro';
+import BookingLink from '../components/BookingLink.astro';
+import BookingPanel from '../components/BookingPanel.astro';
 import { site } from '../lib/site';
 ---
 
@@ -15,14 +18,12 @@ import { site } from '../lib/site';
         Research opportunities, graduate study, or a practical piece of data and
         software work. A short description is enough to start.
       </p>
+      <BookingLink button />
     </header>
     <div class="contact-layout">
       <div>
-        <p class="eyebrow">Email</p>
         <p>
-          <a class="contact-email" href={`mailto:${site.email}`}>
-            {site.email}
-          </a>
+          <EmailLink />
         </p>
         <div class="quick-links">
           <a href={site.linkedin}>LinkedIn ↗</a>
@@ -44,12 +45,16 @@ import { site } from '../lib/site';
         </p>
       </aside>
     </div>
+    <BookingPanel />
     <section class="section">
       <h2>Privacy, simply.</h2>
       <p>
-        This website has no contact form, analytics, advertising or tracking
-        cookies. Email opens your own mail app; external links take you to
-        services with their own privacy policies. The hosting provider may
+        This website adds no analytics or advertising of its own. Email opens
+        your own mail app. The optional calendar connects to Calendly and its
+        providers, which may process booking details and use cookies and
+        analytics under their
+        <a href="https://calendly.com/legal/privacy-notice">privacy policy</a>.
+        It loads only when you choose to open it. The hosting provider may
         process ordinary request logs.
       </p>
     </section>

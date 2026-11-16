@@ -37,10 +37,10 @@ IDs below are review identifiers because the PRD does not assign requirement IDs
 | P25 · Function: motion | Reduced-motion support; no intrusive animation | PASS | CSS reduced-motion rule and source inspection; no parallax, particles or autoplay found. |
 | P26 · Function: search | Small progressive-enhancement filter, native article access without JS | PASS | Search/category/empty/reset/URL state and no-JS tests pass. Tablet first article appears at about 585px; compact categories and controls retained. |
 | P27 · Nonfunctional: WCAG | Complete WCAG 2.2 AA, including manual assistive-technology review | **NOT TESTED** | Axe/keyboard/contrast/reflow checks pass; no NVDA/VoiceOver or complete criterion-by-criterion audit performed. |
-| P28 · Nonfunctional: Lighthouse | Mobile P≥90, A/BP/SEO≥95 on representative pages | PASS | Final local mobile samples: Home95, Portfolio100, Services97, Writing100, article98; A/BP/SEO100 on all five. LCP1.1–1.5s, CLS0; see performance.json. Earlier lower samples retained in raw logs. |
+| P28 · Nonfunctional: Lighthouse | Mobile P≥90, A/BP/SEO≥95 on representative pages | **FAIL** | Earlier baseline samples met the target. The latest contact release has Services85 and a targeted three-run median87; other representative pages92–99, A/BP/SEO100, LCP0.9–1.7s and CLS0. See contact-options review. Further tuning is a medium limitation; complete performance acceptance is not claimed. |
 | P29 · Nonfunctional: CWV | Field p75 LCP≤2.5s, INP≤200ms, CLS≤0.1 | **NOT TESTED** | No field dataset or real low-end device study. Local simulated mobile Lighthouse is a proxy, not field INP or p75 CWV. |
 | P30 · Nonfunctional: payload/fonts | Low JS, no unnecessary hydration, local/system fonts | PASS | No React/Vue island framework; small inline modules; no standalone JS output or source maps in current build; system font stacks. |
-| P31 · Nonfunctional: privacy | No trackers/cookies/remote scripts/embeds or fabricated metrics | PASS | Observed runtime: no off-origin resources, no cookies; project numbers match cited files and retain limitations. |
+| P31 · Nonfunctional: privacy | No unwanted tracking; truthful metrics; approved integration boundaries | PASS | Baseline pages had no off-origin resources/cookies. Later the owner explicitly requested Calendly: it loads only after activation, in an isolated frame, with vendor data/cookie handling disclosed. No remote code executes in the parent. See the contact-options review; baseline measurements exclude intentional booking use. |
 | P32 · Editorial: source discipline | No fabricated biography, dates, publications, clients, results or assets | PASS | Existing CV, source records and owner approvals support transcription. Independent credential authentication is NOT TESTED, below. |
 | P33 · Editorial: external destinations | All external links verified successfully before acceptance | **NOT TESTED** | 28 of31 external links returned HTTP200. LinkedIn999, QAU403 and official NCB403 block automation. The NCB address is supported by primary university sources; YouTube playback/content remains unverified. |
 
@@ -89,6 +89,8 @@ IDs below are review identifiers because the PRD does not assign requirement IDs
 
 
 ## Release gate
+
+Later owner requests: [Email button and optional free-call booking](../contact-options/REVIEW.md). This authorised Calendly exception supersedes the earlier blanket no-embed direction. The complete suite grows to51 cases; the original45-case figures remain a historical baseline, and the publication receipt records final CI/live results.
 
 Follow-up: [published mobile code accessibility correction](../keyboard-code-blocks/REVIEW.md). A live audit found a keyboard-scroll defect after the original 45-case baseline; the correction adds three engine cases. This matrix preserves the original evidence chronology. Final 48-case CI and deployment verification are reported in the publication receipt.
 
