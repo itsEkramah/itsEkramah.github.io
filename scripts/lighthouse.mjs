@@ -41,6 +41,7 @@ const pages = [
   ['work', 'http://127.0.0.1:4321/portfolio/'],
   ['services', 'http://127.0.0.1:4321/services/'],
   ['writing', 'http://127.0.0.1:4321/writing/'],
+  ['contact', 'http://127.0.0.1:4321/contact/'],
   [
     'article',
     'http://127.0.0.1:4321/writing/bioinformatics/reproducible-genomics-before-the-pipeline/',

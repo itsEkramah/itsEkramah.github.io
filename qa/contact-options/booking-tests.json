@@ -1,0 +1,16 @@
+{
+  "stats": {
+    "startTime": "2026-11-16T09:09:00.939Z",
+    "duration": 24440.519999999997,
+    "expected": 3,
+    "skipped": 0,
+    "unexpected": 0,
+    "flaky": 0
+  },
+  "projects": [
+    "chromium",
+    "firefox",
+    "webkit"
+  ],
+  "note": "External frame is a local fixture in this CI test; real-calendar.json separately records actual Calendly UI."
+}

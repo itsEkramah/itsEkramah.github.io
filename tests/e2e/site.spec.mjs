@@ -110,8 +110,17 @@ test('recruiter and client paths work in two clicks', async ({ page }) => {
   await page.getByRole('link', { name: 'View Services' }).click();
   await page.getByRole('link', { name: 'Discuss a project' }).click();
   await expect(
-    page.getByRole('link', { name: 'its.ekramah@outlook.com', exact: true }),
+    page.getByRole('link', { name: 'Email', exact: true }),
   ).toHaveAttribute('href', 'mailto:its.ekramah@outlook.com');
+  for (const route of ['/', '/portfolio/', '/contact/']) {
+    await page.goto(route);
+    await expect(page.locator('body')).not.toContainText(
+      'its.ekramah@outlook.com',
+    );
+    await expect(
+      page.locator('[data-nosnippet] a').filter({ hasText: 'Email' }),
+    ).toHaveAttribute('href', 'mailto:its.ekramah@outlook.com');
+  }
   const cv = await page.request.get('/EKRAMAH_s_CV..pdf');
   expect(cv.status()).toBe(200);
   expect(cv.headers()['content-type']).toContain('application/pdf');

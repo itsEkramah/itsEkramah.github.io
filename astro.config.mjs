@@ -28,9 +28,9 @@ export default defineConfig({
   output: 'static',
   trailingSlash: 'always',
   compressHTML: true,
-  // Inline small page styles to avoid an extra render-blocking request;
-  // the larger shared stylesheet remains a cacheable external resource.
-  vite: { build: { assetsInlineLimit: 8192 } },
+  // Deliver this small static design system with the HTML on cold visits.
+  // Astro hashes these styles in the CSP; no unsafe-inline exception is needed.
+  build: { inlineStylesheets: 'always' },
   security: {
     csp: {
       directives: [
@@ -38,6 +38,7 @@ export default defineConfig({
         "img-src 'self'",
         "font-src 'self'",
         "connect-src 'self'",
+        'frame-src https://calendly.com',
         "object-src 'none'",
         "base-uri 'none'",
         "form-action 'none'",

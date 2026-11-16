@@ -1,0 +1,45 @@
+{
+  "checkedAt": "2026-11-16T09:58:21.613Z",
+  "checks": [
+    {
+      "width": 320,
+      "actualVendorCalendarRendered": true,
+      "event": "15 Minute Meeting",
+      "parentOverflow": false
+    },
+    {
+      "width": 390,
+      "actualVendorCalendarRendered": true,
+      "event": "15 Minute Meeting",
+      "parentOverflow": false
+    },
+    {
+      "width": 768,
+      "actualVendorCalendarRendered": true,
+      "event": "15 Minute Meeting",
+      "parentOverflow": false
+    },
+    {
+      "width": 1440,
+      "actualVendorCalendarRendered": true,
+      "event": "15 Minute Meeting",
+      "parentOverflow": false
+    }
+  ],
+  "initialOutbound": [],
+  "afterActivationOrigins": [
+    "https://calendly.com",
+    "https://assets.calendly.com",
+    "https://js.stripe.com",
+    "https://www.recaptcha.net",
+    "https://notifier-configs.airbrake.io",
+    "https://accounts.google.com",
+    "https://dfp.calendly.com",
+    "https://www.gstatic.com",
+    "https://cdn.cookielaw.org",
+    "https://csp.withgoogle.com",
+    "https://geolocation.onetrust.com"
+  ],
+  "appointmentSubmitted": false,
+  "result": "PASS"
+}

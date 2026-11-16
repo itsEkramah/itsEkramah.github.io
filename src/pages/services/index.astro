@@ -1,6 +1,7 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
 import { getCollection } from 'astro:content';
+import BookingLink from '../../components/BookingLink.astro';
 import '../../styles/destinations.css';
 const services = (await getCollection('services')).sort(
   (a, b) => a.data.order - b.data.order,
@@ -29,9 +30,12 @@ function evidenceFor(service: (typeof services)[number]) {
         Choose the task you need; each service explains the outputs, tools and
         relevant work.
       </p>
-      <a class="button" href="/contact/">
-        Discuss a project →
-      </a>
+      <div class="actions">
+        <a class="button" href="/contact/">
+          Discuss a project →
+        </a>
+        <BookingLink button />
+      </div>
     </header>
     <nav class="section-nav service-directory" aria-label="Service categories">
       {services.map((service) => (
@@ -46,11 +50,6 @@ function evidenceFor(service: (typeof services)[number]) {
             <div class="service-overview">
               <h2 id={`${service.id}-title`}>{service.data.title}</h2>
               <p>{service.data.summary}</p>
-              <p class="audience">
-                For{' '}
-                {service.data.audience.charAt(0).toLowerCase() +
-                  service.data.audience.slice(1)}
-              </p>
             </div>
             <div class="service-delivery">
               <h3>Possible deliverables</h3>
@@ -61,6 +60,11 @@ function evidenceFor(service: (typeof services)[number]) {
               </ul>
               <details class="service-methods">
                 <summary>Tools & method</summary>
+                <p class="audience">
+                  For{' '}
+                  {service.data.audience.charAt(0).toLowerCase() +
+                    service.data.audience.slice(1)}
+                </p>
                 <p class="service-tools">
                   <strong>Tools:</strong> {service.data.tools.join(', ')}
                 </p>

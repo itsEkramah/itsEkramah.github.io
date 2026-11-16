@@ -1,0 +1,38 @@
+[
+  {
+    "name": "home",
+    "width": 390,
+    "axeViolations": 0,
+    "addressInBody": false
+  },
+  {
+    "name": "portfolio",
+    "width": 390,
+    "axeViolations": 0,
+    "addressInBody": false
+  },
+  {
+    "name": "contact",
+    "width": 390,
+    "axeViolations": 0,
+    "addressInBody": false
+  },
+  {
+    "name": "home",
+    "width": 1440,
+    "axeViolations": 0,
+    "addressInBody": false
+  },
+  {
+    "name": "portfolio",
+    "width": 1440,
+    "axeViolations": 0,
+    "addressInBody": false
+  },
+  {
+    "name": "contact",
+    "width": 1440,
+    "axeViolations": 0,
+    "addressInBody": false
+  }
+]

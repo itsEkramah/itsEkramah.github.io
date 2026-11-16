@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../../layouts/BaseLayout.astro';
+import BookingLink from '../../components/BookingLink.astro';
 import {
   getCollection,
   getEntry,
@@ -75,9 +76,12 @@ const projects = await Promise.all(
             <li>{b}</li>
           ))}
         </ul>
-        <a class="button" href="/contact/">
-          Discuss your task →
-        </a>
+        <div class="actions">
+          <a class="button" href="/contact/">
+            Discuss your task →
+          </a>
+          <BookingLink />
+        </div>
       </aside>
     </div>
   </div>
