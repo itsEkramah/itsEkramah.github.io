@@ -1,130 +1,19 @@
-# Muhammad Ekramah — professional website
+# Muhammad Ekramah — Personal Website
 
-Static Astro website for Work, Services and Writing. Intended production host: **https://itsekramah.github.io/**. The prospective EU.org domain is unconfigured.
+My professional website brings together my background in bioinformatics, research projects, software development, services and writing.
 
-## Local setup
+**[Visit the website →](https://itsekramah.github.io/)**
 
-Use Node **24.20.0** and npm 11+. Dependencies are locked; dependency installation scripts are disabled in `.npmrc`.
+## Explore
 
-```sh
-npm ci
-npm run dev
-```
+- **[Portfolio](https://itsekramah.github.io/portfolio/)** — Education, experience, technical skills and project case studies.
+- **[Services](https://itsekramah.github.io/services/)** — Bioinformatics, data analysis, software development and AI automation, web development, and technical SEO.
+- **[Writing](https://itsekramah.github.io/writing/)** — Articles on genomics, medicine, data science, software and SEO.
+- **[About](https://itsekramah.github.io/about/)** — My background, research interests and future direction.
+- **[Contact](https://itsekramah.github.io/contact/)** — Project enquiries, professional links and a free 15-minute discussion.
 
-Development shows marked drafts. `npm run build` followed by `npm run preview` shows the actual public output, excluding drafts. Never deploy `.qa-build/` or a development server.
+## About this repository
 
-## Authoring
+This repository contains the website's source code and content. It is built with Astro and Markdown/MDX, and hosted on GitHub Pages.
 
-The owner-approved consultation is a free 15-minute discussion. Its public link and displayed duration live in `src/lib/site.ts`. Contact's calendar is click-to-load, with a direct Calendly link for visitors without JavaScript. Booking uses an isolated iframe; it does not load Calendly's widget script into the website. Visitor data/cookies within that service follow Calendly's policies. See `qa/contact-options/REVIEW.md` for verification and limits.
-
-The evidence-led revision uses short `homeSummary` and `portfolioSummary` fields in `src/data/profile.ts`; the full approved `summary` appears on About. The opening chart has one shared, frozen-source record in `src/data/research.ts`. Articles remain collection-generated. Worked examples retain first-publication dates and use `updatedAt` plus a visible update note.
-
-Create a Markdown or MDX file in `src/content/articles/`. The library, populated category pages, homepage’s three featured articles, related reading, RSS, metadata and sitemap update automatically. No layout edits are required. Portfolio is available at `/portfolio/`; the older `/work/` routes are noindex aliases with Portfolio canonicals. **[The publishing guide](docs/PUBLISHING.md)** covers VS Code, GitHub web editing, previewing, figures, equations, updates and unpublishing.
-
-Five owner-supplied long-form articles are published with explicit owner approval dated 15 November 2026, one per category. Five internal authoring drafts remain unpublished, including the separate AMR validation note. Draft files in this public repository remain readable on GitHub; they are excluded from the generated website, not confidential.
-
-| Content                              | Location                         |
-| ------------------------------------ | -------------------------------- |
-| Project case studies                 | `src/content/projects/`          |
-| Services                             | `src/content/services/`          |
-| Education, experience and skills     | `src/data/profile.ts`            |
-| Biography and research interests     | `src/pages/about.astro`          |
-| Homepage introduction                | `src/pages/index.astro`          |
-| Contact, social profiles and CV path | `src/lib/site.ts`                |
-| Shared Email button/snippet control  | `src/components/EmailLink.astro` |
-| Colours and system fonts             | `src/styles/tokens.css`          |
-| Shared layout                        | `src/styles/global.css`          |
-| Evidence-led page composition        | `src/styles/refinements.css`     |
-| Opening AMR figure values/source     | `src/data/research.ts`           |
-| Public CV                            | `public/EKRAMAH_s_CV..pdf`       |
-
-Original root HTML/CSS/assets are preserved as the migration baseline. Astro deploys only `dist/`. The pre-migration baseline is commit `47469fe`.
-
-Portfolio, About and the homepage background preview use the same verified profile data. Project frontmatter includes `methods` and `resultSummary`; service frontmatter includes `tools` and `method`, alongside existing deliverables, boundaries and related-project references. Edit those content records rather than copying facts into page components.
-
-The navigation/portfolio correction is documented in [its review report](qa/navigation-review/REVIEW.md), with desktop/mobile screenshots and browser evidence. The owner explicitly approved deployment of the complete revision on 15 November 2026. Set `QA_OUTPUT_DIR=qa/navigation-review` when running browser checks to keep review evidence separate from the original release.
-
-The owner approved **Forest & Paper**: warm paper `#F7F5EF`, charcoal `#242A27`, forest `#315448` and white surfaces. Shared colour tokens live in `src/styles/tokens.css`; browser theme colour and branding SVGs use the same palette. The [theme review](qa/forest-paper/REVIEW.md) contains screenshots and contrast/browser evidence. Its local-only status describes the review stage before deployment approval; subsequent production changes require fresh approval.
-
-## Review the new design with the five demo articles
-
-```sh
-npm run demo:build
-npm run demo:preview
-```
-
-Open the printed address (port 4323). This mode shows published articles and any explicitly marked demonstration drafts, with a visible preview notice. Unpublished drafts have no invented publication dates. Category pages and filters work here for design review. `npm run qa:article` is the broader author-review build, also including internal authoring examples. Neither preview directory is deployed. The ordinary production build contains only real published articles and an honest empty state when there are none.
-
-The homepage order is introduction → featured writing → five services → two compact projects → background → contact. It has no portrait or fixed sidebar. Full figures and case studies are on the Portfolio pages.
-
-## Checks
-
-```sh
-npm run lint
-npm run check
-npm run build
-npm run test
-npm run test:publishing
-npm run audit:links
-npm run audit:security
-npm audit
-npm audit --omit=dev
-npm run qa:article
-npm run demo:build
-npx playwright install chromium firefox webkit
-npm run test:e2e
-```
-
-Browser tests start local production/review servers, test three engines and required widths, run axe and save full-page screenshots. The publishing integration test creates synthetic articles in an isolated temporary checkout, verifies publishing/unpublishing and removes that checkout. It does not change actual article sources.
-
-When changing a Markdown renderer plugin, run `npm run build -- --force` once to clear Astro's generated content cache. Ordinary article edits rebuild normally. Code blocks and wide tables receive keyboard focus at build time, including when JavaScript is disabled.
-
-For Lighthouse, run `node scripts/serve.mjs dist 4321` and `node scripts/serve.mjs .qa-build 4322` in separate terminals, then `npm run qa:lighthouse`. Results are local lab measurements, not field Core Web Vitals.
-
-See **[acceptance evidence](qa/ACCEPTANCE.md)**, **[security review](docs/SECURITY_REVIEW.md)**, **[content evidence](docs/CONTENT_EVIDENCE.md)** and **[optional CMS evaluation](docs/CMS_EVALUATION.md)**.
-
-The **[evidence-led revision report](qa/evidence-led-release/REVIEW.md)** and its **[acceptance matrix](qa/evidence-led-release/ACCEPTANCE.md)** record the latest design, content, browser and security checks. The [preceding review](qa/independent-review-2026-11-16/REVIEW.md) is retained as historical evidence of the issues that prompted this revision. The owner authorised remediation and deployment on 16 November 2026.
-
-## Deploy
-
-Repository: `itsEkramah/itsEkramah.github.io`; production branch: `main`.
-
-1. Review the site, factual content and acceptance evidence before approving initial publication.
-2. In **Settings → Pages**, select **GitHub Actions**.
-3. Keep the active **Protected production — reviewed changes** ruleset (`27342891`). It requires a pull request, the GitHub Actions **validate** check, an up-to-date branch and resolved conversations; force pushes and deletion are blocked. Required approvals are zero for the sole-maintainer workflow. This enforces validation, not independent two-person review; `CODEOWNERS` alone does not enforce approval.
-4. Merge approved changes. Deployment waits for validation, builds with the official SHA-pinned `withastro/action` and publishes using `actions/deploy-pages`.
-5. Check Actions, the live homepage, a deep URL, CV, 404, sitemap and HTTPS.
-
-Only the deployment job has `pages: write` and `id-token: write`. Validation and build have read-only contents permissions; PRs do not deploy. The Astro action internally uses `npm install`; the custom build runs `npm ci` and rejects lockfile drift. `.npmrc` disables lifecycle scripts for both. Dependabot proposes monthly dependency/action updates.
-
-Branches other than `main` do not deploy themselves. No DNS changes, custom domain, CMS or authentication service are included.
-
-## Maintenance and rollback
-
-### Homepage photo and section colours
-
-The homepage uses a compact 72px circular identity photo (56px on phones), followed
-by a text introduction. The owner supplied the photograph and requested its blue
-background be replaced with a soft sage background and a square crop. The edited
-photo is served locally as a 192px WebP with metadata removed. To replace it, add
-an optimised square headshot to `public/assets/` and update `photo` in
-`src/data/profile.ts`. An empty path restores decorative initials. The adjacent
-name supplies identity; empty image alt text avoids repeating it. This is an
-edited owner photograph, rather than a fabricated person.
-
-`src/styles/section-themes.css` defines forest Home/About/Contact, slate Portfolio,
-clay Services and an olive Writing index. Validated article categories select
-their own muted accents automatically on previews, category pages and reading
-pages. Adding an article needs no component or layout edit. The ivory canvas,
-charcoal body text, navigation and publishing behaviour remain shared.
-
-The owner approved this compact profile direction on 16 November 2026. The AMR
-figure remains on Portfolio; the homepage links to projects through its compact
-selected-work preview. This later decision supersedes the earlier home-figure
-placement in historical QA reports.
-
-Monthly: review advisories, links, content accuracy and browser regressions. Review MDX as executable source. Enable account MFA and protect recovery access manually. Do not store tokens in source or `PUBLIC_` variables.
-
-Rollback by reverting the failed release through a reviewed PR, merging to `main` and checking redeployment. Revoke any leaked credentials before considering history cleanup; removing a file alone does not revoke a secret.
-
-The handoff specifications remain in `docs/01_…09_…` and `docs/handoff/`. Later user decisions override them, including the expanded publishing requirements and updated category names.
+You can browse the website directly; no installation or setup is needed.
