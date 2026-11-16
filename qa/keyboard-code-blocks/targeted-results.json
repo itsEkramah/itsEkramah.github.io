@@ -1,0 +1,16 @@
+{
+  "stats": {
+    "startTime": "2026-11-16T08:28:01.256Z",
+    "duration": 51566.082,
+    "expected": 3,
+    "skipped": 0,
+    "unexpected": 0,
+    "flaky": 0
+  },
+  "projects": [
+    "chromium",
+    "firefox",
+    "webkit"
+  ],
+  "coverage": "Five published essays at390px; Tab/ArrowRight; axe; AMR scrolling with JavaScript disabled."
+}

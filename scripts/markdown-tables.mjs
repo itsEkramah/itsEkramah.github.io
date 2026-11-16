@@ -1,9 +1,11 @@
-// Wrap tables at build time so wide scientific data scrolls inside the reading column, including without JavaScript.
+// Make wide tables and code keyboard-scrollable at build time, including without JavaScript.
 export default function wrapTables() {
   return (tree) => {
     function walk(node) {
       if (!node.children) return;
       node.children = node.children.map((child) => {
+        if (child.type === 'element' && child.tagName === 'pre')
+          child.properties = { ...child.properties, tabIndex: 0 };
         if (child.type === 'element' && child.tagName === 'table')
           return {
             type: 'element',
