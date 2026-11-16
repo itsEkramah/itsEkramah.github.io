@@ -92,7 +92,7 @@ test('client selects a service and follows scope and evidence to contact', async
   await page
     .getByRole('navigation', { name: 'Service categories' })
     .getByRole('link', {
-      name: 'Python Automation & Backend Development',
+      name: 'Software Development & AI Automation',
       exact: true,
     })
     .click();
@@ -100,7 +100,7 @@ test('client selects a service and follows scope and evidence to contact', async
   await expect(service).toBeInViewport();
   await service.getByRole('link', { name: 'View service' }).click();
   await expect(page.locator('h1')).toHaveText(
-    'Python Automation & Backend Development',
+    'Software Development & AI Automation',
   );
   await expect(
     page.getByRole('heading', { name: 'Typical deliverables' }),
