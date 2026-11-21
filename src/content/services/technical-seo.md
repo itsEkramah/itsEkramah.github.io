@@ -14,10 +14,11 @@ method: Review key pages and sitewide SEO signals, prioritise the findings, and 
 audience: Personal brands, small businesses and research teams looking to improve their website's structure and search readiness.
 deliverables:
   [
-    A page-by-page review of titles, descriptions, headings and internal links,
-    Checks of canonical URLs, sitemap and robots settings, and crawlability signals,
-    Content and navigation improvements tailored to important pages,
-    A prioritised fix list with specific examples and a follow-up checklist,
+    Page-by-page title and meta description review,
+    Heading structure and internal-link recommendations,
+    Sitemap and canonical URL checks,
+    Robots directives and crawlability review,
+    Prioritised fixes with examples and a verification checklist,
   ]
 boundaries: []
 relatedProjectIds: []
