@@ -14,7 +14,6 @@ deliverables:
 boundaries:
   [
     The initial review defines the size and supported functionality.,
-    No claim of sole authorship of the PathoScope team interface.,
     'Authentication, payments and ongoing hosting are separate projects.',
   ]
 relatedProjectIds: [data-quality-workbench, pathoscope]
