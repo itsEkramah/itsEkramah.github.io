@@ -11,6 +11,7 @@ const articles = defineCollection({
   schema: z
     .object({
       title: z.string().trim().min(1),
+      seoTitle: z.string().trim().min(1).optional(),
       description: z.string().trim().min(1),
       category: z.enum(categoryIds),
       slug: z
