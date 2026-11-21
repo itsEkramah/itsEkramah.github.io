@@ -34,7 +34,11 @@ const projects = await Promise.all(
       <span aria-current="page">{data.title}</span>
     </nav>
     <header class="page-head">
-      <p class="eyebrow">Service / Defined scope</p>
+      <p class="eyebrow">
+        {service.id === 'technical-seo'
+          ? 'Website SEO / Audit & improvements'
+          : 'Service / Defined scope'}
+      </p>
       <h1>{data.title}</h1>
       <p class="lede">{data.summary}</p>
       <p>
@@ -46,36 +50,50 @@ const projects = await Promise.all(
         <div class="prose">
           <Content />
         </div>
-        <h2>Typical deliverables</h2>
+        <h2>{service.id === 'technical-seo' ? 'What you get' : 'Typical deliverables'}</h2>
         <ul>
           {data.deliverables.map((d) => (
             <li>{d}</li>
           ))}
         </ul>
-        <h2>Tools & approach</h2>
+        <h2>{service.id === 'technical-seo' ? 'How I work' : 'Tools & approach'}</h2>
         <p>{data.tools.join(', ')}</p>
         <p>{data.method}</p>
-        <section class="evidence">
-          <h2>Related work</h2>
-          <ul>
-            {projects.map(
-              (p) =>
-                p && (
-                  <li>
-                    <a href={`/portfolio/${p.id}/`}>{p.data.shortTitle} →</a>
-                  </li>
-                ),
-            )}
-          </ul>
-        </section>
+        {projects.some(Boolean) && (
+          <section class="evidence">
+            <h2>Related work</h2>
+            <ul>
+              {projects.map(
+                (p) =>
+                  p && (
+                    <li>
+                      <a href={`/portfolio/${p.id}/`}>{p.data.shortTitle} →</a>
+                    </li>
+                  ),
+              )}
+            </ul>
+          </section>
+        )}
       </div>
       <aside>
-        <h2>Boundaries</h2>
-        <ul>
-          {data.boundaries.map((b) => (
-            <li>{b}</li>
-          ))}
-        </ul>
+        {data.boundaries.length > 0 ? (
+          <>
+            <h2>Boundaries</h2>
+            <ul>
+              {data.boundaries.map((b) => (
+                <li>{b}</li>
+              ))}
+            </ul>
+          </>
+        ) : (
+          <>
+            <h2>Start with your website</h2>
+            <p>
+              Share your site URL and the pages that matter most. We can agree
+              on a focused review before making changes.
+            </p>
+          </>
+        )}
         <div class="actions">
           <a class="button" href="/contact/">
             Discuss your task →
