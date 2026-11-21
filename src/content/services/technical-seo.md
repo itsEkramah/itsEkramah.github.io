@@ -1,25 +1,31 @@
 ---
 title: Technical SEO & Content Optimization
-summary: Inspectable checks of page structure, metadata and technical content, with a clear fix list.
+summary: Make your website easier to find, navigate and understand. Get a clear audit of technical issues and a practical plan to fix them.
 order: 5
-tools: [Python, HTML inspection, Metadata and heading audits]
-method: Connect each finding to observable page evidence and provide prioritised changes with documented measurement limits.
-audience: Owners of small sites who need a bounded review of technical HTML and content organisation.
+tools:
+  [
+    HTML,
+    Google Search Console (with access),
+    PageSpeed Insights,
+    Lighthouse,
+    Python,
+  ]
+method: Review key pages and sitewide SEO signals, prioritise the findings, and show how each change can be checked. Search Console data can guide the review when access is available.
+audience: Personal brands, small businesses and research teams looking to improve their website's structure and search readiness.
 deliverables:
   [
-    A page-level metadata and heading review,
-    A prioritised list of supported technical findings,
-    Content-structure suggestions and documented limitations,
+    Page-by-page title and meta description review,
+    Heading structure and internal-link recommendations,
+    Sitemap and canonical URL checks,
+    Robots directives and crawlability review,
+    Prioritised fixes with examples and a verification checklist,
   ]
-boundaries:
-  [
-    Site Audit Kit demonstrates offline HTML checks only.,
-    'No ranking, traffic, indexing or AI-citation guarantee.',
-    No commercial outcomes or client engagements are claimed.,
-  ]
-relatedProjectIds: [site-audit-kit]
+boundaries: []
+relatedProjectIds: []
 ---
 
-A useful review connects each finding to observable evidence. The initial scope can cover supplied HTML, titles and descriptions, heading structure and internal navigation, with a documented list of possible improvements.
+You can have a useful website and still make it difficult for people to find what they need. Unclear page titles, weak internal links and confusing navigation are easy to overlook. I review those details and turn the findings into changes you can actually make.
 
-Search outcomes require separate measurement and context. A local HTML report cannot prove indexing, rankings, traffic or conversions. Any future visibility experiment should preserve baseline dates, query and device context, and uncertainty.
+I start with the pages that matter most to your visitors. Then I check metadata, heading structure, internal links, canonical URLs, sitemap and robots settings, and the mobile experience. If you have Google Search Console data, I can use it to investigate indexing and search-performance questions rather than relying on guesses.
+
+The result is a clear action plan: what to fix, why it matters and how to check the improvement. I can also help implement the agreed changes and review the site again afterward.

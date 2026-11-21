@@ -53,7 +53,8 @@ test('recruiter follows the expanded resume and downloads the real CV', async ({
   await expect(page.locator('#skills dt')).toHaveCount(6);
   await expect(page.locator('#projects .project-entry')).toHaveCount(3);
   await expect(page.locator('#projects .project-facts')).toHaveCount(3);
-  await expect(page.locator('#additional-work .project-entry')).toHaveCount(3);
+  await expect(page.locator('#additional-work .project-entry')).toHaveCount(2);
+  await expect(page.locator('a[href*="site-audit-kit"]')).toHaveCount(0);
   await expect(page.locator('main header')).not.toContainText('AI-assisted');
   await expect(
     page.locator('main [data-article], main .service-index'),
@@ -87,10 +88,14 @@ test('client selects a service and follows scope and evidence to contact', async
     ).toBeVisible();
     await expect(card.locator('.service-tools')).not.toBeEmpty();
     await expect(card.locator('.service-method')).not.toBeEmpty();
-    await expect(card.locator('.service-evidence a')).toHaveAttribute(
-      'href',
-      /^\/portfolio\//,
-    );
+    if ((await card.getAttribute('id')) === 'technical-seo') {
+      await expect(card.locator('.service-evidence')).toHaveCount(0);
+    } else {
+      await expect(card.locator('.service-evidence a')).toHaveAttribute(
+        'href',
+        /^\/portfolio\//,
+      );
+    }
     await expect(
       card.getByRole('link', { name: 'Request a project' }),
     ).toHaveAttribute('href', '/contact/');
@@ -117,6 +122,24 @@ test('client selects a service and follows scope and evidence to contact', async
   await expect(page.locator('.evidence a').first()).toHaveAttribute(
     'href',
     /^\/portfolio\//,
+  );
+  await page.goto('/services/technical-seo/');
+  await expect(
+    page.getByRole('heading', { name: 'What you get' }),
+  ).toBeVisible();
+  await expect(page.getByRole('heading', { name: 'How I work' })).toBeVisible();
+  await expect(
+    page.getByRole('heading', { name: 'Start with your website' }),
+  ).toBeVisible();
+  await expect(page.getByRole('heading', { name: 'Boundaries' })).toHaveCount(
+    0,
+  );
+  await expect(page.getByRole('heading', { name: 'Related work' })).toHaveCount(
+    0,
+  );
+  await expect(page.getByText('Site Audit Kit')).toHaveCount(0);
+  expect((await page.request.get('/portfolio/site-audit-kit/')).status()).toBe(
+    404,
   );
   await page.getByRole('link', { name: 'Discuss your task' }).click();
   await expect(

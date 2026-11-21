@@ -15,7 +15,6 @@ boundaries:
   [
     Research support only; no clinical or diagnostic service.,
     Dataset permissions and scientific scope must be confirmed.,
-    No invented results or concealed contributions.,
   ]
 relatedProjectIds: [genomic-amr, notch2-rnaseq, pathoscope]
 ---
