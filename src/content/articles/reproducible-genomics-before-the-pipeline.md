@@ -1,4 +1,5 @@
 ---
+seoTitle: 'Bioinformatics Reproducibility Guide'
 title: 'Reproducibility in Bioinformatics: Why It Matters and Where to Start'
 description: 'What a paper-reproduction assignment taught me about random seeds, missing code and software versions, with practical steps for bioinformatics beginners.'
 category: bioinformatics
