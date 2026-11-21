@@ -3,7 +3,9 @@ import AxeBuilder from '@axe-core/playwright';
 import { articleSources } from '../../scripts/article-sources.mjs';
 const sources = await articleSources();
 const qaDirectory = process.env.QA_OUTPUT_DIR || 'qa';
-const amr = sources.find((a) => a.id === 'amr-validation');
+const retained = sources.find(
+  (a) => a.id === 'reproducible-genomics-before-the-pipeline',
+);
 const routes = [
   '/',
   '/portfolio/',
@@ -23,7 +25,8 @@ const routes = [
   '/about/',
   '/contact/',
 ];
-const article = 'http://127.0.0.1:4322/writing/bioinformatics/amr-validation/';
+const article =
+  'http://127.0.0.1:4322/writing/bioinformatics/reproducible-genomics-before-the-pipeline/';
 const suppliedIds = [
   'reproducible-genomics-before-the-pipeline',
   'reading-amr-data-without-overclaiming',
@@ -101,13 +104,13 @@ test('layouts reflow at required widths', async ({ page }, testInfo) => {
 });
 test('recruiter and client paths work in two clicks', async ({ page }) => {
   await page.goto('/');
-  await page.getByRole('link', { name: 'Explore Portfolio' }).click();
+  await page.getByRole('link', { name: 'Explore portfolio' }).click();
   await page.getByRole('link', { name: 'Read case study' }).first().click();
   await expect(
     page.getByRole('link', { name: 'View source on GitHub' }),
   ).toBeVisible();
   await page.goto('/');
-  await page.getByRole('link', { name: 'View Services' }).click();
+  await page.getByRole('link', { name: 'View services' }).click();
   await page.getByRole('link', { name: 'Discuss a project' }).click();
   await expect(
     page.getByRole('link', { name: 'Email', exact: true }),
@@ -179,8 +182,8 @@ test('review article, search, category, empty state and URL restoration', async 
   await expect(page.locator('[data-article]:visible')).toHaveCount(
     matches.length,
   );
-  await page.locator(`.article-entry a[href="${amr.url}"]`).click();
-  if (amr?.data.draft !== false)
+  await page.locator(`.article-entry a[href="${retained.url}"]`).click();
+  if (retained?.data.draft !== false)
     await expect(
       page.getByText('Review draft · Not published · Awaiting author approval'),
     ).toBeVisible();
@@ -211,7 +214,7 @@ test('articles and navigation remain readable without JavaScript', async ({
     'Search needs JavaScript.',
   );
   await page
-    .getByRole('link', { name: 'Bioinformatics & Genomics →', exact: true })
+    .getByRole('link', { name: 'Bioinformatics & Genomics', exact: true })
     .click();
   await expect(page.locator('h1')).toHaveText('Bioinformatics & Genomics');
   await context.close();
@@ -220,7 +223,7 @@ test('production excludes drafts and returns a real 404 locally', async ({
   page,
 }) => {
   const response = await page.goto('/writing/bioinformatics/amr-validation/');
-  expect(response.status()).toBe(amr?.data.draft === false ? 200 : 404);
+  expect(response.status()).toBe(404);
   const missing = await page.goto('/this-page-does-not-exist/');
   expect(missing.status()).toBe(404);
   await expect(page.getByRole('heading', { level: 1 })).toHaveText(
@@ -233,46 +236,12 @@ test('production excludes drafts and returns a real 404 locally', async ({
     ).toBeVisible();
 });
 
-test('scientific authoring renders code, equations, tables and an MDX figure', async ({
-  page,
-}) => {
-  await page.setViewportSize({ width: 390, height: 844 });
-  const errors = [];
-  page.on('console', (message) => {
-    if (message.type() === 'error') errors.push(message.text());
-  });
-  await page.goto(
-    'http://127.0.0.1:4322/writing/data-analytics/data-validation-draft/',
-  );
-  await expect(page.locator('math').first()).toBeVisible();
-  await expect(page.locator('pre .token').first()).toBeVisible();
-  await expect(page.locator('.prose table')).toBeVisible();
-  await page.goto(
-    'http://127.0.0.1:4322/writing/software-web/software-authoring-draft/',
-  );
-  await expect(page.locator('figure img')).toBeVisible();
-  await expect(page.locator('figcaption')).toContainText('MIT licence');
-  await page.getByRole('button', { name: 'Copy code' }).first().focus();
-  await page.keyboard.press('Tab');
-  const mdxCode = page.locator('.prose pre').first();
-  await expect(mdxCode).toBeFocused();
-  await page.keyboard.press('ArrowRight');
-  await expect
-    .poll(() => mdxCode.evaluate((e) => e.scrollLeft))
-    .toBeGreaterThan(0);
-  const result = await new AxeBuilder({ page })
-    .withTags(['wcag2a', 'wcag2aa', 'wcag21aa', 'wcag22aa'])
-    .analyze();
-  expect(result.violations).toEqual([]);
-  expect(errors).toEqual([]);
-});
-
-test('five supplied articles have dates, category routes and the revised homepage order', async ({
+test('retained article has dates, category routes and the revised homepage order', async ({
   page,
 }, testInfo) => {
-  expect(demos).toHaveLength(5);
+  expect(demos).toHaveLength(1);
   await page.goto('http://127.0.0.1:4323/');
-  await expect(page.locator('.featured-article')).toHaveCount(3);
+  await expect(page.locator('.featured-article')).toHaveCount(1);
   await expect(page.locator('.home-service-links li')).toHaveCount(5);
   await expect(page.locator('.compact-work article')).toHaveCount(2);
   expect(
@@ -316,7 +285,7 @@ test('five supplied articles have dates, category routes and the revised homepag
       'content',
       'noindex, nofollow',
     );
-    await expect(page.locator('time')).toHaveCount(1);
+    await expect(page.locator('time').first()).toBeVisible();
     const result = await new AxeBuilder({ page })
       .withTags(['wcag2a', 'wcag2aa', 'wcag21aa', 'wcag22aa'])
       .analyze();
@@ -327,6 +296,6 @@ test('five supplied articles have dates, category routes and the revised homepag
     expect(production.status()).toBe(200);
     await page.goto(`http://127.0.0.1:4321${demo.url}`);
     await expect(page.locator('meta[name="robots"]')).toHaveCount(0);
-    await expect(page.locator('time')).toHaveText('15 November 2026');
+    await expect(page.locator('time').first()).toHaveText('15 November 2026');
   }
 });

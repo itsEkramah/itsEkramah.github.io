@@ -54,7 +54,7 @@ html[data-section='home'] .brand-monogram {
 }
 .profile-home .intro-editorial {
   display: block;
-  padding-block: 32px 34px;
+  padding-block: 48px;
 }
 .profile-home .intro-copy {
   max-width: 880px;
@@ -62,7 +62,7 @@ html[data-section='home'] .brand-monogram {
 .profile-identity {
   display: flex;
   align-items: center;
-  gap: 18px;
+  gap: 16px;
   margin-bottom: 24px;
 }
 .profile-headshot {
@@ -83,7 +83,7 @@ html[data-section='home'] .brand-monogram {
 .profile-name {
   font: 1.5rem/1.2 var(--heading);
   letter-spacing: -0.02em;
-  margin-bottom: 5px;
+  margin-bottom: 8px;
   color: var(--ink);
 }
 .profile-credential {
@@ -106,8 +106,34 @@ html[data-section='home'] .brand-monogram {
   margin-bottom: 20px;
 }
 .profile-home .intro-editorial .actions {
+  display: flex;
+  flex-wrap: wrap;
   align-items: center;
-  gap: 12px 24px;
+  gap: 16px 24px;
+}
+.profile-home .intro-editorial .button {
+  min-height: 48px;
+  border-radius: 8px;
+}
+.editorial-home.profile-home .home-section {
+  padding-block: 48px;
+}
+.editorial-home.profile-home .featured-articles.single-article {
+  grid-template-columns: minmax(0, 1fr);
+}
+.editorial-home.profile-home .single-article .featured-article {
+  max-width: 72ch;
+  align-items: flex-start;
+}
+.editorial-home.profile-home .single-article h3 {
+  font-size: clamp(1.75rem, 3vw, 2.25rem);
+  max-width: 32ch;
+}
+.editorial-home .featured-article .eyebrow,
+.editorial-home .compact-work .eyebrow {
+  font-size: 0.875rem;
+  letter-spacing: normal;
+  text-transform: none;
 }
 .profile-home .intro-editorial .text-link {
   min-height: 44px;
@@ -122,7 +148,7 @@ html[data-section='home'] .brand-monogram {
 }
 .editorial-home.profile-home .featured-articles {
   grid-template-columns: repeat(3, minmax(0, 1fr));
-  gap: 28px;
+  gap: 24px;
 }
 .editorial-home.profile-home .featured-article {
   grid-row: auto;
@@ -185,11 +211,11 @@ html[data-section='writing'][data-category] .reading > .page-head {
 }
 @media (max-width: 650px) {
   .profile-home .intro-editorial {
-    padding-block: 24px 28px;
+    padding-block: 32px;
   }
   .profile-identity {
-    gap: 14px;
-    margin-bottom: 22px;
+    gap: 16px;
+    margin-bottom: 24px;
   }
   .profile-headshot {
     width: 56px;
@@ -206,7 +232,11 @@ html[data-section='writing'][data-category] .reading > .page-head {
     font-size: 1rem;
   }
   .profile-home .intro-editorial .actions {
-    gap: 8px 16px;
+    display: flex;
+    gap: 16px 24px;
+  }
+  .editorial-home.profile-home .home-section {
+    padding-block: 32px;
   }
   .profile-home .intro-editorial .button {
     min-width: 0;
