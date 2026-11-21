@@ -149,7 +149,9 @@ test('reader browses visible categories, searches and reads an existing article'
   );
   await page
     .getByRole('searchbox')
-    .fill('Reproducibility in Bioinformatics: Why It Matters and Where to Start');
+    .fill(
+      'Reproducibility in Bioinformatics: Why It Matters and Where to Start',
+    );
   await expect(page.locator('[data-article]:visible')).toHaveCount(1);
   await page.getByRole('button', { name: 'Clear filters' }).click();
   await categories
