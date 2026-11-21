@@ -107,7 +107,7 @@ const services = defineCollection({
     tools: z.array(z.string()).min(1),
     method: z.string(),
     boundaries: z.array(z.string()),
-    relatedProjectIds: z.array(reference('projects')).min(1),
+    relatedProjectIds: z.array(reference('projects')).default([]),
   }),
 });
 export const collections = { articles, projects, services };
