@@ -14,7 +14,6 @@ const routes = [
   '/portfolio/pathoscope/',
   '/portfolio/data-quality-workbench/',
   '/portfolio/reviewflow/',
-  '/portfolio/site-audit-kit/',
   '/services/',
   '/services/web-development/',
   '/services/technical-seo/',
