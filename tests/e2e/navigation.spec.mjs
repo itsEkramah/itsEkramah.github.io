@@ -127,18 +127,16 @@ test('client selects a service and follows scope and evidence to contact', async
   await expect(
     page.getByRole('heading', { name: 'What you get' }),
   ).toBeVisible();
-  await expect(
-    page.getByRole('heading', { name: 'How I work' }),
-  ).toBeVisible();
+  await expect(page.getByRole('heading', { name: 'How I work' })).toBeVisible();
   await expect(
     page.getByRole('heading', { name: 'Start with your website' }),
   ).toBeVisible();
-  await expect(
-    page.getByRole('heading', { name: 'Boundaries' }),
-  ).toHaveCount(0);
-  await expect(
-    page.getByRole('heading', { name: 'Related work' }),
-  ).toHaveCount(0);
+  await expect(page.getByRole('heading', { name: 'Boundaries' })).toHaveCount(
+    0,
+  );
+  await expect(page.getByRole('heading', { name: 'Related work' })).toHaveCount(
+    0,
+  );
   await expect(page.getByText('Site Audit Kit')).toHaveCount(0);
   expect((await page.request.get('/portfolio/site-audit-kit/')).status()).toBe(
     404,
