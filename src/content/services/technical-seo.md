@@ -3,7 +3,13 @@ title: Technical SEO & Content Optimization
 summary: Make your website easier to find, navigate and understand. Get a clear audit of technical issues and a practical plan to fix them.
 order: 5
 tools:
-  [HTML, Google Search Console (with access), PageSpeed Insights, Lighthouse, Python]
+  [
+    HTML,
+    Google Search Console (with access),
+    PageSpeed Insights,
+    Lighthouse,
+    Python,
+  ]
 method: Review key pages and sitewide SEO signals, prioritise the findings, and show how each change can be checked. Search Console data can guide the review when access is available.
 audience: Personal brands, small businesses and research teams looking to improve their website's structure and search readiness.
 deliverables:
