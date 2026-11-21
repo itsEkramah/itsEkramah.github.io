@@ -17,7 +17,7 @@ const projects = await Promise.all(
 ---
 
 <BaseLayout
-  title={data.title}
+  title={data.seoTitle ?? data.title}
   description={data.description}
   noindex={data.draft}
   article={data}
