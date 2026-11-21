@@ -50,13 +50,19 @@ const projects = await Promise.all(
         <div class="prose">
           <Content />
         </div>
-        <h2>{service.id === 'technical-seo' ? 'What you get' : 'Typical deliverables'}</h2>
+        <h2>
+          {service.id === 'technical-seo'
+            ? 'What you get'
+            : 'Typical deliverables'}
+        </h2>
         <ul>
           {data.deliverables.map((d) => (
             <li>{d}</li>
           ))}
         </ul>
-        <h2>{service.id === 'technical-seo' ? 'How I work' : 'Tools & approach'}</h2>
+        <h2>
+          {service.id === 'technical-seo' ? 'How I work' : 'Tools & approach'}
+        </h2>
         <p>{data.tools.join(', ')}</p>
         <p>{data.method}</p>
         {projects.some(Boolean) && (
