@@ -1,6 +1,12 @@
 import { test, expect } from '@playwright/test';
 import AxeBuilder from '@axe-core/playwright';
 import { mkdir } from 'node:fs/promises';
+import { articleSources } from '../../scripts/article-sources.mjs';
+const published = (await articleSources()).filter(
+  (article) => !article.data.draft,
+);
+const categoryCount = new Set(published.map((article) => article.data.category))
+  .size;
 const directory = process.env.QA_OUTPUT_DIR || 'qa';
 
 test('recruiter follows the expanded resume and downloads the real CV', async ({
@@ -69,7 +75,7 @@ test('client selects a service and follows scope and evidence to contact', async
   page,
 }) => {
   await page.goto('/');
-  await page.getByRole('link', { name: 'View Services', exact: true }).click();
+  await page.getByRole('link', { name: 'View services', exact: true }).click();
   await expect(page.locator('h1')).toHaveText('Services');
   await expect(page.locator('.service-index > article')).toHaveCount(5);
   await expect(
@@ -125,34 +131,43 @@ test('reader browses visible categories, searches and reads an existing article'
   page,
 }) => {
   await page.goto('/');
-  await page.getByRole('link', { name: 'Read Articles', exact: true }).click();
+  await page
+    .getByRole('navigation', { name: 'Main navigation' })
+    .getByRole('link', { name: 'Writing', exact: true })
+    .click();
   await expect(page.locator('h1')).toHaveText('Writing Library');
   const categories = page.getByRole('navigation', {
     name: 'Writing categories',
   });
-  await expect(categories.getByRole('link')).toHaveCount(5);
+  await expect(categories.getByRole('link')).toHaveCount(categoryCount);
   await expect(
     page.locator('main .timeline, main .service-index, main .work-list'),
   ).toHaveCount(0);
-  await expect(page.locator('[data-article]')).toHaveCount(5);
-  await expect(page.locator('[data-article] .reading-estimate')).toHaveCount(5);
-  await page.getByRole('searchbox').fill('antimicrobial');
+  await expect(page.locator('[data-article]')).toHaveCount(published.length);
+  await expect(page.locator('[data-article] .reading-estimate')).toHaveCount(
+    published.length,
+  );
+  await page
+    .getByRole('searchbox')
+    .fill('Reproducible Genomics Starts Before You Run the Pipeline');
   await expect(page.locator('[data-article]:visible')).toHaveCount(1);
   await page.getByRole('button', { name: 'Clear filters' }).click();
   await categories
-    .getByRole('link', { name: 'Medicine & Pharma →', exact: true })
+    .getByRole('link', { name: 'Bioinformatics & Genomics', exact: true })
     .click();
-  await expect(page.locator('h1')).toHaveText('Medicine & Pharma');
-  await page.locator('.article-entry h2 a').click();
+  await expect(page.locator('h1')).toHaveText('Bioinformatics & Genomics');
+  await page
+    .getByRole('link', {
+      name: 'Reproducible Genomics Starts Before You Run the Pipeline',
+      exact: true,
+    })
+    .click();
   await expect(page).toHaveURL(
-    /\/writing\/medicine-pharma\/reading-amr-data-without-overclaiming\/$/,
+    /\/writing\/bioinformatics\/reproducible-genomics-before-the-pipeline\/$/,
   );
   await expect(page.locator('.prose')).toBeVisible();
-  await expect(page.locator('time')).toHaveText('15 November 2026');
+  await expect(page.locator('time').first()).toHaveText('15 November 2026');
   await expect(page.locator('.evidence a').first()).toBeVisible();
-  await expect(
-    page.getByRole('heading', { name: 'Related reading' }),
-  ).toBeVisible();
 });
 
 test('page purposes, active navigation, reflow and axe on desktop and mobile', async ({

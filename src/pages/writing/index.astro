@@ -25,13 +25,9 @@ const populated = (Object.keys(categories) as Category[]).filter((id) =>
       </p>
     </header>
     <nav class="section-nav" aria-label="Writing categories">
-      {Object.entries(categories).map(([id, category]) =>
-        populated.includes(id as Category) ? (
-          <a href={`/writing/${id}/`}>{category.label} →</a>
-        ) : (
-          <span>{category.label}</span>
-        ),
-      )}
+      {populated.map((id) => (
+        <a href={`/writing/${id}/`}>{categories[id].label}</a>
+      ))}
     </nav>
     {articles.length > 0 ? (
       <section aria-labelledby="articles-title">

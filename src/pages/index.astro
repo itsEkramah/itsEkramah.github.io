@@ -53,19 +53,14 @@ const articles = await featuredArticles();
         <p class="intro-description">{profile.homeSummary}</p>
         <div class="actions">
           <a class="button" href="/portfolio/">
-            Explore Portfolio <span aria-hidden="true">→</span>
+            Explore portfolio
           </a>
-          <a class="button secondary" href="/services/">
-            View Services <span aria-hidden="true">→</span>
-          </a>
-          <a class="text-link" href="/writing/">
-            Read Articles <span aria-hidden="true">→</span>
+          <a class="text-link" href="/services/">
+            View services
           </a>
         </div>
         <div class="intro-links">
-          <a href={site.cv}>Download CV · PDF ↗</a>
-          <a href="/portfolio/#experience">Experience →</a>
-          <a href={site.github}>GitHub ↗</a>
+          <a href={site.cv}>Download CV · PDF </a>
         </div>
       </div>
     </section>
@@ -78,7 +73,7 @@ const articles = await featuredArticles();
           </p>
         </div>
         <a class="text-link" href="/writing/">
-          View All Articles →
+          View all articles
         </a>
       </div>
       {articles.length ? (
@@ -89,7 +84,12 @@ const articles = await featuredArticles();
               unpublished and have no publication dates.
             </p>
           )}
-          <div class="featured-articles">
+          <div
+            class:list={[
+              'featured-articles',
+              { 'single-article': articles.length === 1 },
+            ]}
+          >
             {articles.map((article) => (
               <FeaturedArticle article={article} />
             ))}
@@ -119,15 +119,13 @@ const articles = await featuredArticles();
           <h2 id="services-title">Ways I can help</h2>
         </div>
         <a class="text-link" href="/services/">
-          View All Services →
+          View all services
         </a>
       </div>
       <ul class="home-service-links">
         {services.map((service) => (
           <li>
-            <a href={`/services/${service.id}/`}>
-              {service.data.title} <span aria-hidden="true">→</span>
-            </a>
+            <a href={`/services/${service.id}/`}>{service.data.title}</a>
           </li>
         ))}
       </ul>
@@ -139,7 +137,7 @@ const articles = await featuredArticles();
           <h2 id="selected-work">Two questions I’ve explored.</h2>
         </div>
         <a class="text-link" href="/portfolio/">
-          View Full Portfolio →
+          View full portfolio
         </a>
       </div>
       <div class="compact-work">
@@ -150,12 +148,12 @@ const articles = await featuredArticles();
             </p>
             <h3>
               <a href={`/portfolio/${project.id}/`}>
-                {project.data.shortTitle} <span aria-hidden="true">↗</span>
+                {project.data.shortTitle}
               </a>
             </h3>
             <p>{project.data.resultSummary}</p>
             <a class="text-link" href={`/portfolio/${project.id}/`}>
-              Methods, results & limitations →
+              Methods, results & limitations
             </a>
           </article>
         ))}
@@ -172,7 +170,7 @@ const articles = await featuredArticles();
           My next step is postgraduate study in bioinformatics and data science.
         </p>
         <a class="text-link" href="/portfolio/#education">
-          Education & experience →
+          Education & experience
         </a>
       </div>
       <ol class="timeline">
@@ -222,10 +220,10 @@ const articles = await featuredArticles();
         <EmailLink />
         <div class="actions">
           <a class="text-link" href="/contact/">
-            Contact & project enquiries →
+            Contact & project enquiries
           </a>
           <a class="text-link" href={site.linkedin}>
-            LinkedIn ↗
+            LinkedIn
           </a>
           <BookingLink />
         </div>

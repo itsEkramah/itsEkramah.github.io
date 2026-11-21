@@ -79,7 +79,7 @@ print(sum(values) / len(values))
 
 Use standard Markdown tables with clear column labels. Keep tables concise for mobile readers. Long code blocks scroll within the reading column.
 
-Inline math uses `$x^2$`; display math uses `$$` on separate lines. KaTeX produces semantic MathML at build time with `trust: false`. Modern Chromium, Firefox and WebKit render equations without remote scripts or inline-style exceptions. Preview new expressions; unsupported commands fail the build. The Data Science draft demonstrates a synthetic example, not a real analysis.
+Inline math uses `$x^2$`; display math uses `$$` on separate lines. KaTeX produces semantic MathML at build time with `trust: false`. Modern Chromium, Firefox and WebKit render equations without remote scripts or inline-style exceptions. Preview new expressions; unsupported commands fail the build.
 
 ## Figures and references
 
@@ -105,7 +105,7 @@ import figure from '../../assets/your-figure.png';
 />
 ```
 
-The component creates optimised local images with dimensions. The software draft demonstrates it using an existing licensed project figure.
+The component creates optimised local images with dimensions.
 
 Add primary references in frontmatter:
 
@@ -130,16 +130,8 @@ MDX can execute JavaScript at build time. Only the owner or trusted, reviewed co
 
 An invalid category, malformed YAML, bad reference, future date or missing review/date blocks publication. Correct the named source file, rerun validation and inspect the failed Actions step. The previous successful Pages deployment remains available if a new build fails.
 
-## Supplied demonstration articles and design preview
+## Current article collection
 
-The five long-form articles supplied on 15 November 2026 were initially imported with `demo: true`, `draft: true`, no publication date and DEMO DRAFT notices. The owner subsequently approved their publication, recorded below. They are now published educational essays with `draft: false`, `demo: false` and a first-publication date of 15 November 2026. Five separate internal authoring examples remain drafts.
+Only **Reproducible Genomics Starts Before You Run the Pipeline** is retained. All other test articles and sample drafts were removed at the owner's request on 21 November 2026. New articles must come from the owner or material the owner supplies. Do not create placeholder articles to fill layouts.
 
-Run `npm run demo:build` and `npm run demo:preview` to inspect published articles and any future drafts explicitly marked `demo: true`. This mode no longer represents a draft-only version of the five published essays. Category pages in demo/author preview carry noindex; production category pages contain only published content.
-
-A demo cannot be published just by setting `draft: false`: validation also requires the demo flag to be removed following explicit owner/editorial approval. Verify technical statements, provide primary references and original examples where needed, then follow the normal review/date workflow. Never treat a formatting example as previously published work.
-
-The homepage shows the three most recently published articles automatically. For articles published on the same date, `featured: true` and then `featureOrder` choose their order. A newly published article with a later date therefore appears without editing components or unpinning older articles. With fewer than three published articles, only those articles appear. Drafts never fill gaps in a production homepage. `featureOrder` also orders sample cards in preview mode and is not a publication date.
-
-## Publication decision, 15 November 2026
-
-The owner explicitly requested publication of the five supplied long-form articles. Their demo/draft flags and demo notices were removed, the actual first-publication date was set to 15 November 2026, and primary references were added after an editorial check. The AMR article now clarifies the EUCAST I category. These are newly published educational essays, not claims of prior publication, clinical guidance, client delivery or measured SEO results. The original five internal authoring examples remain drafts.
+The homepage shows up to three recent published articles automatically and uses a full-width reading layout when there is only one. A new article updates the archive, category page, homepage, RSS and sitemap after deployment. Drafts never fill gaps on the production homepage.

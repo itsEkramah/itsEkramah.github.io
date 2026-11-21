@@ -1,6 +1,6 @@
 export const site = {
   name: 'Muhammad Ekramah',
-  url: 'https://itsekramah.github.io',
+  url: 'https://ekramah.is-a.dev',
   github: 'https://github.com/itsEkramah',
   linkedin: 'https://www.linkedin.com/in/muhammad-ekramah/',
   email: 'its.ekramah@outlook.com',
