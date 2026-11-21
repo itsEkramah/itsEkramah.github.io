@@ -17,6 +17,15 @@ test('each output page has semantic landmarks and unique metadata', async () => 
   const titles = new Set();
   const descriptions = new Set();
   for (const { file, html } of pages) {
+    const verification = file
+      .replaceAll('\\', '/')
+      .match(/^dist\/(google[a-f\d]+\.html)$/i);
+    if (verification) {
+      const filename = verification[1];
+      assert.equal(html.trim(), `google-site-verification: ${filename}`, file);
+      assert.equal(html, await readFile(`public/${filename}`, 'utf8'), file);
+      continue;
+    }
     assert.equal((html.match(/<h1\b/g) || []).length, 1, file);
     for (const landmark of ['header', 'nav', 'main', 'footer'])
       assert.match(html, new RegExp(`<${landmark}\\b`), `${file}: ${landmark}`);
@@ -34,10 +43,7 @@ test('each output page has semantic landmarks and unique metadata', async () => 
       assert.ok(!descriptions.has(desc), file);
       descriptions.add(desc);
     }
-    assert.match(
-      html,
-      /rel="canonical" href="https:\/\/itsekramah.github.io\//,
-    );
+    assert.match(html, /rel="canonical" href="https:\/\/ekramah.is-a.dev\//);
     for (const tag of html.matchAll(/<img\b[^>]*>/g)) {
       assert.match(tag[0], /\balt(?:=|\s|>)/);
       assert.match(tag[0], /\bwidth=/);
