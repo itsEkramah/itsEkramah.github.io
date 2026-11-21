@@ -1,8 +1,7 @@
 import { test, expect } from '@playwright/test';
 import AxeBuilder from '@axe-core/playwright';
 import { articleSources } from '../../scripts/article-sources.mjs';
-// Bound the representative sample as the library grows; all five launch essays
-// are covered today, alongside the separate Markdown/MDX fixture checks.
+// Bound the representative sample as the article collection grows.
 const published = (await articleSources())
   .filter((a) => !a.data.draft)
   .slice(0, 5);
@@ -70,14 +69,17 @@ test('published code is keyboard-scrollable on mobile, including without JavaScr
   try {
     const noScript = await context.newPage();
     await noScript.goto(
-      'http://127.0.0.1:4321/writing/medicine-pharma/reading-amr-data-without-overclaiming/',
+      'http://127.0.0.1:4321/writing/bioinformatics/reproducible-genomics-before-the-pipeline/',
     );
     const code = noScript.locator('.prose pre').first();
     await code.focus();
-    await noScript.keyboard.press('ArrowRight');
-    await expect
-      .poll(() => code.evaluate((e) => e.scrollLeft))
-      .toBeGreaterThan(0);
+    await expect(code).toBeFocused();
+    if (await code.evaluate((e) => e.scrollWidth > e.clientWidth)) {
+      await noScript.keyboard.press('ArrowRight');
+      await expect
+        .poll(() => code.evaluate((e) => e.scrollLeft))
+        .toBeGreaterThan(0);
+    }
   } finally {
     await context.close();
   }

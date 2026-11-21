@@ -100,9 +100,7 @@ try {
     assert.ok(sitemap.includes(url));
     assert.ok(feed.includes(url));
     assert.ok(
-      page.includes(
-        `rel="canonical" href="https://itsekramah.github.io${url}"`,
-      ),
+      page.includes(`rel="canonical" href="https://ekramah.is-a.dev${url}"`),
     );
     assert.ok(page.includes('BlogPosting'));
     assert.ok(page.includes('article:published_time'));

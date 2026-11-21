@@ -34,10 +34,7 @@ test('each output page has semantic landmarks and unique metadata', async () => 
       assert.ok(!descriptions.has(desc), file);
       descriptions.add(desc);
     }
-    assert.match(
-      html,
-      /rel="canonical" href="https:\/\/itsekramah.github.io\//,
-    );
+    assert.match(html, /rel="canonical" href="https:\/\/ekramah.is-a.dev\//);
     for (const tag of html.matchAll(/<img\b[^>]*>/g)) {
       assert.match(tag[0], /\balt(?:=|\s|>)/);
       assert.match(tag[0], /\bwidth=/);

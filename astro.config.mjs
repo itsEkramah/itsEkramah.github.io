@@ -24,7 +24,7 @@ const safeSchema = {
 };
 
 export default defineConfig({
-  site: 'https://itsekramah.github.io',
+  site: 'https://ekramah.is-a.dev',
   output: 'static',
   trailingSlash: 'always',
   compressHTML: true,

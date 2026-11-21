@@ -16,7 +16,7 @@ export const attributes = (html, attr) =>
   [...html.matchAll(new RegExp(`\\b${attr}=["']([^"']*)["']`, 'g'))].map((m) =>
     m[1].replaceAll('&amp;', '&'),
   );
-export const siteOrigin = 'https://itsekramah.github.io';
+export const siteOrigin = 'https://ekramah.is-a.dev';
 export function outputPath(url, root = 'dist') {
   const pathname = decodeURIComponent(new URL(url, siteOrigin).pathname);
   return path.join(
