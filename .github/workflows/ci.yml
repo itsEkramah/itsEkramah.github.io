@@ -22,9 +22,6 @@ jobs:
           node-version-file: .nvmrc
           cache: npm
       - run: npm ci
-      - run: |
-          npx prettier --write src/content/services/technical-seo.md tests/e2e/navigation.spec.mjs
-          git --no-pager diff -- src/content/services/technical-seo.md tests/e2e/navigation.spec.mjs
       - run: npm run lint
       - run: npm run check
       - run: npm run build
