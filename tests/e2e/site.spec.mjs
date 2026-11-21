@@ -241,7 +241,9 @@ test('retained article has dates, category routes and the revised homepage order
 }, testInfo) => {
   expect(demos).toHaveLength(1);
   await page.goto('http://127.0.0.1:4323/');
-  await expect(page.locator('.featured-article')).toHaveCount(1);
+  await expect(page.locator('.featured-article')).toHaveCount(
+    Math.min(sources.filter((a) => !a.data.draft).length, 3),
+  );
   await expect(page.locator('.home-service-links li')).toHaveCount(5);
   await expect(page.locator('.compact-work article')).toHaveCount(2);
   expect(
