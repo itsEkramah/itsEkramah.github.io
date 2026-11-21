@@ -149,7 +149,9 @@ test('reader browses visible categories, searches and reads an existing article'
   );
   await page
     .getByRole('searchbox')
-    .fill('Reproducible Genomics Starts Before You Run the Pipeline');
+    .fill(
+      'Reproducibility in Bioinformatics: Why It Matters and Where to Start',
+    );
   await expect(page.locator('[data-article]:visible')).toHaveCount(1);
   await page.getByRole('button', { name: 'Clear filters' }).click();
   await categories
@@ -158,7 +160,7 @@ test('reader browses visible categories, searches and reads an existing article'
   await expect(page.locator('h1')).toHaveText('Bioinformatics & Genomics');
   await page
     .getByRole('link', {
-      name: 'Reproducible Genomics Starts Before You Run the Pipeline',
+      name: 'Reproducibility in Bioinformatics: Why It Matters and Where to Start',
       exact: true,
     })
     .click();
